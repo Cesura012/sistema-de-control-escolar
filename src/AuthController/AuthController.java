@@ -1,25 +1,28 @@
 package AuthController;
 
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import AuthModel.Usuario;
 import AuthView.LoginView;
 import AuthView.RegistroView;
+import AuthView.MenuadminView;
 
 public class AuthController {
     private Usuario modelo;
     private LoginView loginVista;
     private RegistroView registerVista;
+    private MenuadminView menuAdminVista = null;
+    private JMenuItem logoutItem;
 
-    public AuthController(Usuario modelo, LoginView loginVista, RegistroView registerVista) {
+    public AuthController(Usuario modelo, LoginView loginVista, RegistroView registerVista, boolean mostrarMenuAdmin) {
         this.modelo = modelo;
         this.loginVista = loginVista;
         this.registerVista = registerVista;
 
-        // Listeners para la vista de login
         loginVista.getLoginButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -34,7 +37,6 @@ public class AuthController {
             }
         });
 
-        // Listeners para la vista de registro
         registerVista.getRegistroButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,6 +50,18 @@ public class AuthController {
                 mostrarLogin();
             }
         });
+        
+        logoutItem = new JMenuItem("Cerrar Sesión");
+
+        logoutItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cerrarSesion();
+            }
+        });
+        if (mostrarMenuAdmin) {
+            mostrarMenuAdmin();
+        }
     }
 
     private void validarLogin() {
@@ -57,10 +71,17 @@ public class AuthController {
         if (email.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(loginVista.getFrame(), "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            // Aquí se puede agregar la lógica de autenticación
             JOptionPane.showMessageDialog(loginVista.getFrame(), "Login exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            mostrarMenuAdmin();
         }
     }
+
+
+    //con esto enlazas la base de datos, creo ,ahi tu ves michi
+   /* private boolean validarCredenciales(String email, String password) {
+        // Aquí deberías reemplazar esta lógica con tu propia validación de credenciales
+        return email.equals("usuario@example.com") && password.equals("contraseña");
+    }*/
 
     private void validarRegistro() {
         String email = registerVista.getEmailField().getText().trim();
@@ -73,13 +94,17 @@ public class AuthController {
             JOptionPane.showMessageDialog(registerVista.getFrame(), "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             modelo = new Usuario(email, password);
-            JOptionPane.showMessageDialog(registerVista.getFrame(), "Registro exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(registerVista.getFrame(), "Registro exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);         
             mostrarLogin();
+         
         }
     }
 
     private void mostrarLogin() {
         registerVista.getFrame().setVisible(false);
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
         loginVista.getFrame().setVisible(true);
     }
 
@@ -87,4 +112,32 @@ public class AuthController {
         loginVista.getFrame().setVisible(false);
         registerVista.getFrame().setVisible(true);
     }
+
+    private void mostrarMenuAdmin() {
+        if (menuAdminVista == null) {
+            menuAdminVista = new MenuadminView();
+        }
+        loginVista.getFrame().setVisible(false);
+        menuAdminVista.getFrame().setVisible(true);
+    }
+    
+    private void cerrarSesion() {
+        int response = JOptionPane.showConfirmDialog(menuAdminVista.getFrame(), "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            menuAdminVista.getFrame().dispose();
+            reiniciarLoginVista();
+           
+        }
+    }
+
+
+
+
+    private void reiniciarLoginVista() {
+        loginVista.getEmailField().setText("");
+        loginVista.getPasswordField().setText("");
+        
+        loginVista.getFrame().setVisible(true); 
+    }
+
 }
