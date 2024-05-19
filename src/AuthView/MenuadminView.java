@@ -6,6 +6,9 @@ import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import AuthController.AuthController;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -128,7 +131,7 @@ public class MenuadminView {
 	     menuBar.setForeground(new Color(0, 0, 0));
 	     menuBar.setBackground(new Color(255, 255, 255));
 	     menuBar.setBounds(10, 0, 101, 22);
-	     panel.add(menuBar);
+	    // panel.add(menuBar);
 	     JMenu optionsMenu = new JMenu("Opciones");
 
 	        ImageIcon creditsIcon = new ImageIcon(getClass().getResource("/img/creditos.png"));
@@ -145,11 +148,7 @@ public class MenuadminView {
 
 	        logoutItem.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
-	                int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-	                if (response == JOptionPane.YES_OPTION) {
-	                    frame.dispose();
-	                    cerrarSesion(); // Llama al método cerrarSesion() del controlador
-	                }
+	            	cerrarSesion();
 	            }
 	        });
 	        
@@ -165,10 +164,20 @@ public class MenuadminView {
 	    int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	    if (response == JOptionPane.YES_OPTION) {
 	        frame.dispose();
-	        // Aquí debes llamar al método de cerrar sesión del controlador
+	        try {
+				AuthController.loginVista.getEmailField().setText("");
+				AuthController.loginVista.getPasswordField().setText("");
+				AuthController.mostrarLogin();
+		       
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+	        
 	    }
 	}
 
 	
 	
 }
+

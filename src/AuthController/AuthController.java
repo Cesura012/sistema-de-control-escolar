@@ -13,9 +13,9 @@ import AuthView.MenuadminView;
 
 public class AuthController {
     private Usuario modelo;
-    private LoginView loginVista;
-    private RegistroView registerVista;
-    private MenuadminView menuAdminVista = null;
+    public static LoginView loginVista;
+    private static RegistroView registerVista;
+    private static MenuadminView menuAdminVista = null;
     private JMenuItem logoutItem;
 
     public AuthController(Usuario modelo, LoginView loginVista, RegistroView registerVista, boolean mostrarMenuAdmin) {
@@ -77,7 +77,7 @@ public class AuthController {
     }
 
 
-    //con esto enlazas la base de datos, creo ,ahi tu ves michi
+    //con esto enlazas la base de datos, creo ,nose ahi tu ves michi
    /* private boolean validarCredenciales(String email, String password) {
         // Aquí deberías reemplazar esta lógica con tu propia validación de credenciales
         return email.equals("usuario@example.com") && password.equals("contraseña");
@@ -100,7 +100,7 @@ public class AuthController {
         }
     }
 
-    private void mostrarLogin() {
+    public static void mostrarLogin() {
         registerVista.getFrame().setVisible(false);
         if (menuAdminVista != null) {
             menuAdminVista.getFrame().setVisible(false);
@@ -122,12 +122,7 @@ public class AuthController {
     }
     
     private void cerrarSesion() {
-        int response = JOptionPane.showConfirmDialog(menuAdminVista.getFrame(), "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (response == JOptionPane.YES_OPTION) {
-            menuAdminVista.getFrame().dispose();
-            reiniciarLoginVista();
-           
-        }
+    	reiniciarLoginVista();
     }
 
 
@@ -137,7 +132,7 @@ public class AuthController {
         loginVista.getEmailField().setText("");
         loginVista.getPasswordField().setText("");
         
-        loginVista.getFrame().setVisible(true); 
+       mostrarLogin(); 
     }
 
 }
