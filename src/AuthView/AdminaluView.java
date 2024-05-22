@@ -1,5 +1,5 @@
 
-
+package AuthView;
 import java.awt.EventQueue;
 
 import javax.swing.Box;
@@ -19,7 +19,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
-public class prueba {
+public class AdminaluView {
 
 	private JFrame frame;
 
@@ -30,7 +30,7 @@ public class prueba {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					prueba window = new prueba();
+					AdminaluView window = new AdminaluView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class prueba {
 	/**
 	 * Create the application.
 	 */
-	public prueba() {
+	public AdminaluView() {
 		initialize();
 	}
 
@@ -67,7 +67,7 @@ public class prueba {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Administrar docentes");
+		JLabel lblNewLabel = new JLabel("Administrar alumnos");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(305, 0, 508, 25);
@@ -83,7 +83,7 @@ public class prueba {
 	     img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/conalu.png")));
 	     panel.add(img);
 	     
-	     JLabel lblNewLabel_1 = new JLabel("Consultar registros de docentes");
+	     JLabel lblNewLabel_1 = new JLabel("Consultar registros de alumnos");
 	     lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_1.setBounds(41, 240, 210, 24);
 	     panel.add(lblNewLabel_1);
@@ -93,7 +93,7 @@ public class prueba {
 	     img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/crearalu.png")));
 	     panel.add(img2);
 	     
-	     JLabel lblNewLabel_5 = new JLabel("Detalles de docentes");
+	     JLabel lblNewLabel_5 = new JLabel("Detalles de alumnos");
 	     lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_5.setBounds(360, 240, 210, 24);
 	     panel.add(lblNewLabel_5);
@@ -103,7 +103,7 @@ public class prueba {
 	     img5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/dealu.png")));
 	     panel.add(img5);
 	     
-	     JLabel lblNewLabel_2 = new JLabel("Agregar docente");
+	     JLabel lblNewLabel_2 = new JLabel("Agregar alumno");
 	     lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_2.setBounds(696, 240, 142, 24);
 	     panel.add(lblNewLabel_2);
@@ -113,7 +113,7 @@ public class prueba {
 	     img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/adalu.png")));
 	     panel.add(img3);
 	     
-	     JLabel lblNewLabel_3 = new JLabel("Editar docente");
+	     JLabel lblNewLabel_3 = new JLabel("Editar alumno");
 	     lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_3.setBounds(240, 480, 142, 24);
 	     panel.add(lblNewLabel_3);
@@ -123,7 +123,7 @@ public class prueba {
 	     img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/elalu.png")));
 	     panel.add(img4);
 	     
-	     JLabel lblNewLabel_4 = new JLabel("Eliminar docente");
+	     JLabel lblNewLabel_4 = new JLabel("Eliminar alumno");
 	     lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_4.setBounds(550, 480, 160, 24);
 	     panel.add(lblNewLabel_4);

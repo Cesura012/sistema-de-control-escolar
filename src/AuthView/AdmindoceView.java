@@ -1,3 +1,5 @@
+package AuthView;
+
 
 
 import java.awt.EventQueue;
@@ -19,7 +21,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
-public class prueba {
+public class AdmindoceView {
 
 	private JFrame frame;
 
@@ -30,7 +32,7 @@ public class prueba {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					prueba window = new prueba();
+					AdmindoceView window = new AdmindoceView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +44,7 @@ public class prueba {
 	/**
 	 * Create the application.
 	 */
-	public prueba() {
+	public AdmindoceView() {
 		initialize();
 	}
 

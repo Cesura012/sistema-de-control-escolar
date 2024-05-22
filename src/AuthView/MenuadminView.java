@@ -131,7 +131,7 @@ public class MenuadminView {
 	     menuBar.setForeground(new Color(0, 0, 0));
 	     menuBar.setBackground(new Color(255, 255, 255));
 	     menuBar.setBounds(10, 0, 101, 22);
-	    // panel.add(menuBar);
+	     panel.add(menuBar);
 	     JMenu optionsMenu = new JMenu("Opciones");
 
 	        ImageIcon creditsIcon = new ImageIcon(getClass().getResource("/img/creditos.png"));
@@ -156,7 +156,7 @@ public class MenuadminView {
 	        optionsMenu.add(logoutItem);
 	        menuBar.add(optionsMenu);
 
-	        frame.setJMenuBar(menuBar);
+	        
 	        frame.setVisible(true);
 	    }
 	
