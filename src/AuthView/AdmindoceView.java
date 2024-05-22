@@ -186,10 +186,7 @@ public class AdmindoceView {
 	           	     	           	        
 	           	     	           	        	        logoutItem.addActionListener(new ActionListener() {
 	           	     	           	        	            public void actionPerformed(ActionEvent e) {
-	           	     	           	        	                int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-	           	     	           	        	                if (response == JOptionPane.YES_OPTION) {
-	           	     	           	        	                    frame.dispose();
-	           	     	           	        	                }
+	           	     	           	        	         cerrarSesion();
 	           	     	           	        	            }
 	           	     	           	        	        });
 	           	     	           	        	        
@@ -197,6 +194,23 @@ public class AdmindoceView {
 	           	     	           	        	        optionsMenu.add(logoutItem);       	        	        
 	        frame.setVisible(true);
 	    }
+	
+	private void cerrarSesion() {
+	    int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	    if (response == JOptionPane.YES_OPTION) {
+	        frame.dispose();
+	        try {
+				AuthController.loginVista.getEmailField().setText("");
+				AuthController.loginVista.getPasswordField().setText("");
+				AuthController.mostrarLogin();
+		       
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+	        
+	    }
+	}
 	
 	public JButton getBtnRegresar() {
         return getBtnRegresar();

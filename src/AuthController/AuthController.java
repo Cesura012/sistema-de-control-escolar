@@ -129,7 +129,12 @@ public class AuthController {
       
     }
 
-    private void validarLogin() {
+    protected void cerrarSesion() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void validarLogin() {
         String email = loginVista.getEmailField().getText().trim();
         String password = new String(loginVista.getPasswordField().getPassword()).trim();
 
@@ -242,18 +247,18 @@ public class AuthController {
         adminasigView.getFrame().setVisible(true);
     }
     
-    private void cerrarSesion() {
+   /* public static void cerrarSesion() {
     	reiniciarLoginVista();
     }
 
 
 
 
-    private void reiniciarLoginVista() {
+    private static void reiniciarLoginVista() {
         loginVista.getEmailField().setText("");
         loginVista.getPasswordField().setText("");
         
        mostrarLogin(); 
-    }
+    }*/
 
 }
