@@ -1,4 +1,4 @@
-
+package AuthView;
 
 import java.awt.EventQueue;
 
@@ -16,10 +16,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 import javax.swing.JButton;
 
-public class prueba {
+public class AdmingrupoView {
 
 	private JFrame frame;
 
@@ -30,7 +30,7 @@ public class prueba {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					prueba window = new prueba();
+					AdmingrupoView window = new AdmingrupoView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class prueba {
 	/**
 	 * Create the application.
 	 */
-	public prueba() {
+	public AdmingrupoView() {
 		initialize();
 	}
 
