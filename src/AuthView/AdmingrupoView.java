@@ -6,6 +6,9 @@ import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import AuthController.AuthController;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -143,14 +146,30 @@ public class AdmingrupoView {
 	           	        	menuBar1.setBounds(100, 0, 101, 22);
 	           	        	
 	           	        	JButton btnNewButton = new JButton("Regresar");
+	           	        	btnNewButton.setBackground(new Color(255, 255, 255));
+	           	        	btnNewButton.setBorder(null);
 	           	        	btnNewButton.addActionListener(new ActionListener() {
 	           	        		public void actionPerformed(ActionEvent e) {
+	           	        			AuthController.mostrarMenuAdmin();
 	           	        		}
 	           	        	});
+	           	        	
 	           	        	menuBar.add(btnNewButton);
-	           	        	menuBar.add(Box.createHorizontalStrut(150));
+	           	        	menuBar.add(Box.createHorizontalStrut(1));
            	     	        frame.setJMenuBar(menuBar);
-	           	     	       
+	           	     	    
+           	     	    JLabel r = new JLabel("");
+           	     	    r.setBackground(new Color(255, 255, 255));
+           	        	menuBar.add(r);
+           	        	r.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/regresar.png")));
+           	        	menuBar.add(btnNewButton);
+           	        	
+           	        	JLabel p = new JLabel("");
+           	        	menuBar.add(p);
+           	        	p.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/opciones.png")));
+           	        	
+       	     	        frame.setJMenuBar(menuBar);
+           	     	        
 	           	     	    JMenu optionsMenu = new JMenu("Opciones");
 	           	     	    menuBar.add(optionsMenu);
 	           	     	         
@@ -176,4 +195,12 @@ public class AdmingrupoView {
 	           	     	           	        	        optionsMenu.add(logoutItem);       	        	        
 	        frame.setVisible(true);
 	    }
+	
+	public JButton getBtnRegresar() {
+        return getBtnRegresar();
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
 }

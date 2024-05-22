@@ -6,6 +6,9 @@ import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import AuthController.AuthController;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -18,6 +21,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
+import java.awt.Component;
 
 public class AdminaluView {
 
@@ -142,15 +146,31 @@ public class AdminaluView {
 	           	        	menuBar1.setBackground(new Color(255, 255, 255));
 	           	        	menuBar1.setBounds(100, 0, 101, 22);
 	           	        	
+           	     	    JLabel r = new JLabel("");
+           	     	    menuBar.add(r);
+           	     	    r.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/regresar.png")));
+	           	        	
 	           	        	JButton btnNewButton = new JButton("Regresar");
+	           	        	btnNewButton.setBackground(new Color(255, 255, 255));
+	           	        	btnNewButton.setBorder(null);
 	           	        	btnNewButton.addActionListener(new ActionListener() {
 	           	        		public void actionPerformed(ActionEvent e) {
+	           	        			AuthController.mostrarMenuAdmin();
 	           	        		}
 	           	        	});
+	           	        	
 	           	        	menuBar.add(btnNewButton);
-	           	        	menuBar.add(Box.createHorizontalStrut(150));
+	           	        	menuBar.add(btnNewButton);
+	           	        	
+	           	        	
            	     	        frame.setJMenuBar(menuBar);
-	           	     	       
+           	        	
+           	        	JLabel p = new JLabel("");
+           	        	menuBar.add(p);
+           	        	p.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/opciones.png")));
+           	        	menuBar.add(Box.createHorizontalStrut(1));
+       	     	        frame.setJMenuBar(menuBar);
+       	     	        
 	           	     	    JMenu optionsMenu = new JMenu("Opciones");
 	           	     	    menuBar.add(optionsMenu);
 	           	     	         
@@ -176,4 +196,12 @@ public class AdminaluView {
 	           	     	           	        	        optionsMenu.add(logoutItem);       	        	        
 	        frame.setVisible(true);
 	    }
+	
+	public JButton getBtnRegresar() {
+        return getBtnRegresar();
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
 }

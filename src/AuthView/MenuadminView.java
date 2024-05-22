@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -16,6 +17,8 @@ import javax.swing.JMenu;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -24,6 +27,10 @@ import javax.swing.JOptionPane;
 public class MenuadminView {
     private JFrame frame;
     private JMenuItem logoutItem; 
+    private JButton adalu;
+    private JButton addoce;
+    private JButton adgru;
+    private JButton adsig;
 
     public JFrame getFrame() {
         return frame;
@@ -92,40 +99,71 @@ public class MenuadminView {
 	     img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/adminalu.png")));
 	     panel.add(img);
 	     
-	     JLabel lblNewLabel_1 = new JLabel("Administrar alumnos");
-	     lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_1.setBounds(210, 224, 142, 24);
-	     panel.add(lblNewLabel_1);
+	     JButton adalu = new JButton("Administrar alumnos");
+	     adalu.setBackground(new Color(255, 255, 255));
+	     adalu.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	     adalu.setBounds(210, 224, 142, 24);
+	     panel.add(adalu);
+	     adalu.setBorder(null);
+	     adalu.addActionListener(new ActionListener() {
+        		public void actionPerformed(ActionEvent e) {
+        			AuthController.mostrarAdminalu();
+        		}
+        	});
 	     
 	     JLabel img2 = new JLabel("");
 	     img2.setBounds(514, 60, 152, 160);
 	     img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/admindoce.png")));
 	     panel.add(img2);
+	    
 	     
-	     JLabel lblNewLabel_2 = new JLabel("Administrar docentes");
-	     lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_2.setBounds(524, 224, 142, 24);
-	     panel.add(lblNewLabel_2);
+	     JButton addoce = new JButton("Administrar docentes");
+	     addoce.setBackground(new Color(255, 255, 255));
+	     addoce.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	     addoce.setBounds(524, 224, 142, 24);
+	     panel.add(addoce);
+	     addoce.setBorder(null);
+	     addoce.addActionListener(new ActionListener() {
+        		public void actionPerformed(ActionEvent e) {
+        			AuthController.mostrarAdminDoce();
+        		}
+        	});
 	     
 	     JLabel img3 = new JLabel("");
 	     img3.setBounds(210, 250, 152, 160);
 	     img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/admingru.png")));
 	     panel.add(img3);
 	     
-	     JLabel lblNewLabel_3 = new JLabel("Administrar grupos");
-	     lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_3.setBounds(210, 420, 142, 24);
-	     panel.add(lblNewLabel_3);
+	     JButton adgru = new JButton("Administrar grupos");
+	     adgru.setBackground(new Color(255, 255, 255));
+	     adgru.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	     adgru.setBounds(210, 420, 142, 24);
+	     panel.add(adgru);
+	     adgru.setBorder(null);
+	     adgru.addActionListener(new ActionListener() {
+        		public void actionPerformed(ActionEvent e) {
+        			
+        			AuthController.mostrarAdmingru();
+        		}
+        	});
 	     
 	     JLabel img4 = new JLabel("");
 	     img4.setBounds(524, 250, 152, 160);
 	     img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/adminasig.png")));
 	     panel.add(img4);
 	     
-	     JLabel lblNewLabel_4 = new JLabel("Administrar asignaturas");
-	     lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_4.setBounds(524, 420, 160, 24);
-	     panel.add(lblNewLabel_4);
+	     JButton adsig = new JButton("Administrar asignaturas");
+	     adsig.setBackground(new Color(255, 255, 255));
+	     adsig.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	     adsig.setBounds(524, 420, 160, 24);
+	     panel.add(adsig);
+	     adsig.setBorder(null);
+	     adsig.addActionListener(new ActionListener() {
+        		public void actionPerformed(ActionEvent e) {
+        			
+        			AuthController.mostrarAdminasig();
+        		}
+        	});
 	     
 	     JMenuBar menuBar = new JMenuBar();
 	     menuBar.setForeground(new Color(0, 0, 0));
@@ -175,6 +213,23 @@ public class MenuadminView {
 			}
 	        
 	    }
+	}
+	
+
+	public JButton getadalu() {
+	    return adalu;
+	}
+
+	public JButton getaddoce() {
+	    return addoce;
+	}
+
+	public JButton getadgru() {
+	    return adgru;
+	}
+
+	public JButton getadsig() {
+	    return adsig;
 	}
 
 	

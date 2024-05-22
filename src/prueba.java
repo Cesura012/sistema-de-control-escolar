@@ -67,7 +67,7 @@ public class prueba {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Administrar grupos");
+		JLabel lblNewLabel = new JLabel("Administrar asignaturas");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(305, 0, 508, 25);
@@ -79,51 +79,51 @@ public class prueba {
 		panel.add(panel_2);
 		
 		 JLabel img = new JLabel("");
-	     img.setBounds(65, 72, 152, 160);
-	     img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/consugru.png")));
+	     img.setBounds(55, 57, 178, 188);
+	     img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/conasi.png")));
 	     panel.add(img);
 	     
-	     JLabel lblNewLabel_1 = new JLabel("Consultar registros de grupos");
+	     JLabel lblNewLabel_1 = new JLabel("Consultar registros asignatura");
 	     lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_1.setBounds(41, 240, 210, 24);
+	     lblNewLabel_1.setBounds(48, 240, 210, 24);
 	     panel.add(lblNewLabel_1);
 	     
 	     JLabel img2 = new JLabel("");
-	     img2.setBounds(680, 72, 152, 160);
-	     img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/agregru.png")));
+	     img2.setBounds(660, 57, 205, 192);
+	     img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/agreasi.png")));
 	     panel.add(img2);
 	     
-	     JLabel lblNewLabel_5 = new JLabel("Detalles de grupos");
+	     JLabel lblNewLabel_5 = new JLabel("Detalles de asignatura");
 	     lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_5.setBounds(360, 240, 210, 24);
 	     panel.add(lblNewLabel_5);
 	     
 	     JLabel img5 = new JLabel("");
-	     img5.setBounds(350, 72, 152, 160);
-	     img5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/degru.png")));
+	     img5.setBounds(338, 72, 178, 173);
+	     img5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/deasi.png")));
 	     panel.add(img5);
 	     
-	     JLabel lblNewLabel_2 = new JLabel("Agregar grupo");
+	     JLabel lblNewLabel_2 = new JLabel("Agregar asignatura");
 	     lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_2.setBounds(696, 240, 142, 24);
 	     panel.add(lblNewLabel_2);
 	     
 	     JLabel img3 = new JLabel("");
-	     img3.setBounds(210, 310, 152, 160);
-	     img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/egru.png")));
+	     img3.setBounds(210, 300, 180, 180);
+	     img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/edasi.png")));
 	     panel.add(img3);
 	     
-	     JLabel lblNewLabel_3 = new JLabel("Editar grupo");
+	     JLabel lblNewLabel_3 = new JLabel("Editar asignatura");
 	     lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_3.setBounds(240, 480, 142, 24);
 	     panel.add(lblNewLabel_3);
 	     
 	     JLabel img4 = new JLabel("");
-	     img4.setBounds(524, 310, 152, 160);
-	     img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/elgru.png")));
+	     img4.setBounds(524, 300, 175, 175);
+	     img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/easi.png")));
 	     panel.add(img4);
 	     
-	     JLabel lblNewLabel_4 = new JLabel("Eliminar grupo");
+	     JLabel lblNewLabel_4 = new JLabel("Eliminar asignatura");
 	     lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	     lblNewLabel_4.setBounds(550, 480, 160, 24);
 	     panel.add(lblNewLabel_4);
@@ -140,15 +140,25 @@ public class prueba {
 	        JMenuBar menuBar1 = new JMenuBar();
 	           	        	menuBar1.setForeground(new Color(0, 0, 0));
 	           	        	menuBar1.setBackground(new Color(255, 255, 255));
-	           	        	menuBar1.setBounds(100, 0, 101, 22);
+	           	        	menuBar1.setBounds(20, 0, 101, 22);
 	           	        	
 	           	        	JButton btnNewButton = new JButton("Regresar");
+	           	        	btnNewButton.setBackground(new Color(255, 255, 255));
+	           	        	btnNewButton.setBorder(null);
 	           	        	btnNewButton.addActionListener(new ActionListener() {
 	           	        		public void actionPerformed(ActionEvent e) {
 	           	        		}
 	           	        	});
+	           	        	
+	           	        	JLabel r = new JLabel("");
+	           	        	menuBar.add(r);
+	           	        	r.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/regresar.png")));
 	           	        	menuBar.add(btnNewButton);
-	           	        	menuBar.add(Box.createHorizontalStrut(150));
+	           	        	
+	           	        	JLabel p = new JLabel("");
+	           	        	menuBar.add(p);
+	           	        	p.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/opciones.png")));
+	           	        	menuBar.add(Box.createHorizontalStrut(1));
            	     	        frame.setJMenuBar(menuBar);
 	           	     	       
 	           	     	    JMenu optionsMenu = new JMenu("Opciones");

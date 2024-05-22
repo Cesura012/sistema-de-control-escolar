@@ -9,6 +9,6 @@ public class Main {
 	    Usuario modelo = new Usuario("", "");
 	    LoginView loginVista = new LoginView();
 	    RegistroView registroVista = new RegistroView();
-	    new AuthController(modelo, loginVista, registroVista, false); 
+	    new AuthController(modelo, loginVista, registroVista, false, null, null, null, null); 
 	}
 }
