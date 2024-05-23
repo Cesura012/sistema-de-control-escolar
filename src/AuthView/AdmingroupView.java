@@ -22,7 +22,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane; 
 import javax.swing.JButton;
 
-public class AdmingrupoView {
+public class AdmingroupView {
 
 	private JFrame frame;
 
@@ -33,7 +33,7 @@ public class AdmingrupoView {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdmingrupoView window = new AdmingrupoView();
+					AdmingroupView window = new AdmingroupView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class AdmingrupoView {
 	/**
 	 * Create the application.
 	 */
-	public AdmingrupoView() {
+	public AdmingroupView() {
 		initialize();
 	}
 
@@ -151,6 +151,7 @@ public class AdmingrupoView {
 	           	        	btnNewButton.addActionListener(new ActionListener() {
 	           	        		public void actionPerformed(ActionEvent e) {
 	           	        			AuthController.mostrarMenuAdmin();
+	           	        			frame.dispose();
 	           	        		}
 	           	        	});
 	           	        	
@@ -184,7 +185,7 @@ public class AdmingrupoView {
 	           	     	           	        
 	           	     	           	 logoutItem.addActionListener(new ActionListener() {
 	           	     		            public void actionPerformed(ActionEvent e) {
-	           	     		            cerrarSesion();
+	           	     		            closesesion();
 	           	     		            }
 	           	     		        });
 	           	     		        
@@ -194,7 +195,7 @@ public class AdmingrupoView {
 	           	     	           	frame.setVisible(true);
 	    }
 	
-	private void cerrarSesion() {
+	private void closesesion() {
 	    int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	    if (response == JOptionPane.YES_OPTION) {
 	        frame.dispose();

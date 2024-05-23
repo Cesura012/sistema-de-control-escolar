@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
 
-public class RegistroView {
+public class RegisterView {
 
     private JFrame frame;
     private JTextField emailField;
@@ -26,7 +26,7 @@ public class RegistroView {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    RegistroView window = new RegistroView();
+                    RegisterView window = new RegisterView();
                     window.frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -35,7 +35,7 @@ public class RegistroView {
         });
     }
 
-    public RegistroView() {
+    public RegisterView() {
         initialize();
     }
 
@@ -49,15 +49,15 @@ public class RegistroView {
         layeredPane.setBounds(0, 0, 750, 432);
         frame.getContentPane().add(layeredPane);
 
-        JPanel fondopanel = new JPanel();
-        fondopanel.setBounds(0, 0, 750, 432);
-        layeredPane.add(fondopanel, JLayeredPane.DEFAULT_LAYER);
-        fondopanel.setLayout(null);
+        JPanel backpanel = new JPanel();
+        backpanel.setBounds(0, 0, 750, 432);
+        layeredPane.add(backpanel, JLayeredPane.DEFAULT_LAYER);
+        backpanel.setLayout(null);
 
         JLabel img = new JLabel("");
         img.setBounds(0, 0, 750, 432);
         img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/fondo.png")));
-        fondopanel.add(img);
+        backpanel.add(img);
 
         JPanel panel_1 = new JPanel();
         panel_1.setBounds(20, 20, 115, 35);
@@ -80,10 +80,10 @@ public class RegistroView {
         img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/logo.png")));
         panelc.add(img2);
 
-        JLabel correo = new JLabel("Correo Electronico");
-        correo.setFont(new Font("Arial", Font.BOLD, 15));
-        correo.setBounds(36, 111, 139, 24);
-        panelc.add(correo);
+        JLabel gmail = new JLabel("Correo Electronico");
+        gmail.setFont(new Font("Arial", Font.BOLD, 15));
+        gmail.setBounds(36, 111, 139, 24);
+        panelc.add(gmail);
 
         emailField = new JTextField();
         emailField.setBounds(36, 146, 202, 24);
@@ -128,7 +128,7 @@ public class RegistroView {
         panelc.add(confirmButton);
     }
 
-    public JButton getRegistroButton() {
+    public JButton getRegistreButton() {
         return confirmButton;
     }
 

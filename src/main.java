@@ -1,14 +1,16 @@
 
 import AuthController.AuthController;
-import AuthModel.Usuario;
+import AuthModel.User;
+
 import AuthView.LoginView;
-import AuthView.RegistroView;
+import AuthView.RegisterView;
+
 
 public class Main {
 	public static void main(String[] args) {
-	    Usuario modelo = new Usuario("", "");
+	    User modelo = new User("", "");
 	    LoginView loginVista = new LoginView();
-	    RegistroView registroVista = new RegistroView();
+	    RegisterView registroVista = new RegisterView();
 	    new AuthController(modelo, loginVista, registroVista, false, null, null, null, null); 
 	}
 }

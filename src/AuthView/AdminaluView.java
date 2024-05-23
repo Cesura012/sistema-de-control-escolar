@@ -156,6 +156,7 @@ public class AdminaluView {
 	           	        	btnNewButton.addActionListener(new ActionListener() {
 	           	        		public void actionPerformed(ActionEvent e) {
 	           	        			AuthController.mostrarMenuAdmin();
+	           	        			frame.dispose();
 	           	        		}
 	           	        	});
 	           	        	
@@ -185,16 +186,16 @@ public class AdminaluView {
 	           	     	           	        
 	           	     	           	        	        logoutItem.addActionListener(new ActionListener() {
 	           	     	           	        	            public void actionPerformed(ActionEvent e) {
-	           	     	           	        	         cerrarSesion();
+	           	     	           	        	         closesesion();
 	           	     	           	        	            }
 	           	     	           	        	        });
 	           	     	           	        	        
 	           	     	           	        	        optionsMenu.add(creditsItem);
 	           	     	           	        	        optionsMenu.add(logoutItem);       	        	        
-	        frame.setVisible(true);
+	           	     	           	        	        frame.setVisible(true);
 	    }
 	
-	private void cerrarSesion() {
+	private void closesesion() {
 	    int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	    if (response == JOptionPane.YES_OPTION) {
 	        frame.dispose();

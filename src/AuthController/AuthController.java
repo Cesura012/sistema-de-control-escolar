@@ -2,41 +2,41 @@ package AuthController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import AuthModel.Usuario;
+import AuthModel.User;
 import AuthView.AdminaluView;
 import AuthView.AdminasigView;
 import AuthView.AdmindoceView;
-import AuthView.AdmingrupoView;
+import AuthView.AdmingroupView;
 import AuthView.LoginView;
-import AuthView.RegistroView;
+
 import AuthView.MenuadminView;
+import AuthView.RegisterView;
 
 public class AuthController {
-    private Usuario modelo;
+    private User modelo;
     public static LoginView loginVista;
-    private static RegistroView registerVista;
+    private static RegisterView registerVista;
     private static MenuadminView menuAdminVista = null;
     private static JMenuItem logoutItem;
     private static AdminasigView adminasigView;
     private static AdminaluView adminaluView;
     private static AdmindoceView admindoceView;
-    private static AdmingrupoView admingrupoView;
+	private static AdmingroupView admingroupView;
   
     
-    public AuthController(Usuario modelo, LoginView loginVista, RegistroView registerVista, boolean mostrarMenuAdmin,AdminasigView adminasigView, AdminaluView adminaluView,  AdmindoceView admindoceView,AdmingrupoView admingrupoView) {
+    public AuthController(User modelo, LoginView loginVista, RegisterView registerVista, boolean mostrarMenuAdmin,AdminasigView adminasigView, AdminaluView adminaluView,  AdmindoceView admindoceView,AdmingroupView admingroupView) {
         this.modelo = modelo;
+      
+     
         this.loginVista = loginVista;
         this.registerVista = registerVista;
         this.adminasigView = adminasigView;
         this.adminaluView = adminaluView;
         this.admindoceView = admindoceView;
-        this.admingrupoView = admingrupoView;
+        this.admingroupView = admingroupView;
      
 
         loginVista.getLoginButton().addActionListener(new ActionListener() {
@@ -53,7 +53,7 @@ public class AuthController {
             }
         });
 
-        registerVista.getRegistroButton().addActionListener(new ActionListener() {
+        registerVista.getRegistreButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 validarRegistro();
@@ -72,22 +72,27 @@ public class AuthController {
         logoutItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cerrarSesion();
+                closesesion();
             }
+
+			private void closesesion() {
+				// TODO Auto-generated method stub
+				
+			}
         });
        
         if (mostrarMenuAdmin) {
             mostrarMenuAdmin();
         }
 
-        if (menuAdminVista != null) {
+       /* if (menuAdminVista != null) {
             menuAdminVista.getaddoce().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mostrarAdminDoce();
                 }
             });
-        }
+        }*/
 
         if (adminaluView != null) {
             adminaluView.getBtnRegresar().addActionListener(new ActionListener() {
@@ -116,8 +121,8 @@ public class AuthController {
             });
         }
 
-        if (admingrupoView != null) {
-            admingrupoView.getBtnRegresar().addActionListener(new ActionListener() {
+        if (admingroupView != null) {
+            admingroupView.getBtnRegresar().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mostrarMenuAdmin();
@@ -129,10 +134,7 @@ public class AuthController {
       
     }
 
-    protected void cerrarSesion() {
-		// TODO Auto-generated method stub
-		
-	}
+   
 
 	private void validarLogin() {
         String email = loginVista.getEmailField().getText().trim();
@@ -154,24 +156,24 @@ public class AuthController {
     }*/
 
     private void validarRegistro() {
-        String email = registerVista.getEmailField().getText().trim();
+    	String email = registerVista.getEmailField().getText().trim();
         String password = new String(registerVista.getPasswordField().getPassword()).trim();
         String confirmPassword = new String(registerVista.getConfirmPasswordField().getPassword()).trim();
 
         if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(registerVista.getFrame(), "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+        	 JOptionPane.showMessageDialog(registerVista.getFrame(), "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (!password.equals(confirmPassword)) {
-            JOptionPane.showMessageDialog(registerVista.getFrame(), "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+        	JOptionPane.showMessageDialog(registerVista.getFrame(), "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            modelo = new Usuario(email, password);
-            JOptionPane.showMessageDialog(registerVista.getFrame(), "Registro exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);         
+        	modelo = new User(email, password);
+        	JOptionPane.showMessageDialog(registerVista.getFrame(), "Registro exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);         
             mostrarLogin();
          
         }
     }
 
     public static void mostrarLogin() {
-        registerVista.getFrame().setVisible(false);
+    	  registerVista.getFrame().setVisible(false);
         if (menuAdminVista != null) {
             menuAdminVista.getFrame().setVisible(false);
         }
@@ -222,15 +224,15 @@ public class AuthController {
     public static  void mostrarAdmingru() {
     	System.out.println("Mostrando vista de administración de docentes");
         try {
-			if (admingrupoView == null) {
-				admingrupoView = new AdmingrupoView();
+        	if (admingroupView == null) {
+				admingroupView = new AdmingroupView();
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         menuAdminVista.getFrame().setVisible(false);
-        admingrupoView.getFrame().setVisible(true);
+        admingroupView.getFrame().setVisible(true);
     }
     
     public static  void mostrarAdminasig() {
@@ -247,18 +249,6 @@ public class AuthController {
         adminasigView.getFrame().setVisible(true);
     }
     
-   /* public static void cerrarSesion() {
-    	reiniciarLoginVista();
-    }
-
-
-
-
-    private static void reiniciarLoginVista() {
-        loginVista.getEmailField().setText("");
-        loginVista.getPasswordField().setText("");
-        
-       mostrarLogin(); 
-    }*/
+   
 
 }

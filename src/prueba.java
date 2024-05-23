@@ -57,7 +57,7 @@ public class prueba {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(0, 0, 875, 570);
+		panel.setBounds(0, 0, 875, 538);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -67,66 +67,20 @@ public class prueba {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Administrar asignaturas");
+		JLabel lblNewLabel = new JLabel("Consultar registros de alumnos");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(305, 0, 508, 25);
+		lblNewLabel.setBounds(230, 0, 508, 25);
 		panel_1.add(lblNewLabel);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(0, 128, 255));
-		panel_2.setBounds(0, 550, 880, 16);
+		panel_2.setBounds(0, 520, 880, 16);
 		panel.add(panel_2);
 		
-		 JLabel img = new JLabel("");
-	     img.setBounds(55, 57, 178, 188);
-	     img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/conasi.png")));
-	     panel.add(img);
-	     
-	     JLabel lblNewLabel_1 = new JLabel("Consultar registros asignatura");
-	     lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_1.setBounds(48, 240, 210, 24);
-	     panel.add(lblNewLabel_1);
-	     
-	     JLabel img2 = new JLabel("");
-	     img2.setBounds(660, 57, 205, 192);
-	     img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/agreasi.png")));
-	     panel.add(img2);
-	     
-	     JLabel lblNewLabel_5 = new JLabel("Detalles de asignatura");
-	     lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_5.setBounds(360, 240, 210, 24);
-	     panel.add(lblNewLabel_5);
-	     
-	     JLabel img5 = new JLabel("");
-	     img5.setBounds(338, 72, 178, 173);
-	     img5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/deasi.png")));
-	     panel.add(img5);
-	     
-	     JLabel lblNewLabel_2 = new JLabel("Agregar asignatura");
-	     lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_2.setBounds(696, 240, 142, 24);
-	     panel.add(lblNewLabel_2);
-	     
-	     JLabel img3 = new JLabel("");
-	     img3.setBounds(210, 300, 180, 180);
-	     img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/edasi.png")));
-	     panel.add(img3);
-	     
-	     JLabel lblNewLabel_3 = new JLabel("Editar asignatura");
-	     lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_3.setBounds(240, 480, 142, 24);
-	     panel.add(lblNewLabel_3);
-	     
-	     JLabel img4 = new JLabel("");
-	     img4.setBounds(524, 300, 175, 175);
-	     img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/easi.png")));
-	     panel.add(img4);
-	     
-	     JLabel lblNewLabel_4 = new JLabel("Eliminar asignatura");
-	     lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_4.setBounds(550, 480, 160, 24);
-	     panel.add(lblNewLabel_4);
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(343, 191, 10, 10);
+		panel.add(panel_3);
 	     
 	     JMenuBar menuBar = new JMenuBar();
 	     menuBar.setForeground(new Color(0, 0, 0));
