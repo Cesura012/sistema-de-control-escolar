@@ -1,4 +1,4 @@
-//lista alu
+package AuthView;
 
 import java.awt.EventQueue;
 
@@ -26,18 +26,10 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
-import javax.swing.JTextField;
 
-public class prueba {
+public class RegisteraluView {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
 
 	/**
 	 * Launch the application.
@@ -46,7 +38,7 @@ public class prueba {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					prueba window = new prueba();
+					RegisteraluView window = new RegisteraluView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +50,7 @@ public class prueba {
 	/**
 	 * Create the application.
 	 */
-	public prueba() {
+	public RegisteraluView() {
 		initialize();
 	}
 
@@ -96,91 +88,8 @@ public class prueba {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(151, 203, 255));
-		panel_3.setBounds(50, 100, 480, 400);
+		panel_3.setBounds(150, 100, 500, 400);
 		panel.add(panel_3);
-		panel_3.setLayout(null);
-		
-		JPanel panel_2_1 = new JPanel();
-		panel_2_1.setBackground(new Color(0, 128, 255));
-		panel_2_1.setBounds(0, 0, 480, 16);
-		panel_3.add(panel_2_1);
-		panel_2_1.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("Datos generales");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(0, 0, 150, 14);
-		panel_2_1.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Nombre(s):");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_2.setBounds(30, 45, 100, 18);
-		panel_3.add(lblNewLabel_2);
-		
-		textField = new JTextField();
-		textField.setBounds(205, 44, 200, 20);
-		panel_3.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel_3 = new JLabel("Apellido paterno:");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(30, 85, 150, 18);
-		panel_3.add(lblNewLabel_3);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(205, 84, 200, 20);
-		panel_3.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JLabel lblNewLabel_4 = new JLabel("Apellido materno:");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_4.setBounds(30, 129, 150, 18);
-		panel_3.add(lblNewLabel_4);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(205, 130, 200, 20);
-		panel_3.add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblNewLabel_5 = new JLabel("Fecha de nacimiento:");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_5.setBounds(30, 176, 170, 18);
-		panel_3.add(lblNewLabel_5);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(205, 175, 100, 20);
-		panel_3.add(textField_3);
-		textField_3.setColumns(10);
-		
-		JLabel lblNewLabel_6 = new JLabel("Correo electrónico:");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_6.setBounds(30, 229, 150, 14);
-		panel_3.add(lblNewLabel_6);
-		
-		textField_4 = new JTextField();
-		textField_4.setBounds(205, 228, 200, 20);
-		panel_3.add(textField_4);
-		textField_4.setColumns(10);
-		
-		JLabel lblNewLabel_7 = new JLabel("Teléfono:");
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_7.setBounds(30, 276, 100, 14);
-		panel_3.add(lblNewLabel_7);
-		
-		textField_5 = new JTextField();
-		textField_5.setBounds(205, 275, 200, 20);
-		panel_3.add(textField_5);
-		textField_5.setColumns(10);
-		
-		JLabel lblNewLabel_8 = new JLabel("Grado:");
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_8.setBounds(30, 335, 70, 14);
-		panel_3.add(lblNewLabel_8);
-		
-		textField_6 = new JTextField();
-		textField_6.setBounds(205, 334, 200, 20);
-		panel_3.add(textField_6);
-		textField_6.setColumns(10);
 		
 		String titles[] = {"N° control", "Nombre completo"};
 		String data[][] = {
@@ -212,6 +121,11 @@ public class prueba {
 				{"N° control", "Nombre completo"},
 				{"N° control", "Nombre completo"},
 		};
+		
+		JTable table = new JTable(data,titles);
+		table.setBackground(new Color(176, 216, 255));
+		
+		JTableHeader header = table.getTableHeader();
 	    header.setBackground(new Color(0, 128, 255));
 	    header.setForeground(Color.white);
 	    header.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -219,6 +133,24 @@ public class prueba {
 	    DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
 	    headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 	    header.setDefaultRenderer(headerRenderer);
+		
+		JScrollPane table_scroll = new JScrollPane(table);
+        table_scroll.setBounds(40, 40, 420, 300); 
+        table_scroll.setForeground(new Color(0, 128, 192));
+        table_scroll.setBackground(new Color(0, 128, 192));
+        panel_3.add(table_scroll);
+        table.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int row = table.getSelectedRow();
+                    int column = table.getSelectedColumn();
+                    String value = table.getValueAt(row, column).toString();
+                    String controlNumber = table.getValueAt(row, 0).toString();
+                    String fullName = table.getValueAt(row, 1).toString();
+                    showDetailsWindow(controlNumber, fullName);
+                }
+            }
+        });
         
         
         

@@ -28,7 +28,7 @@ public class AuthController {
   
     
     public AuthController(User modelo, LoginView loginVista, RegisterView registerVista, boolean mostrarMenuAdmin,AdminasigView adminasigView, AdminaluView adminaluView,  AdmindoceView admindoceView,AdmingroupView admingroupView) {
-        this.modelo = modelo;
+    	  this.modelo = modelo;
       
      
         this.loginVista = loginVista;
@@ -136,41 +136,46 @@ public class AuthController {
 
    
 
-	private void validarLogin() {
+  //Aqui se valida el login
+    private void validarLogin() {
         String email = loginVista.getEmailField().getText().trim();
         String password = new String(loginVista.getPasswordField().getPassword()).trim();
 
         if (email.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(loginVista.getFrame(), "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(loginVista.getFrame(), "Login exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            mostrarMenuAdmin();
+            modelo = new User(email, password);
+            if (modelo.validateUser()) {
+                JOptionPane.showMessageDialog(loginVista.getFrame(), "Login exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                mostrarMenuAdmin();
+            } else {
+                JOptionPane.showMessageDialog(loginVista.getFrame(), "Credenciales incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
 
-    //con esto enlazas la base de datos, creo ,nose ahi tu ves michi
-   /* private boolean validarCredenciales(String email, String password) {
-        // Aquí deberías reemplazar esta lógica con tu propia validación de credenciales
-        return email.equals("usuario@example.com") && password.equals("contraseña");
-    }*/
-
+   
     private void validarRegistro() {
-    	String email = registerVista.getEmailField().getText().trim();
+        String email = registerVista.getEmailField().getText().trim();
         String password = new String(registerVista.getPasswordField().getPassword()).trim();
         String confirmPassword = new String(registerVista.getConfirmPasswordField().getPassword()).trim();
 
         if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-        	 JOptionPane.showMessageDialog(registerVista.getFrame(), "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(registerVista.getFrame(), "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (!password.equals(confirmPassword)) {
-        	JOptionPane.showMessageDialog(registerVista.getFrame(), "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(registerVista.getFrame(), "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-        	modelo = new User(email, password);
-        	JOptionPane.showMessageDialog(registerVista.getFrame(), "Registro exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);         
-            mostrarLogin();
-         
+            modelo = new User(email, password);
+            if (modelo.registerUser()) {
+                JOptionPane.showMessageDialog(registerVista.getFrame(), "Registro exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                mostrarLogin();
+            } else {
+                JOptionPane.showMessageDialog(registerVista.getFrame(), "Error en el registro", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
+
 
     public static void mostrarLogin() {
     	  registerVista.getFrame().setVisible(false);
