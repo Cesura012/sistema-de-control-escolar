@@ -1,4 +1,4 @@
-//lista alu
+//pruebas
 
 import java.awt.EventQueue;
 
@@ -6,8 +6,6 @@ import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -15,18 +13,13 @@ import javax.swing.JMenu;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.JTableHeader;
 import javax.swing.JTextField;
+
+import AuthController.AuthController;
 
 public class prueba {
 
@@ -38,6 +31,8 @@ public class prueba {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -83,7 +78,7 @@ public class prueba {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Consultar registros de alumnos");
+		JLabel lblNewLabel = new JLabel("Eliminar alumno");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(230, 0, 508, 25);
@@ -148,7 +143,7 @@ public class prueba {
 		panel_3.add(lblNewLabel_5);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(205, 175, 100, 20);
+		textField_3.setBounds(250, 175, 100, 20);
 		panel_3.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -182,44 +177,52 @@ public class prueba {
 		panel_3.add(textField_6);
 		textField_6.setColumns(10);
 		
-		String titles[] = {"N° control", "Nombre completo"};
-		String data[][] = {
-				{"19310556", "Leonardo Gutierrez"},
-                {"19310492", "Sugey Lara"},
-                {"19310556", "Daniel Martínez Martínez"},
-                {"19310134", "Alan Aramburo Peña"},
-                {"19310249", "Alonso Piñas Colada"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-		};
-	    header.setBackground(new Color(0, 128, 255));
-	    header.setForeground(Color.white);
-	    header.setFont(new Font("Tahoma", Font.BOLD, 16));
-	        	       
-	    DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
-	    headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-	    header.setDefaultRenderer(headerRenderer);
-        
+		JLabel lblNewLabel_9 = new JLabel("DD:");
+		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_9.setBounds(205, 180, 46, 14);
+		panel_3.add(lblNewLabel_9);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(567, 100, 250, 300);
+		panel_4.setBackground(new Color(151, 203, 255));
+		panel.add(panel_4);
+		panel_4.setLayout(null);
+		
+		JPanel panel_2_1_1 = new JPanel();
+		panel_2_1_1.setLayout(null);
+		panel_2_1_1.setBackground(new Color(0, 128, 255));
+		panel_2_1_1.setBounds(0, 0, 250, 16);
+		panel_4.add(panel_2_1_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Fotografia del alumno");
+		lblNewLabel_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1.setBounds(0, 0, 250, 14);
+		panel_2_1_1.add(lblNewLabel_1_1);
+		
+		JButton btnNewButton_1 = new JButton("Confirmar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 JOptionPane.showMessageDialog(frame, "Informacion descargadaer", "Créditos", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setBackground(new Color(0, 64, 128));
+		btnNewButton_1.setBounds(620, 417, 170, 40);
+		panel.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Cancelar");
+		btnNewButton_2.setForeground(new Color(255, 255, 255));
+		btnNewButton_2.setBackground(new Color(0, 64, 128));
+		btnNewButton_2.setBounds(620, 473, 170, 40);
+		panel.add(btnNewButton_2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 JOptionPane.showMessageDialog(frame, "credencial descargada", "Créditos", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+	
         
         
     
@@ -240,10 +243,15 @@ public class prueba {
 	           	        	JButton btnNewButton = new JButton("Regresar");
 	           	        	btnNewButton.setBackground(new Color(255, 255, 255));
 	           	        	btnNewButton.setBorder(null);
-	           	        	btnNewButton.addActionListener(new ActionListener() {
-	           	        		public void actionPerformed(ActionEvent e) {
-	           	        		}
-	           	        	});
+	           	         btnNewButton.addActionListener(new ActionListener() {
+	           	            public void actionPerformed(ActionEvent e) {
+	           	            	AuthController.mostrarAdminalu();
+           	        			frame.dispose();
+	           	            	
+	           	            
+	           	              
+	           	            }
+	           	        });
 	           	        	
 	           	        	JLabel r = new JLabel("");
 	           	        	menuBar.add(r);
@@ -272,7 +280,7 @@ public class prueba {
 	           	     	           	        	            public void actionPerformed(ActionEvent e) {
 	           	     	           	        	                int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	           	     	           	        	                if (response == JOptionPane.YES_OPTION) {
-	           	     	           	        	                    frame.dispose();
+	           	     	           	        	             closesesion();
 	           	     	           	        	                }
 	           	     	           	        	            }
 	           	     	           	        	        });
@@ -282,22 +290,35 @@ public class prueba {
 	        frame.setVisible(true);
 	    }
 	
-	private void showDetailsWindow(String controlNumber, String fullName) {
-        JFrame detailsFrame = new JFrame("Detalles del Alumno");
-        detailsFrame.setBounds(100, 100, 450, 300);
-        detailsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        detailsFrame.getContentPane().setLayout(null);
+	private void closesesion() {
+	    int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	    if (response == JOptionPane.YES_OPTION) {
+	        frame.dispose();
+	        try {
+				AuthController.loginVista.getEmailField().setText("");
+				AuthController.loginVista.getPasswordField().setText("");
+				AuthController.mostrarLogin();
+		       
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+	        
+	    }
+	}
 
-        JLabel lblControlNumber = new JLabel("N° control: " + controlNumber);
-        lblControlNumber.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblControlNumber.setBounds(30, 30, 380, 30);
-        detailsFrame.getContentPane().add(lblControlNumber);
-
-        JLabel lblFullName = new JLabel("Nombre completo: " + fullName);
-        lblFullName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblFullName.setBounds(30, 80, 380, 30);
-        detailsFrame.getContentPane().add(lblFullName);
-
-        detailsFrame.setVisible(true);
-    }
+	public JFrame getFrame() {
+		// TODO Auto-generated method stub
+		return frame;
+	}
+	
+	 public JTextField getTextField() {
+	        return textField;
+	    }
+	 
+	 public JButton getBtnRegresar() {
+	        return getBtnRegresar();
+	    }
+	
+	
 }

@@ -87,51 +87,87 @@ public class AdminasigView {
 	     img.setBounds(55, 57, 178, 188);
 	     img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/conasi.png")));
 	     panel.add(img);
+	         
+	     JButton btnNewButton_1 = new JButton("Consultar registros de asignatura");
+	     btnNewButton_1.setBackground(new Color(255, 255, 255));
+	     btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+	     btnNewButton_1.setBounds(60, 243, 190, 30);
+	     btnNewButton_1.setBorder(null);
+	     panel.add(btnNewButton_1);
+	     btnNewButton_1.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.vmostrarRegistroasi();
+	    	    }
+	    	});
 	     
-	     JLabel lblNewLabel_1 = new JLabel("Consultar registros asignatura");
-	     lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_1.setBounds(48, 240, 210, 24);
-	     panel.add(lblNewLabel_1);
+	     JButton btnNewButton_2 = new JButton("Detalles de asignatura");
+	     btnNewButton_2.setBounds(350, 243, 150, 23);
+	     btnNewButton_2.setBackground(new Color(255, 255, 255));
+	     btnNewButton_2.setBorder(null);
+	     panel.add(btnNewButton_2);
+	     btnNewButton_2.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.vmostrarRegistroasi();
+	    	    }
+	    	});
+	     
+	     JButton btnNewButton_3 = new JButton("Agregar asignatura");
+	     btnNewButton_3.setBackground(new Color(255, 255, 255));
+	     btnNewButton_3.setBorder(null);
+	     btnNewButton_3.setBounds(660, 243, 150, 23);
+	     panel.add(btnNewButton_3);
+	     btnNewButton_3.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.mostraragreasi();
+	    	    }
+	    	});
+	     
+	     JButton btnNewButton_4 = new JButton("Editar asignatura");
+	     btnNewButton_4.setBackground(new Color(255, 255, 255));
+	     btnNewButton_4.setBorder(null);
+	     btnNewButton_4.setBounds(210, 481, 150, 23);
+	     panel.add(btnNewButton_4);
+	     btnNewButton_4.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.mostrareditasi();
+	    	    }
+	    	});
+	     
+	     JButton btnNewButton_5 = new JButton("Eliminar asignatura");
+	     btnNewButton_5.setBackground(new Color(255, 255, 255));
+	     btnNewButton_5.setBorder(null);
+	     btnNewButton_5.setBounds(524, 481, 150, 23);
+	     panel.add(btnNewButton_5);
+	     btnNewButton_5.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.mostrardeletasi();
+	    	    }
+	    	});
 	     
 	     JLabel img2 = new JLabel("");
 	     img2.setBounds(660, 57, 205, 192);
 	     img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/agreasi.png")));
 	     panel.add(img2);
 	     
-	     JLabel lblNewLabel_5 = new JLabel("Detalles de asignatura");
-	     lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_5.setBounds(360, 240, 210, 24);
-	     panel.add(lblNewLabel_5);
 	     
 	     JLabel img5 = new JLabel("");
 	     img5.setBounds(338, 72, 178, 173);
 	     img5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/deasi.png")));
 	     panel.add(img5);
-	     
-	     JLabel lblNewLabel_2 = new JLabel("Agregar asignatura");
-	     lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_2.setBounds(696, 240, 142, 24);
-	     panel.add(lblNewLabel_2);
-	     
+
 	     JLabel img3 = new JLabel("");
 	     img3.setBounds(210, 300, 180, 180);
 	     img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/edasi.png")));
 	     panel.add(img3);
 	     
-	     JLabel lblNewLabel_3 = new JLabel("Editar asignatura");
-	     lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_3.setBounds(240, 480, 142, 24);
-	     panel.add(lblNewLabel_3);
+	     
 	     
 	     JLabel img4 = new JLabel("");
 	     img4.setBounds(524, 300, 175, 175);
 	     img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/easi.png")));
 	     panel.add(img4);
 	     
-	     JLabel lblNewLabel_4 = new JLabel("Eliminar asignatura");
-	     lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_4.setBounds(550, 480, 160, 24);
-	     panel.add(lblNewLabel_4);
+	   
 	     
 	     JMenuBar menuBar = new JMenuBar();
 	     menuBar.setForeground(new Color(0, 0, 0));

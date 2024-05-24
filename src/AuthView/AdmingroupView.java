@@ -85,51 +85,82 @@ public class AdmingroupView {
 	     img.setBounds(65, 72, 152, 160);
 	     img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/consugru.png")));
 	     panel.add(img);
+   
+	     JButton btnNewButton_1 = new JButton("Consultar registros de grupos");
+	     btnNewButton_1.setBackground(new Color(255, 255, 255));
+	     btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+	     btnNewButton_1.setBounds(60, 243, 190, 30);
+	     btnNewButton_1.setBorder(null);
+	     panel.add(btnNewButton_1);
+	     btnNewButton_1.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.vmostrarRegistrogroup();
+	    	    }
+	    	});
 	     
-	     JLabel lblNewLabel_1 = new JLabel("Consultar registros de grupos");
-	     lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_1.setBounds(41, 240, 210, 24);
-	     panel.add(lblNewLabel_1);
+	     JButton btnNewButton_2 = new JButton("Detalles de grupos");
+	     btnNewButton_2.setBounds(350, 243, 150, 23);
+	     btnNewButton_2.setBackground(new Color(255, 255, 255));
+	     btnNewButton_2.setBorder(null);
+	     panel.add(btnNewButton_2);
+	     btnNewButton_2.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.vmostrarRegistrogroup();
+	    	    }
+	    	});
+	     
+	     JButton btnNewButton_3 = new JButton("Agregar grupo");
+	     btnNewButton_3.setBackground(new Color(255, 255, 255));
+	     btnNewButton_3.setBorder(null);
+	     btnNewButton_3.setBounds(660, 243, 150, 23);
+	     panel.add(btnNewButton_3);
+	     btnNewButton_3.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.showaddgroup();
+	    	    }
+	    	});
+	     
+	     JButton btnNewButton_4 = new JButton("Editar grupo");
+	     btnNewButton_4.setBackground(new Color(255, 255, 255));
+	     btnNewButton_4.setBorder(null);
+	     btnNewButton_4.setBounds(210, 481, 150, 23);
+	     panel.add(btnNewButton_4);
+	     btnNewButton_4.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.showeditgroup();
+	    	    }
+	    	});
+	     
+	     JButton btnNewButton_5 = new JButton("Eliminar grupo");
+	     btnNewButton_5.setBackground(new Color(255, 255, 255));
+	     btnNewButton_5.setBorder(null);
+	     btnNewButton_5.setBounds(524, 481, 150, 23);
+	     panel.add(btnNewButton_5);
+	     btnNewButton_5.addActionListener(new ActionListener() {
+	    	    public void actionPerformed(ActionEvent e) {
+	    	        AuthController.showdeletgroup();
+	    	    }
+	    	});
 	     
 	     JLabel img2 = new JLabel("");
 	     img2.setBounds(680, 72, 152, 160);
 	     img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/agregru.png")));
 	     panel.add(img2);
 	     
-	     JLabel lblNewLabel_5 = new JLabel("Detalles de grupos");
-	     lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_5.setBounds(360, 240, 210, 24);
-	     panel.add(lblNewLabel_5);
-	     
 	     JLabel img5 = new JLabel("");
 	     img5.setBounds(350, 72, 152, 160);
 	     img5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/degru.png")));
 	     panel.add(img5);
-	     
-	     JLabel lblNewLabel_2 = new JLabel("Agregar grupo");
-	     lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_2.setBounds(696, 240, 142, 24);
-	     panel.add(lblNewLabel_2);
 	     
 	     JLabel img3 = new JLabel("");
 	     img3.setBounds(210, 310, 152, 160);
 	     img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/egru.png")));
 	     panel.add(img3);
 	     
-	     JLabel lblNewLabel_3 = new JLabel("Editar grupo");
-	     lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_3.setBounds(240, 480, 142, 24);
-	     panel.add(lblNewLabel_3);
-	     
 	     JLabel img4 = new JLabel("");
 	     img4.setBounds(524, 310, 152, 160);
 	     img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/elgru.png")));
 	     panel.add(img4);
-	     
-	     JLabel lblNewLabel_4 = new JLabel("Eliminar grupo");
-	     lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     lblNewLabel_4.setBounds(550, 480, 160, 24);
-	     panel.add(lblNewLabel_4);
 	     
 	     JMenuBar menuBar = new JMenuBar();
 	     menuBar.setForeground(new Color(0, 0, 0));

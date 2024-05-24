@@ -27,6 +27,8 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
+import AuthController.AuthController;
+
 public class RegisteraluView {
 
 	private JFrame frame;
@@ -139,6 +141,32 @@ public class RegisteraluView {
         table_scroll.setForeground(new Color(0, 128, 192));
         table_scroll.setBackground(new Color(0, 128, 192));
         panel_3.add(table_scroll);
+        
+        JButton btnNewButton_1 = new JButton("detalles de alumno");
+        		btnNewButton_1.addActionListener(new ActionListener() {
+        		    public void actionPerformed(ActionEvent e) {
+        		        // Obtener los datos del alumno seleccionado en la tabla
+        		        int selectedRow = table.getSelectedRow();
+        		        if (selectedRow != -1) {
+        		            String controlNumber = table.getValueAt(selectedRow, 0).toString();
+        		            String fullName = table.getValueAt(selectedRow, 1).toString();
+        		            
+        		            // Crear e inicializar la ventana de detalles del alumno
+        		            DetailsaluView detailsaluView = new DetailsaluView();
+        		            frame.dispose();
+        		            detailsaluView.getFrame().setVisible(true);
+        		            
+        		            // Pasar los datos del alumno a la ventana de detalles
+        		            detailsaluView.getTextField().setText(fullName); // Por ejemplo, asigna el nombre completo al campo de texto correspondiente en DetailsaluView
+        		            // Similarmente, puedes asignar otros datos del alumno a los campos de texto correspondientes en DetailsaluView
+        		        } else {
+        		            JOptionPane.showMessageDialog(frame, "Por favor selecciona un alumno de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
+        		        }
+        		    }
+        		});
+        	
+        btnNewButton_1.setBounds(711, 420, 150, 23);
+        panel.add(btnNewButton_1);
         table.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
@@ -174,6 +202,8 @@ public class RegisteraluView {
 	           	        	btnNewButton.setBorder(null);
 	           	        	btnNewButton.addActionListener(new ActionListener() {
 	           	        		public void actionPerformed(ActionEvent e) {
+	           	        			AuthController.mostrarAdminalu();
+	           	        			frame.dispose();
 	           	        		}
 	           	        	});
 	           	        	
@@ -204,7 +234,7 @@ public class RegisteraluView {
 	           	     	           	        	            public void actionPerformed(ActionEvent e) {
 	           	     	           	        	                int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	           	     	           	        	                if (response == JOptionPane.YES_OPTION) {
-	           	     	           	        	                    frame.dispose();
+	           	     	           	        	             closesesion();
 	           	     	           	        	                }
 	           	     	           	        	            }
 	           	     	           	        	        });
@@ -213,6 +243,23 @@ public class RegisteraluView {
 	           	     	           	        	        optionsMenu.add(logoutItem);       	        	        
 	        frame.setVisible(true);
 	    }
+	
+	private void closesesion() {
+	    int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	    if (response == JOptionPane.YES_OPTION) {
+	        frame.dispose();
+	        try {
+				AuthController.loginVista.getEmailField().setText("");
+				AuthController.loginVista.getPasswordField().setText("");
+				AuthController.mostrarLogin();
+		       
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+	        
+	    }
+	}
 	
 	private void showDetailsWindow(String controlNumber, String fullName) {
         JFrame detailsFrame = new JFrame("Detalles del Alumno");
@@ -232,4 +279,12 @@ public class RegisteraluView {
 
         detailsFrame.setVisible(true);
     }
+	
+	public JButton getBtnRegresar() {
+        return getBtnRegresar();
+    }
+
+	 public JFrame getFrame() {
+	        return frame;
+	    }
 }

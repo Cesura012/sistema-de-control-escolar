@@ -6,14 +6,30 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import AuthModel.User;
+import AuthView.AddaluView;
+import AuthView.AddasiView;
+import AuthView.Adddoce;
+import AuthView.AddgroupView;
 import AuthView.AdminaluView;
 import AuthView.AdminasigView;
 import AuthView.AdmindoceView;
 import AuthView.AdmingroupView;
+import AuthView.DeleteAluView;
+import AuthView.DeleteasiView;
+import AuthView.DeletedoceView;
+import AuthView.DeletegroupView;
+import AuthView.EditaluView;
+import AuthView.EditasiView;
+import AuthView.EditdoceView;
+import AuthView.EditgroupView;
 import AuthView.LoginView;
 
 import AuthView.MenuadminView;
 import AuthView.RegisterView;
+import AuthView.RegisteraluView;
+import AuthView.RegisterasiView;
+import AuthView.RegisterdoView;
+import AuthView.RegistergroupView;
 
 public class AuthController {
     private User modelo;
@@ -25,6 +41,24 @@ public class AuthController {
     private static AdminaluView adminaluView;
     private static AdmindoceView admindoceView;
 	private static AdmingroupView admingroupView;
+	private static RegisteraluView registeraluView = null;
+	private static AddaluView addaluView = null;
+	private static EditaluView editaluView = null;
+	private static DeleteAluView deletaluView = null;
+	private static RegisterdoView registerdoceView = null;
+	private static Adddoce adddoceView = null;
+	private static EditdoceView editdoceView = null;
+	private static DeletedoceView deletdoceView = null;
+	private static RegisterasiView registerasiView = null;
+	private static AddasiView addasiView = null;
+	private static EditasiView editasiView = null;
+	private static DeleteasiView deletasiView = null;
+	private static RegistergroupView registergroupView = null;
+	private static AddgroupView addgroupView = null;
+	private static EditgroupView editgroupView = null;
+	private static DeletegroupView deletgroupView = null;
+	
+	
   
     
     public AuthController(User modelo, LoginView loginVista, RegisterView registerVista, boolean mostrarMenuAdmin,AdminasigView adminasigView, AdminaluView adminaluView,  AdmindoceView admindoceView,AdmingroupView admingroupView) {
@@ -37,6 +71,7 @@ public class AuthController {
         this.adminaluView = adminaluView;
         this.admindoceView = admindoceView;
         this.admingroupView = admingroupView;
+      
      
 
         loginVista.getLoginButton().addActionListener(new ActionListener() {
@@ -254,6 +289,326 @@ public class AuthController {
         adminasigView.getFrame().setVisible(true);
     }
     
-   
+    public static void mostrarRegistroAlumnos() {
+        if (registeraluView == null) {
+            registeraluView = new RegisteraluView();
+            System.out.println("AuthController: RegisteraluView inicializado.");
+        }
 
+        
+        if (registeraluView.getFrame() == null) {
+            throw new IllegalStateException("El frame de RegisteraluView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        adminaluView.getFrame().setVisible(false);
+
+        registeraluView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de Registro de Alumnos mostrada.");
+    }
+    
+    public static void mostraragrealu() {
+        if (addaluView == null) {
+        	addaluView = new AddaluView();
+            System.out.println("AuthController: AddaluView inicializado.");
+        }
+
+        
+        if (addaluView.getFrame() == null) {
+            throw new IllegalStateException("El frame de AddaluView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        adminaluView.getFrame().setVisible(false);
+
+        addaluView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de agreagar alumostrada.");
+    }
+    
+    public static void mostraredialu() {
+        if (editaluView == null) {
+        	editaluView = new EditaluView();
+            System.out.println("AuthController: editaluView inicializado.");
+        }
+
+        
+        if (editaluView.getFrame() == null) {
+            throw new IllegalStateException("El frame de editaluView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        adminaluView.getFrame().setVisible(false);
+
+        editaluView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de editar alumostrada.");
+    }
+    
+    public static void mostrardeletalu() {
+        if (deletaluView == null) {
+        	deletaluView = new DeleteAluView();
+            System.out.println("AuthController: deletaluView inicializado.");
+        }
+
+        
+        if (deletaluView.getFrame() == null) {
+            throw new IllegalStateException("El frame de deletaluView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        adminaluView.getFrame().setVisible(false);
+
+        deletaluView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de deletaluView alumostrada.");
+    }
+    
+    public static void vmostrarRegistrodoce() {
+        if (registerdoceView == null) {
+        	registerdoceView = new RegisterdoView();
+            System.out.println("AuthController: registerdoceView inicializado.");
+        }
+
+        
+        if (registerdoceView.getFrame() == null) {
+            throw new IllegalStateException("El frame de registerdoceView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        admindoceView.getFrame().setVisible(false);
+
+        registerdoceView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de registerdoceView alumostrada.");
+    }
+    
+    public static void mostraragredoce() {
+        if (adddoceView == null) {
+        	adddoceView = new Adddoce();
+            System.out.println("AuthController: adddoceView inicializado.");
+        }
+
+        
+        if (adddoceView.getFrame() == null) {
+            throw new IllegalStateException("El frame de adddoceView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        admindoceView.getFrame().setVisible(false);
+
+        adddoceView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de adddoceView alumostrada.");
+    }
+    
+    public static void mostraredidoce() {
+        if (editdoceView == null) {
+        	editdoceView = new EditdoceView();
+            System.out.println("AuthController: editdoceView inicializado.");
+        }
+
+        
+        if (editdoceView.getFrame() == null) {
+            throw new IllegalStateException("El frame de editdoceView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        admindoceView.getFrame().setVisible(false);
+
+        editdoceView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de editdoceView alumostrada.");
+    }
+    
+    public static void mostrardeletdoce() {
+        if (deletdoceView == null) {
+        	deletdoceView = new DeletedoceView();
+            System.out.println("AuthController: deletdoceView inicializado.");
+        }
+
+        
+        if (deletdoceView.getFrame() == null) {
+            throw new IllegalStateException("El frame de deletdoceView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        admindoceView.getFrame().setVisible(false);
+
+        deletdoceView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de deletdoceView alumostrada.");
+    }
+    
+    public static void vmostrarRegistroasi() {
+        if (registerasiView == null) {
+        	registerasiView = new RegisterasiView();
+            System.out.println("AuthController: registerasiView inicializado.");
+        }
+
+        
+        if (registerasiView.getFrame() == null) {
+            throw new IllegalStateException("El frame de registerasiView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        adminasigView.getFrame().setVisible(false);
+
+        registerasiView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de registerasiView alumostrada.");
+    }
+    
+    public static void mostraragreasi() {
+        if (addasiView == null) {
+        	addasiView = new AddasiView();
+            System.out.println("AuthController: AddasiView inicializado.");
+        }
+
+        
+        if (addasiView.getFrame() == null) {
+            throw new IllegalStateException("El frame de AddasiView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        adminasigView.getFrame().setVisible(false);
+
+        addasiView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de AddasiView alumostrada.");
+    }
+    
+    public static void mostrareditasi() {
+        if (editasiView == null) {
+        	editasiView = new EditasiView();
+            System.out.println("AuthController: editasiView inicializado.");
+        }
+
+        
+        if (editasiView.getFrame() == null) {
+            throw new IllegalStateException("El frame de editasiView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        adminasigView.getFrame().setVisible(false);
+
+        editasiView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de editasiView alumostrada.");
+    }
+    
+    public static void mostrardeletasi() {
+        if (deletasiView == null) {
+        	deletasiView = new DeleteasiView();
+            System.out.println("AuthController: DeleteasiView inicializado.");
+        }
+
+        
+        if (deletasiView.getFrame() == null) {
+            throw new IllegalStateException("El frame de DeleteasiView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        adminasigView.getFrame().setVisible(false);
+
+        deletasiView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de DeleteasiView alumostrada.");
+    }
+   
+    public static void vmostrarRegistrogroup() {
+        if (registergroupView == null) {
+        	registergroupView = new RegistergroupView();
+            System.out.println("AuthController: registergroupView inicializado.");
+        }
+
+        
+        if (registergroupView.getFrame() == null) {
+            throw new IllegalStateException("El frame de registergroupView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        admingroupView.getFrame().setVisible(false);
+
+        registergroupView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de registergroupView alumostrada.");
+    }
+    
+    public static void showaddgroup() {
+        if (addgroupView == null) {
+        	addgroupView = new AddgroupView();
+            System.out.println("AuthController: AddgroupView inicializado.");
+        }
+
+        
+        if (addgroupView.getFrame() == null) {
+            throw new IllegalStateException("El frame de AddgroupView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        admingroupView.getFrame().setVisible(false);
+
+        addgroupView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de AddgroupView alumostrada.");
+    }
+    
+    
+    public static void showeditgroup() {
+        if (editgroupView == null) {
+        	editgroupView = new EditgroupView();
+            System.out.println("AuthController: editgroupView inicializado.");
+        }
+
+        
+        if (editgroupView.getFrame() == null) {
+            throw new IllegalStateException("El frame de editgroupView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        admingroupView.getFrame().setVisible(false);
+
+        editgroupView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de editgroupView alumostrada.");
+    }
+   
+    public static void showdeletgroup() {
+        if (deletgroupView == null) {
+        	deletgroupView = new DeletegroupView();
+            System.out.println("AuthController: deletgroupView inicializado.");
+        }
+
+        
+        if (deletgroupView.getFrame() == null) {
+            throw new IllegalStateException("El frame de deletgroupView no ha sido inicializado correctamente.");
+        }
+
+        if (menuAdminVista != null) {
+            menuAdminVista.getFrame().setVisible(false);
+        }
+        admingroupView.getFrame().setVisible(false);
+
+        deletgroupView.getFrame().setVisible(true);
+        System.out.println("AuthController: Ventana de deletgroupView alumostrada.");
+    }
+    
+   
 }
