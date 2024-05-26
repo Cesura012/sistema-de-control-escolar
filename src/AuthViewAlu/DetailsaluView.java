@@ -31,8 +31,10 @@ public class DetailsaluView {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTextField textField_8;
 	
-	private RegisteraluView registeraluView;
+	
 
 	/**
 	 * Launch the application.
@@ -113,7 +115,7 @@ public class DetailsaluView {
 		panel_3.add(lblNewLabel_2);
 		
 		textField = new JTextField();
-		textField.setBounds(205, 44, 200, 20);
+		textField.setBounds(205, 44, 250, 20);
 		panel_3.add(textField);
 		textField.setColumns(10);
 		
@@ -123,7 +125,7 @@ public class DetailsaluView {
 		panel_3.add(lblNewLabel_3);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(205, 84, 200, 20);
+		textField_1.setBounds(205, 84, 250, 20);
 		panel_3.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -133,7 +135,7 @@ public class DetailsaluView {
 		panel_3.add(lblNewLabel_4);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(205, 130, 200, 20);
+		textField_2.setBounds(205, 130, 250, 20);
 		panel_3.add(textField_2);
 		textField_2.setColumns(10);
 		
@@ -143,7 +145,7 @@ public class DetailsaluView {
 		panel_3.add(lblNewLabel_5);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(250, 175, 100, 20);
+		textField_3.setBounds(235, 175, 40, 20);
 		panel_3.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -153,7 +155,7 @@ public class DetailsaluView {
 		panel_3.add(lblNewLabel_6);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(205, 228, 200, 20);
+		textField_4.setBounds(205, 228, 250, 20);
 		panel_3.add(textField_4);
 		textField_4.setColumns(10);
 		
@@ -163,7 +165,7 @@ public class DetailsaluView {
 		panel_3.add(lblNewLabel_7);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(205, 275, 200, 20);
+		textField_5.setBounds(205, 275, 250, 20);
 		panel_3.add(textField_5);
 		textField_5.setColumns(10);
 		
@@ -173,7 +175,7 @@ public class DetailsaluView {
 		panel_3.add(lblNewLabel_8);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(205, 334, 200, 20);
+		textField_6.setBounds(205, 334, 250, 20);
 		panel_3.add(textField_6);
 		textField_6.setColumns(10);
 		
@@ -181,6 +183,26 @@ public class DetailsaluView {
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_9.setBounds(205, 180, 46, 14);
 		panel_3.add(lblNewLabel_9);
+		
+		JLabel lblNewLabel_10 = new JLabel("MM:");
+		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_10.setBounds(280, 180, 46, 14);
+		panel_3.add(lblNewLabel_10);
+		
+		textField_7 = new JTextField();
+		textField_7.setBounds(310, 177, 40, 20);
+		panel_3.add(textField_7);
+		textField_7.setColumns(10);
+		
+		JLabel lblNewLabel_11 = new JLabel("AA:");
+		lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_11.setBounds(355, 180, 46, 14);
+		panel_3.add(lblNewLabel_11);
+		
+		textField_8 = new JTextField();
+		textField_8.setBounds(382, 177, 70, 20);
+		panel_3.add(textField_8);
+		textField_8.setColumns(10);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(567, 100, 250, 300);
@@ -319,6 +341,4 @@ public class DetailsaluView {
 	 public JButton getBtnRegresar() {
 	        return getBtnRegresar();
 	    }
-	
-	
 }

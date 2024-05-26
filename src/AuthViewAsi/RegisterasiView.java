@@ -146,7 +146,7 @@ public class RegisterasiView {
                 if (e.getClickCount() == 2) {
                     int row = table.getSelectedRow();
                     int column = table.getSelectedColumn();
-                    String value = table.getValueAt(row, column).toString();
+                    table.getValueAt(row, column).toString();
                     String controlNumber = table.getValueAt(row, 0).toString();
                     String fullName = table.getValueAt(row, 1).toString();
                     showDetailsWindow(controlNumber, fullName);
@@ -160,7 +160,6 @@ public class RegisterasiView {
 		        // Obtener los datos del alumno seleccionado en la tabla
 		        int selectedRow = table.getSelectedRow();
 		        if (selectedRow != -1) {
-		            String controlNumber = table.getValueAt(selectedRow, 0).toString();
 		            String fullName = table.getValueAt(selectedRow, 1).toString();
 		            
 		            // Crear e inicializar la ventana de detalles del alumno

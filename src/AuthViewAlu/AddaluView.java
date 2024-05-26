@@ -3,6 +3,12 @@ package AuthViewAlu;
 
 
 import java.awt.EventQueue;
+import javax.swing.JComboBox;
+import java.time.Year;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -33,7 +39,14 @@ public class AddaluView {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-	
+	private JTextField textField_7;
+	private JTextField textField_8;
+	private JComboBox<Integer> dayComboBox;
+	private JComboBox<Integer> monthComboBox;
+	private JComboBox<Integer> yearComboBox;
+	private JComboBox<Integer> gradeComboBox;
+	private JButton btnConfirm;
+
 	
 
 	/**
@@ -115,7 +128,7 @@ public class AddaluView {
 		panel_3.add(lblNewLabel_2);
 		
 		textField = new JTextField();
-		textField.setBounds(205, 44, 200, 20);
+		textField.setBounds(205, 44, 250, 20);
 		panel_3.add(textField);
 		textField.setColumns(10);
 		
@@ -125,7 +138,7 @@ public class AddaluView {
 		panel_3.add(lblNewLabel_3);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(205, 84, 200, 20);
+		textField_1.setBounds(205, 84, 250, 20);
 		panel_3.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -135,7 +148,7 @@ public class AddaluView {
 		panel_3.add(lblNewLabel_4);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(205, 130, 200, 20);
+		textField_2.setBounds(205, 130, 250, 20);
 		panel_3.add(textField_2);
 		textField_2.setColumns(10);
 		
@@ -144,10 +157,6 @@ public class AddaluView {
 		lblNewLabel_5.setBounds(30, 176, 170, 18);
 		panel_3.add(lblNewLabel_5);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(250, 175, 100, 20);
-		panel_3.add(textField_3);
-		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Correo electrónico:");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -155,7 +164,7 @@ public class AddaluView {
 		panel_3.add(lblNewLabel_6);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(205, 228, 200, 20);
+		textField_4.setBounds(205, 228, 250, 20);
 		panel_3.add(textField_4);
 		textField_4.setColumns(10);
 		
@@ -165,7 +174,7 @@ public class AddaluView {
 		panel_3.add(lblNewLabel_7);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(205, 275, 200, 20);
+		textField_5.setBounds(205, 275, 250, 20);
 		panel_3.add(textField_5);
 		textField_5.setColumns(10);
 		
@@ -174,15 +183,72 @@ public class AddaluView {
 		lblNewLabel_8.setBounds(30, 335, 70, 14);
 		panel_3.add(lblNewLabel_8);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(205, 334, 200, 20);
-		panel_3.add(textField_6);
-		textField_6.setColumns(10);
+		 gradeComboBox = new JComboBox<>();
+		    for (int i = 1; i <= 9; i++) {
+		        gradeComboBox.addItem(i);
+		    }
+		    gradeComboBox.setBounds(205, 334, 250, 20);
+		    panel_3.add(gradeComboBox);
 		
 		JLabel lblNewLabel_9 = new JLabel("DD:");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_9.setBounds(205, 180, 46, 14);
 		panel_3.add(lblNewLabel_9);
+		
+		JLabel lblNewLabel_10 = new JLabel("MM:");
+		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_10.setBounds(275, 180, 46, 14);
+		panel_3.add(lblNewLabel_10);
+		
+		
+		JLabel lblNewLabel_11 = new JLabel("AA:");
+		lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_11.setBounds(351, 180, 46, 14);
+		panel_3.add(lblNewLabel_11);
+		
+		 dayComboBox = new JComboBox<>();
+		    for (int i = 1; i <= 31; i++) {
+		        dayComboBox.addItem(i);
+		    }
+		    dayComboBox.setBounds(235, 175, 40, 20);
+		    panel_3.add(dayComboBox);
+
+		    
+		    monthComboBox = new JComboBox<>();
+		    for (int i = 1; i <= 12; i++) {
+		        monthComboBox.addItem(i);
+		    }
+		    monthComboBox.setBounds(308, 175, 40, 20);
+		    panel_3.add(monthComboBox);
+
+		   
+		    yearComboBox = new JComboBox<>();
+		    int currentYear = Year.now().getValue();
+		    for (int i = 1990; i <= currentYear; i++) {
+		        yearComboBox.addItem(i);
+		    }
+		    yearComboBox.setBounds(379, 175, 70, 20);
+		    panel_3.add(yearComboBox);
+
+		    
+		    monthComboBox.addItemListener(new ItemListener() {
+		        public void itemStateChanged(ItemEvent e) {
+		            if (e.getStateChange() == ItemEvent.SELECTED) {
+		                updateDays();
+		            }
+		        }
+		    });
+
+		    yearComboBox.addItemListener(new ItemListener() {
+		        public void itemStateChanged(ItemEvent e) {
+		            if (e.getStateChange() == ItemEvent.SELECTED) {
+		                updateDays();
+		            }
+		        }
+		    });
+
+		    
+		    updateDays();
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(567, 100, 250, 300);
@@ -202,16 +268,22 @@ public class AddaluView {
 		lblNewLabel_1_1.setBounds(0, 0, 250, 14);
 		panel_2_1_1.add(lblNewLabel_1_1);
 		
-		JButton btnNewButton_1 = new JButton("Confirmar");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 JOptionPane.showMessageDialog(frame, "Informacion descargadaer", "Créditos", JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(0, 64, 128));
-		btnNewButton_1.setBounds(620, 417, 170, 40);
-		panel.add(btnNewButton_1);
+		btnConfirm = new JButton("Confirmar");
+	    btnConfirm.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	            if (areFieldsValid()) {
+	               
+	                JOptionPane.showMessageDialog(frame, "Datos confirmados.");
+	            } else {
+	               
+	                JOptionPane.showMessageDialog(frame, "Por favor, complete todos los campos correctamente.", "Error", JOptionPane.ERROR_MESSAGE);
+	            }
+	        }
+	    });
+	    btnConfirm.setForeground(new Color(255, 255, 255));
+	    btnConfirm.setBackground(new Color(0, 64, 128));
+	    btnConfirm.setBounds(620, 420, 170, 40);
+	    panel.add(btnConfirm);
 		
 		JButton btnNewButton_2 = new JButton("Cancelar");
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
@@ -321,6 +393,64 @@ public class AddaluView {
 	 public JButton getBtnRegresar() {
 	        return getBtnRegresar();
 	    }
+	 
+	 private void updateDays() {
+		    int selectedMonth = (int) monthComboBox.getSelectedItem();
+		    int selectedYear = (int) yearComboBox.getSelectedItem();
+
+		    int daysInMonth = getDaysInMonth(selectedMonth, selectedYear);
+		    dayComboBox.removeAllItems();
+		    for (int i = 1; i <= daysInMonth; i++) {
+		        dayComboBox.addItem(i);
+		    }
+		}
+
+		private int getDaysInMonth(int month, int year) {
+		    Calendar calendar = new GregorianCalendar(year, month - 1, 1);
+		    return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+		}
+		
+		private boolean areFieldsValid() {
+		    
+		    if (!isAlphabetic(textField.getText().trim())) {
+		        return false;
+		    }
+		    
+		    
+		    if (!isAlphabetic(textField_1.getText().trim())) {
+		        return false;
+		    }
+		    
+		    
+		    if (!isAlphabetic(textField_2.getText().trim())) {
+		        return false;
+		    }
+		    
+		    
+		    String email = textField_4.getText().trim();
+		    if (email.isEmpty() || !email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+		        return false;
+		    }
+		    
+		    
+		    String phone = textField_5.getText().trim();
+		    if (phone.isEmpty() || !phone.matches("\\d{10}")) {  
+		        return false;
+		    }
+		    
+		   
+		    if (gradeComboBox.getSelectedItem() == null) {
+		        return false;
+		    }
+		    
+		    return true;
+		}
+
+		private boolean isAlphabetic(String text) {
+		    return text.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+");
+		}
+
+
 	
 	
 }

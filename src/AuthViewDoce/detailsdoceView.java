@@ -20,7 +20,6 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import AuthController.AuthController;
-import AuthViewAlu.RegisteraluView;
 
 public class detailsdoceView {
 
@@ -33,7 +32,7 @@ public class detailsdoceView {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	
-	private RegisteraluView registeraluView;
+	
 
 	/**
 	 * Launch the application.
