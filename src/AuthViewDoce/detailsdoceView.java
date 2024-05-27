@@ -194,7 +194,7 @@ public class detailsdoceView {
 		panel_2_1_1.setBounds(0, 0, 250, 16);
 		panel_4.add(panel_2_1_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Fotografia del alumno");
+		JLabel lblNewLabel_1_1 = new JLabel("Fotografia del docente");
 		lblNewLabel_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1_1.setBounds(0, 0, 250, 14);

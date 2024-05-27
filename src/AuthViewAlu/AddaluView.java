@@ -31,20 +31,16 @@ import AuthController.AuthController;
 
 public class AddaluView {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
 	private JComboBox<Integer> dayComboBox;
 	private JComboBox<Integer> monthComboBox;
 	private JComboBox<Integer> yearComboBox;
-	private JComboBox<Integer> gradeComboBox;
+	private JComboBox<String> gradeComboBox;
 	private JButton btnConfirm;
 
 	
@@ -184,10 +180,16 @@ public class AddaluView {
 		panel_3.add(lblNewLabel_8);
 		
 		 gradeComboBox = new JComboBox<>();
-		    for (int i = 1; i <= 9; i++) {
-		        gradeComboBox.addItem(i);
-		    }
-		    gradeComboBox.setBounds(205, 334, 250, 20);
+		    gradeComboBox.addItem("Primer semestre");
+		    gradeComboBox.addItem("Segundo semestre");
+		    gradeComboBox.addItem("Tercer semestre");
+		    gradeComboBox.addItem("Cuarto semestre");
+		    gradeComboBox.addItem("Quinto semestre");
+		    gradeComboBox.addItem("Sexto semestre");
+		    gradeComboBox.addItem("Séptimo semestre");
+		    gradeComboBox.addItem("Octavo semestre");
+		    gradeComboBox.addItem("Noveno semestre");
+		    gradeComboBox.setBounds(205, 310, 250, 20);
 		    panel_3.add(gradeComboBox);
 		
 		JLabel lblNewLabel_9 = new JLabel("DD:");

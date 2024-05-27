@@ -152,7 +152,7 @@ public class RegisterdoView {
             }
         });
         
-        JButton btnNewButton_1 = new JButton("detalles de alumno");
+        JButton btnNewButton_1 = new JButton("detalles de docente");
 		btnNewButton_1.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        // Obtener los datos del alumno seleccionado en la tabla
