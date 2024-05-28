@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import dataBase.DB;
+
 public class User {
     private String gmail;
     private String password;
@@ -26,11 +28,13 @@ public class User {
     
   //Conectar la base de datos para el login
     public boolean validateUser() {
-        String url = "jdbc:mysql://sql.freedb.tech:3306/freedb_programacionDataBase";
+        /*String url = "jdbc:mysql://sql.freedb.tech:3306/freedb_programacionDataBase";
         String user = "freedb_mchlDeveloper";
-        String pass = "ZbZeqqUR@P!wb4r";
+        String pass = "ZbZeqqUR@P!wb4r";*/
+    	
+    	DB db = new DB();
 
-        try (Connection conn = DriverManager.getConnection(url, user, pass)) {
+        try (Connection conn = db.getConnection()) {
             String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, this.gmail);
@@ -38,7 +42,7 @@ public class User {
             ResultSet resultSet = statement.executeQuery();
 
             return resultSet.next();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return false;
         }
@@ -48,18 +52,19 @@ public class User {
   //Conectar la base de datos para el registro
 
    public boolean registerUser() {
-	   String url = "jdbc:mysql://sql.freedb.tech:3306/freedb_programacionDataBase";
+	   /*String url = "jdbc:mysql://sql.freedb.tech:3306/freedb_programacionDataBase";
 	   String user = "freedb_mchlDeveloper";
-	   String pass = "ZbZeqqUR@P!wb4r";
+	   String pass = "ZbZeqqUR@P!wb4r";*/
+	   DB db = new DB();
 	   
-	   try (Connection conn = DriverManager.getConnection(url, user, pass)){
+	   try (Connection conn = db.getConnection()){
 		   String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
 		   PreparedStatement statement = conn.prepareStatement(sql);
 		   statement.setString(1, this.gmail);
 		   statement.setString(2, this.password);
 		   int rowsInserted = statement.executeUpdate();
 		   return rowsInserted > 0;
-	   }catch (SQLException e) {
+	   }catch (SQLException | ClassNotFoundException e) {
 		   e.printStackTrace();
 		   return false;
    }
