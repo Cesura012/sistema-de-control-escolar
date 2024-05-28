@@ -6,6 +6,8 @@ import java.sql.SQLException;
 
 public class DB {
 	
+	//   Remoto                              sql.freedb.tech
+	//   Local                               127.0.0.1
     private final String URL = "jdbc:mysql://127.0.0.1:3306/";
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private final String DB_USER = "freedb_mchlDeveloper";
