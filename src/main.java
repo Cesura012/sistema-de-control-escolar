@@ -1,4 +1,4 @@
-
+//Sistema escolar equipo
 import AuthController.AuthController;
 import AuthModel.User;
 import AuthView.LoginView;
