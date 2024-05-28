@@ -13,3 +13,4 @@ public class Main {
 	    new AuthController(modelo, loginVista, registroVista, false, null, null, null, null); 
 	}
 }
+//hola
