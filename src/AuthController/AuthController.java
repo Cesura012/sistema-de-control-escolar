@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import AuthModel.Alumno;
 import AuthModel.User;
 import AuthView.LoginView;
 
@@ -210,6 +211,15 @@ public class AuthController {
             }
         }
     }
+    
+    public static void registrarAlumno() {
+    	Alumno aluModel = new Alumno();
+    	
+    	String nombre = addaluView.getTextField().getText();
+    	aluModel.setNombre(nombre);
+    	aluModel.setNum_control(2022456963);
+    	aluModel.insert();
+    }
 
 
     public static void mostrarLogin() {
@@ -312,6 +322,14 @@ public class AuthController {
     public static void mostraragrealu() {
         if (addaluView == null) {
         	addaluView = new AddaluView();
+        	addaluView.getBtnConfirm().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					registrarAlumno();
+					
+				}
+			});
             System.out.println("AuthController: AddaluView inicializado.");
         }
 
@@ -609,6 +627,4 @@ public class AuthController {
         deletgroupView.getFrame().setVisible(true);
         System.out.println("AuthController: Ventana de deletgroupView alumostrada.");
     }
-    
-   
 }
