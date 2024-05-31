@@ -1,15 +1,17 @@
 package AuthViewAlu;
 
-
-
 import java.awt.EventQueue;
 import javax.swing.JComboBox;
+
+import java.time.LocalDate;
 import java.time.Year;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -37,9 +39,9 @@ public class AddaluView {
 	private JTextField textField_2;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JComboBox<Integer> dayComboBox;
-	private JComboBox<Integer> monthComboBox;
-	private JComboBox<Integer> yearComboBox;
+	public JComboBox<Integer> dayComboBox;
+	public JComboBox<Integer> monthComboBox;
+	public JComboBox<Integer> yearComboBox;
 	private JComboBox<String> gradeComboBox;
 	private JButton btnConfirm;
 
@@ -395,16 +397,12 @@ public class AddaluView {
 		// TODO Auto-generated method stub
 		return frame;
 	}
-	
-	 public JTextField getTextField() {
-	        return textField;
-	    }
 	 
 	 public JButton getBtnRegresar() {
 	        return getBtnRegresar();
 	    }
-	 
-	 private void updateDays() {
+
+	private void updateDays() {
 		    int selectedMonth = (int) monthComboBox.getSelectedItem();
 		    int selectedYear = (int) yearComboBox.getSelectedItem();
 
@@ -459,8 +457,29 @@ public class AddaluView {
 		private boolean isAlphabetic(String text) {
 		    return text.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+");
 		}
+		
+		public JTextField getTextField() {
+	        return textField;
+		}
 
-
-	
-	
+		public JTextField getTextField_1() {
+	        return textField_1;
+	    }
+		
+		public JTextField getTextField_2() {
+	        return textField_2;
+	    }
+		
+		public JTextField getTextField_4() {
+	        return textField_4;
+	    }
+		
+		public JTextField getTextField_5() {
+	        return textField_5;
+	    }
+		
+		public JComboBox<String> getGradeComboBox() {
+				return gradeComboBox;
+		}
+			
 }
