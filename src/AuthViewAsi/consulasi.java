@@ -1,5 +1,7 @@
 package AuthViewAsi;
 
+
+
 import java.awt.EventQueue;
 
 import javax.swing.Box;
@@ -29,7 +31,7 @@ import javax.swing.table.JTableHeader;
 
 import AuthController.AuthController;
 
-public class RegisterasiView {
+public class consulasi {
 
 	private JFrame frame;
 
@@ -40,7 +42,7 @@ public class RegisterasiView {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RegisterasiView window = new RegisterasiView();
+					consulasi window = new consulasi();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +54,7 @@ public class RegisterasiView {
 	/**
 	 * Create the application.
 	 */
-	public RegisterasiView() {
+	public consulasi() {
 		initialize();
 	}
 
@@ -136,12 +138,12 @@ public class RegisterasiView {
                     int column = table.getSelectedColumn();
                     table.getValueAt(row, column).toString();
                     String fullName = table.getValueAt(row, 1).toString();
-                    showDetailsWindow( fullName);
+                  //  showDetailsWindow( fullName);
                 }
             }
         });
         
-        JButton btnNewButton_1 = new JButton("detalles de asignatura");
+       /* JButton btnNewButton_1 = new JButton("detalles de asignatura");
 		btnNewButton_1.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        // Obtener los datos del alumno seleccionado en la tabla
@@ -163,7 +165,7 @@ public class RegisterasiView {
 		    }
 		});
 		 btnNewButton_1.setBounds(711, 420, 150, 23);
-	        panel.add(btnNewButton_1);
+	        panel.add(btnNewButton_1);*/
         
     
 	    JMenuBar menuBar = new JMenuBar();
@@ -243,7 +245,7 @@ public class RegisterasiView {
 	        
 	    }
 	}
-	
+	/*
 	private void showDetailsWindow(String controlNumber) {
         JFrame detailsFrame = new JFrame("Detalles del Alumno");
         detailsFrame.setBounds(100, 100, 450, 300);
@@ -256,7 +258,7 @@ public class RegisterasiView {
         detailsFrame.getContentPane().add(lblFullName);
 
         detailsFrame.setVisible(true);
-    }
+    }*/
 
 	 public JFrame getFrame() {
 	        return frame;

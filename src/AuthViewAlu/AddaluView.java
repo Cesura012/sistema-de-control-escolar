@@ -271,17 +271,17 @@ public class AddaluView {
 		panel_2_1_1.add(lblNewLabel_1_1);
 		
 		btnConfirm = new JButton("Confirmar");
-//	    btnConfirm.addActionListener(new ActionListener() {
-//	        public void actionPerformed(ActionEvent e) {
-//	            if (areFieldsValid()) {
-//	               
-//	                JOptionPane.showMessageDialog(frame, "Datos confirmados.");
-//	            } else {
-//	               
-//	                JOptionPane.showMessageDialog(frame, "Por favor, complete todos los campos correctamente.", "Error", JOptionPane.ERROR_MESSAGE);
-//	            }
-//	        }
-//	    });
+	    btnConfirm.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	            if (areFieldsValid()) {
+	               
+	                JOptionPane.showMessageDialog(frame, "Datos confirmados.");
+	            } else {
+	               
+	                JOptionPane.showMessageDialog(frame, "Por favor, complete todos los campos correctamente.", "Error", JOptionPane.ERROR_MESSAGE);
+	            }
+	        }
+	    });
 	    btnConfirm.setForeground(new Color(255, 255, 255));
 	    btnConfirm.setBackground(new Color(0, 64, 128));
 	    btnConfirm.setBounds(620, 420, 170, 40);

@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import AuthModel.Alumno;
 import AuthModel.User;
 import AuthView.LoginView;
 
