@@ -2,6 +2,10 @@ package AuthController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
@@ -211,12 +215,48 @@ public class AuthController {
         }
     }
     
+    //Agregar Alumno
     public static void registrarAlumno() {
     	Alumno aluModel = new Alumno();
     	
     	String nombre = addaluView.getTextField().getText();
     	aluModel.setNombre(nombre);
-    	aluModel.setNum_control(2022456963);
+    	
+    	
+    	String apellido_paterno = addaluView.getTextField_1().getText();
+        aluModel.setApellido_paterno(apellido_paterno);
+        
+        String apellido_materno = addaluView.getTextField_2().getText();
+        aluModel.setApellido_materno(apellido_materno);
+        
+        // Obtener los valores seleccionados de la fecha de nacimiento
+        int day = (int) addaluView.dayComboBox.getSelectedItem();
+        int month = (int) addaluView.monthComboBox.getSelectedItem();
+        int year = (int) addaluView.yearComboBox.getSelectedItem();
+        
+        // Crear un objeto Calendar y establecer la fecha
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month - 1); // Restar 1 porque en Calendar, el mes es 0-indexado
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+
+        // Convertir el objeto Calendar a un objeto Date
+        Date fechaNacimiento = calendar.getTime();
+        
+        // Asignar la fecha de nacimiento al modelo de Alumno
+        aluModel.setFecha_nacimiento(fechaNacimiento);
+        
+        String correo_electronico = addaluView.getTextField_4().getText();
+        aluModel.setCorreo_electronico(correo_electronico);
+        
+        String telefono = addaluView.getTextField_5().getText();
+        aluModel.setTelefono(telefono);
+        
+        // Obtener el grado seleccionado y convertirlo a entero
+        String gradoSeleccionado = (String) addaluView.getGradeComboBox().getSelectedItem();
+        int grado = convertirGradoAEntero(gradoSeleccionado);
+        aluModel.setGrado(grado);
+    	
     	aluModel.insert();
     }
 
@@ -625,5 +665,30 @@ public class AuthController {
 
         deletgroupView.getFrame().setVisible(true);
         System.out.println("AuthController: Ventana de deletgroupView alumostrada.");
+    }
+    
+    private static int convertirGradoAEntero(String gradoSeleccionado) {
+        switch (gradoSeleccionado) {
+            case "Primer semestre":
+                return 1;
+            case "Segundo semestre":
+                return 2;
+            case "Tercer semestre":
+                return 3;
+            case "Cuarto semestre":
+                return 4;
+            case "Quinto semestre":
+                return 5;
+            case "Sexto semestre":
+                return 6;
+            case "Séptimo semestre":
+                return 7;
+            case "Octavo semestre":
+                return 8;
+            case "Noveno semestre":
+                return 9;
+            default:
+                throw new IllegalArgumentException("Grado no válido: " + gradoSeleccionado);
+        }
     }
 }

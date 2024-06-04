@@ -3,7 +3,10 @@ package AuthModel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -96,25 +99,32 @@ public class Alumno {
 	}
 	
 	public boolean insert() {
-		  
 		DB db = new DB();
-
-	        try (Connection conn = db.getConnection()) {
-	            /*String sql = "INSERT INTO alumno (num_control, nombre, apellido_paterno, apellido_materno, fecha_nacimiento, correo_electronico, telefono, grado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-	            PreparedStatement statement = conn.prepareStatement(sql);
-	            statement.setInt(1, this.num_control);
-	            statement.setString(2, this.nombre);
-	            statement.setString(3, this.apellido_paterno);
-	            statement.setString(4, this.apellido_materno);
-	            statement.setDate(5, (java.sql.Date) this.fecha_nacimiento);
-	            statement.setString(6, this.correo_electronico);
-	            statement.setString(7, this.telefono);
-	            statement.setInt(2, this.grado);*/
-	        	String sql = "INSERT INTO alumno (num_control, nombre) VALUES (?, ?)";
-	            PreparedStatement statement = conn.prepareStatement(sql);
-	            statement.setInt(1, this.num_control);
-	            statement.setString(2, this.nombre);
+		 
+	    try (Connection conn = db.getConnection()) {
+	        	
+	        	String sql = "INSERT INTO alumno (nombre, apellido_paterno, apellido_materno, fecha_nacimiento, correo_electronico, telefono, grado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	            PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+	            statement.setString(1, this.nombre);
+	            statement.setString(2, this.apellido_paterno);
+	            statement.setString(3, this.apellido_materno);
+	            
+	            // Convertir java.util.Date a java.sql.Date
+	            java.sql.Date fechaSQL = new java.sql.Date(this.fecha_nacimiento.getTime());
+	            statement.setDate(4, fechaSQL);
+	            
+	            statement.setString(5, this.correo_electronico);
+	            statement.setString(6, this.telefono);
+	            statement.setInt(7, this.grado);
 	            int rowsInserted = statement.executeUpdate();
+	            
+	         // Obtener el num_control generado automáticamente
+	            if (rowsInserted > 0) {
+	                ResultSet generatedKeys = statement.getGeneratedKeys();
+	                if (generatedKeys.next()) {
+	                    this.num_control = generatedKeys.getInt(1); 
+	                }
+	            }
 
 	            return rowsInserted > 0;
 	        } catch (SQLException | ClassNotFoundException e) {
@@ -122,5 +132,4 @@ public class Alumno {
 	            return false;
 	        }
 	}
-
 }
