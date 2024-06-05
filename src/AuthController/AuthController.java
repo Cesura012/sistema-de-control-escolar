@@ -262,6 +262,64 @@ public class AuthController {
     	aluModel.insert();
     }
     
+    //Eliminar alumno
+    private static void buscarAlumno() {
+        try {
+            int numControl = Integer.parseInt(deletaluView.getTextField_9().getText().trim());
+            Alumno alumno = Alumno.buscarPorNumControl(numControl);
+            if (alumno != null) {
+            	deletaluView.getTextField().setText(alumno.getNombre());
+            	deletaluView.getTextField_1().setText(alumno.getApellido_paterno());
+            	deletaluView.getTextField_2().setText(alumno.getApellido_materno());
+            	deletaluView.getTextField_4().setText(alumno.getCorreo_electronico());
+            	deletaluView.getTextField_5().setText(alumno.getTelefono());
+            	deletaluView.getTextField_10().setText(String.valueOf(alumno.getGrado()));
+                // Formato de la fecha de nacimiento
+                Date fechaNacimiento = alumno.getFecha_nacimiento();
+                deletaluView.getTextField_11().setText(String.valueOf(fechaNacimiento.getDate()));
+                deletaluView.getTextField_12().setText(String.valueOf(fechaNacimiento.getMonth() + 1));
+                deletaluView.getTextField_13().setText(String.valueOf(fechaNacimiento.getYear() + 1900));
+            } else {
+                JOptionPane.showMessageDialog(deletaluView.getFrame(), "Alumno no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(deletaluView.getFrame(), "Ingrese un número de control válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private static void eliminarAlumno() {
+        try {
+            int numControl = Integer.parseInt(deletaluView.getTextField_9().getText().trim());
+            Alumno alumno = Alumno.buscarPorNumControl(numControl);
+            if (alumno != null) {
+                if (alumno.delete()) {
+                    JOptionPane.showMessageDialog(deletaluView.getFrame(), "Alumno eliminado correctamente");
+                    clearFields();
+                } else {
+                    JOptionPane.showMessageDialog(deletaluView.getFrame(), "Error al eliminar el alumno", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(deletaluView.getFrame(), "Alumno no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(deletaluView.getFrame(), "Ingrese un número de control válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private static void clearFields() {
+    	deletaluView.getTextField_9().setText("");
+    	deletaluView.getTextField().setText("");
+    	deletaluView.getTextField_1().setText("");
+    	deletaluView.getTextField_2().setText("");
+    	deletaluView.getTextField_4().setText("");
+    	deletaluView.getTextField_5().setText("");
+    	deletaluView.getTextField_10().setText("");
+    	deletaluView.getTextField_11().setText("");
+    	deletaluView.getTextField_12().setText("");
+    	deletaluView.getTextField_13().setText("");
+    }
+
+    
     //Agregar Docente
     public static void registrarDocente() {
     	Docente docenteModel = new Docente();
@@ -455,6 +513,20 @@ public class AuthController {
     public static void mostrardeletalu() {
         if (deletaluView == null) {
         	deletaluView = new DeleteAluView();
+        	deletaluView.getBtnNewButton_1().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					buscarAlumno();
+					
+				}       		
+        	});
+        	
+        	deletaluView.getBtnConfirm().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					eliminarAlumno();		
+				}
+        	});
             System.out.println("AuthController: deletaluView inicializado.");
         }
 

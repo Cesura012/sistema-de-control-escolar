@@ -99,8 +99,8 @@ public class Docente {
 		DB db = new DB();
 		 
 	    try (Connection conn = db.getConnection()) {
-	        	
-	        	String sql = "INSERT INTO docente (nombre, apellido_paterno, apellido_materno, fecha_nacimiento, correo_electronico, telefono, grado_estudios) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	        	//Consulta
+	        	String sql = "INSERT INTO DOCENTE (nombre, apellido_paterno, apellido_materno, fecha_nacimiento, correo_electronico, telefono, grado_estudios) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	            PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	            statement.setString(1, this.nombre);
 	            statement.setString(2, this.apellido_paterno);

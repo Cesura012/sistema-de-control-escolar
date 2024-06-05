@@ -38,6 +38,7 @@ public class DeleteAluView {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JButton btnConfirm;
+	private JButton btnNewButton_1;
 	private JTextField textField_9;
 	private JTextField textField_10;
 	private JTextField textField_11;
@@ -270,7 +271,7 @@ public class DeleteAluView {
 		panel.add(textField_9);
 		textField_9.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Buscar");
+		btnNewButton_1 = new JButton("Buscar");
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 64, 128));
 		btnNewButton_1.setBounds(414, 98, 89, 23);
@@ -281,10 +282,6 @@ public class DeleteAluView {
 			}
 		});
 		
-	
-        
-        
-    
 	    JMenuBar menuBar = new JMenuBar();
 	    menuBar.setForeground(new Color(0, 0, 0));
 	    menuBar.setBackground(new Color(255, 255, 255));
@@ -373,11 +370,56 @@ public class DeleteAluView {
 	
 	 public JTextField getTextField() {
 	        return textField;
-	    }
+	 }
 	 
+	 public JTextField getTextField_1() {
+	        return textField_1;
+	 }
+	 
+	 public JTextField getTextField_2() {
+	        return textField_2;
+	 }
+	 
+	 public JTextField getTextField_4() {
+	        return textField_4;
+	 }
+	 
+	 public JTextField getTextField_5() {
+	        return textField_5;
+	 }
+	 
+	 public JTextField getTextField_9() {
+	        return textField_9;
+	 }
+	 
+	 
+	 public JTextField getTextField_10() {
+	        return textField_10;
+	 }
+	 
+	 public JTextField getTextField_11() {
+	        return textField_11;
+	 }
+	 
+	 public JTextField getTextField_12() {
+	        return textField_12;
+	 }
+	 
+	 public JTextField getTextField_13() {
+	        return textField_13;
+	 }
+
 	 public JButton getBtnRegresar() {
 	        return getBtnRegresar();
-	    }
+	 }
+	 
+	 public JButton getBtnConfirm() {
+	        return btnConfirm;
+	 }
+	 
+	 public JButton getBtnNewButton_1() {
+	        return btnNewButton_1;
+	 }
 	 
 	
 }

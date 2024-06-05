@@ -27,6 +27,7 @@ public class User {
         DB db = new DB();
 
         try (Connection conn = db.getConnection()) {
+        	//Consulta
             String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, this.gmail);
@@ -44,6 +45,7 @@ public class User {
         DB db = new DB();
 
         try (Connection conn = db.getConnection()) {
+        	//Consulta
             String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, this.gmail);
