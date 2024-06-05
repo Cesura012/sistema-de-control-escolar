@@ -27,7 +27,7 @@ public class User {
         DB db = new DB();
 
         try (Connection conn = db.getConnection()) {
-            String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
+            String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, this.gmail);
             statement.setString(2, this.password);
@@ -44,7 +44,7 @@ public class User {
         DB db = new DB();
 
         try (Connection conn = db.getConnection()) {
-            String sql = "INSERT INTO admin (username, password) VALUES (?, ?)";
+            String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, this.gmail);
             statement.setString(2, this.password);

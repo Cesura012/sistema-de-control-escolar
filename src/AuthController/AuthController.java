@@ -9,6 +9,8 @@ import java.util.Date;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import AuthModel.Alumno;
+import AuthModel.Docente;
 import AuthModel.User;
 import AuthView.LoginView;
 
@@ -259,7 +261,51 @@ public class AuthController {
     	
     	aluModel.insert();
     }
+    
+    //Agregar Docente
+    public static void registrarDocente() {
+    	Docente docenteModel = new Docente();
+    	
+    	String nombre = adddoceView.getTextField().getText();
+    	docenteModel.setNombre(nombre);
+    	
+    	
+    	String apellido_paterno = adddoceView.getTextField_1().getText();
+    	docenteModel.setApellido_paterno(apellido_paterno);
+        
+        String apellido_materno = adddoceView.getTextField_2().getText();
+        docenteModel.setApellido_materno(apellido_materno);
+        
+        // Obtener los valores seleccionados de la fecha de nacimiento
+        int day = (int) adddoceView.dayComboBox.getSelectedItem();
+        int month = (int) adddoceView.monthComboBox.getSelectedItem();
+        int year = (int) adddoceView.yearComboBox.getSelectedItem();
+        
+        // Crear un objeto Calendar y establecer la fecha
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month - 1); // Restar 1 porque en Calendar, el mes es 0-indexado
+        calendar.set(Calendar.DAY_OF_MONTH, day);
 
+        // Convertir el objeto Calendar a un objeto Date
+        Date fechaNacimiento = calendar.getTime();
+        
+        // Asignar la fecha de nacimiento al modelo de Alumno
+        docenteModel.setFecha_nacimiento(fechaNacimiento);
+        
+        String correo_electronico = adddoceView.getTextField_4().getText();
+        docenteModel.setCorreo_electronico(correo_electronico);
+        
+        String telefono = adddoceView.getTextField_5().getText();
+        docenteModel.setTelefono(telefono);
+        
+        // Obtener el grado seleccionado y convertirlo a entero
+        String gradoSeleccionado = (String) adddoceView.getGradeComboBox().getSelectedItem();
+        //int grado = convertirGradoAEntero(gradoSeleccionado);
+        docenteModel.setGrado_estudios(gradoSeleccionado);
+    	
+        docenteModel.insert();
+    }
 
     public static void mostrarLogin() {
     	  registerVista.getFrame().setVisible(false);
@@ -449,6 +495,13 @@ public class AuthController {
     public static void mostraragredoce() {
         if (adddoceView == null) {
         	adddoceView = new Adddoce();
+        	adddoceView.getBtnConfirm().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					registrarDocente();
+				}		
+        	});
             System.out.println("AuthController: adddoceView inicializado.");
         }
 

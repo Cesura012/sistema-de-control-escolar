@@ -39,9 +39,9 @@ public class Adddoce {
 	private JTextField textField_2;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JComboBox<Integer> dayComboBox;
-	private JComboBox<Integer> monthComboBox;
-	private JComboBox<Integer> yearComboBox;
+	public JComboBox<Integer> dayComboBox;
+	public JComboBox<Integer> monthComboBox;
+	public JComboBox<Integer> yearComboBox;
 	private JComboBox<String> gradeComboBox;
 	private JButton btnConfirm;
 	/**
@@ -385,9 +385,6 @@ public class Adddoce {
 		return frame;
 	}
 	
-	 public JTextField getTextField() {
-	        return textField;
-	    }
 	 
 	 public JButton getBtnRegresar() {
 	        return getBtnRegresar();
@@ -448,10 +445,33 @@ public class Adddoce {
 		private boolean isAlphabetic(String text) {
 		    return text.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+");
 		}
+		
+		public JButton getBtnConfirm() {
+			return btnConfirm;
+		}
 
+		public JTextField getTextField() {
+			return textField;
+		}
+		
+		public JTextField getTextField_1() {
+	        return textField_1;
+	    }
+		
+		public JTextField getTextField_2() {
+	        return textField_2;
+	    }
+		
+		public JTextField getTextField_4() {
+	        return textField_4;
+	    }
+		
+		public JTextField getTextField_5() {
+	        return textField_5;
+	    }
+		
+		public JComboBox<String> getGradeComboBox() {
+				return gradeComboBox;
+		}
 
-	
-	
-	
-	
 }

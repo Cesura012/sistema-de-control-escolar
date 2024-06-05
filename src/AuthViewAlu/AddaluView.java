@@ -300,10 +300,7 @@ public class AddaluView {
 			}
 		});
 		
-	
-        
-        
-    
+		
 	    JMenuBar menuBar = new JMenuBar();
 	    menuBar.setForeground(new Color(0, 0, 0));
 	    menuBar.setBackground(new Color(255, 255, 255));
