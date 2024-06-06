@@ -1,7 +1,5 @@
 package AuthViewAlu;
 
-
-
 import java.awt.EventQueue;
 import javax.swing.JComboBox;
 import java.time.Year;
@@ -37,19 +35,14 @@ public class DeleteAluView {
 	private JTextField textField_2;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JButton btnConfirm;
-	private JButton btnNewButton_1;
 	private JTextField textField_9;
 	private JTextField textField_10;
 	private JTextField textField_11;
 	private JTextField textField_12;
 	private JTextField textField_13;
+	private JButton btnConfirm;
+	private JButton btnNewButton_1;
 
-	
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -63,16 +56,10 @@ public class DeleteAluView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public DeleteAluView() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 890, 600);
@@ -198,28 +185,26 @@ public class DeleteAluView {
 		panel_3.add(lblNewLabel_11);
 		   
 		    
-		    textField_10 = new JTextField();
-		    textField_10.setBounds(205, 310, 250, 20);
-		    panel_3.add(textField_10);
-		    textField_10.setColumns(10);
+		textField_10 = new JTextField();
+		textField_10.setBounds(205, 310, 250, 20);
+		panel_3.add(textField_10);
+		textField_10.setColumns(10);
 		    
-		    textField_11 = new JTextField();
-		    textField_11.setBounds(235, 160, 40, 20);
-		    panel_3.add(textField_11);
-		    textField_11.setColumns(10);
+		textField_11 = new JTextField();
+		textField_11.setBounds(235, 160, 40, 20);
+		panel_3.add(textField_11);
+		textField_11.setColumns(10);
 		    
-		    textField_12 = new JTextField();
-		    textField_12.setBounds(308, 160, 40, 20);
-		    panel_3.add(textField_12);
-		    textField_12.setColumns(10);
+		textField_12 = new JTextField();
+		textField_12.setBounds(308, 160, 40, 20);
+		panel_3.add(textField_12);
+		textField_12.setColumns(10);
 		    
-		    textField_13 = new JTextField();
-		    textField_13.setBounds(380, 160, 70, 20);
-		    panel_3.add(textField_13);
-		    textField_13.setColumns(10);
+		textField_13 = new JTextField();
+		textField_13.setBounds(380, 160, 70, 20);
+		panel_3.add(textField_13);
+		textField_13.setColumns(10);
 
-		    
-		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(567, 100, 250, 300);
 		panel_4.setBackground(new Color(151, 203, 255));
@@ -368,6 +353,16 @@ public class DeleteAluView {
 		return frame;
 	}
 	
+	private boolean areFieldsValid() {
+		// Verifica si los campos están completos
+		if (textField.getText().isEmpty() && textField_1.getText().isEmpty() && textField_2.getText().isEmpty() &&
+			textField_11.getText().isEmpty() && textField_12.getText().isEmpty() && textField_13.getText().isEmpty() &&
+			textField_4.getText().isEmpty() && textField_5.getText().isEmpty() && textField_10.getText().isEmpty() && textField_9.getText().isEmpty()) {
+			return false;
+		}
+		return true;
+	}
+	
 	 public JTextField getTextField() {
 	        return textField;
 	 }
@@ -420,6 +415,4 @@ public class DeleteAluView {
 	 public JButton getBtnNewButton_1() {
 	        return btnNewButton_1;
 	 }
-	 
-	
 }

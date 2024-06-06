@@ -1,7 +1,5 @@
 package AuthViewAlu;
 
-
-
 import java.awt.EventQueue;
 import javax.swing.JComboBox;
 import java.time.Year;
@@ -37,18 +35,13 @@ public class EditaluView {
 	private JTextField textField_2;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JTextField textField_9;
 	private JComboBox<Integer> dayComboBox;
 	private JComboBox<Integer> monthComboBox;
 	private JComboBox<Integer> yearComboBox;
 	private JComboBox<String> gradeComboBox;
 	private JButton btnConfirm;
-	private JTextField textField_9;
 
-	
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -62,16 +55,10 @@ public class EditaluView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public EditaluView() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 890, 600);
@@ -314,11 +301,7 @@ public class EditaluView {
 				 JOptionPane.showMessageDialog(frame, "credencial descargada", "Créditos", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		
-	
-        
-        
-    
+
 	    JMenuBar menuBar = new JMenuBar();
 	    menuBar.setForeground(new Color(0, 0, 0));
 	    menuBar.setBackground(new Color(255, 255, 255));
@@ -339,10 +322,7 @@ public class EditaluView {
 	           	         btnNewButton.addActionListener(new ActionListener() {
 	           	            public void actionPerformed(ActionEvent e) {
 	           	            	AuthController.mostrarAdminalu();
-           	        			frame.dispose();
-	           	            	
-	           	            
-	           	              
+           	        			frame.dispose();	           	              
 	           	            }
 	           	        });
 	           	        	
@@ -404,14 +384,6 @@ public class EditaluView {
 		// TODO Auto-generated method stub
 		return frame;
 	}
-	
-	 public JTextField getTextField() {
-	        return textField;
-	    }
-	 
-	 public JButton getBtnRegresar() {
-	        return getBtnRegresar();
-	    }
 	 
 	 private void updateDays() {
 		    int selectedMonth = (int) monthComboBox.getSelectedItem();
@@ -468,4 +440,40 @@ public class EditaluView {
 		private boolean isAlphabetic(String text) {
 		    return text.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+");
 		}
+		
+		public JTextField getTextField() {
+			return textField;
+		}
+		
+		public JTextField getTextField_1() {
+			return textField_1;
+		}
+		
+		public JTextField getTextField_2() {
+			return textField_2;
+		}
+		
+		public JTextField getTextField_4() {
+			return textField_4;
+		}
+		
+		public JTextField getTextField_5() {
+			return textField_5;
+		}
+		
+		public JTextField getTextField_9() {
+			return textField_9;
+		}
+		
+		 public JButton getBtnConfirm() {
+		        return btnConfirm;
+		 }
+		 
+		public JButton getBtnRegresar() {
+			return getBtnRegresar();
+		}
+		
+		public JComboBox<String> getGradeComboBox() {
+			return gradeComboBox;
+	}
 }

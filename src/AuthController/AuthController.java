@@ -265,8 +265,10 @@ public class AuthController {
     //Eliminar alumno
     private static void buscarAlumno() {
         try {
-            int numControl = Integer.parseInt(deletaluView.getTextField_9().getText().trim());
+        	
+            int numControl = Integer.parseInt(deletaluView.getTextField_9().getText().trim());      
             Alumno alumno = Alumno.buscarPorNumControl(numControl);
+            
             if (alumno != null) {
             	deletaluView.getTextField().setText(alumno.getNombre());
             	deletaluView.getTextField_1().setText(alumno.getApellido_paterno());
@@ -289,12 +291,13 @@ public class AuthController {
 
     private static void eliminarAlumno() {
         try {
+        	
             int numControl = Integer.parseInt(deletaluView.getTextField_9().getText().trim());
             Alumno alumno = Alumno.buscarPorNumControl(numControl);
+            
             if (alumno != null) {
                 if (alumno.delete()) {
-                    JOptionPane.showMessageDialog(deletaluView.getFrame(), "Alumno eliminado correctamente");
-                    clearFields();
+                    clearFieldsAlumn();
                 } else {
                     JOptionPane.showMessageDialog(deletaluView.getFrame(), "Error al eliminar el alumno", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -306,7 +309,7 @@ public class AuthController {
         }
     }
 
-    private static void clearFields() {
+    private static void clearFieldsAlumn() {
     	deletaluView.getTextField_9().setText("");
     	deletaluView.getTextField().setText("");
     	deletaluView.getTextField_1().setText("");
@@ -363,6 +366,66 @@ public class AuthController {
         docenteModel.setGrado_estudios(gradoSeleccionado);
     	
         docenteModel.insert();
+    }
+    
+  //Eliminar docente
+    private static void buscarDocente() {
+        try {
+        	
+            int ID_Docente = Integer.parseInt(deletdoceView.getTextField_9().getText().trim());      
+            Docente docente = Docente.buscarPorID(ID_Docente);
+            
+            if (docente != null) {
+            	deletdoceView.getTextField().setText(docente.getNombre());
+            	deletdoceView.getTextField_1().setText(docente.getApellido_paterno());
+            	deletdoceView.getTextField_2().setText(docente.getApellido_materno());
+            	deletdoceView.getTextField_4().setText(docente.getCorreo_electronico());
+            	deletdoceView.getTextField_5().setText(docente.getTelefono());
+            	deletdoceView.getTextField_10().setText(String.valueOf(docente.getGrado_estudios()));
+                // Formato de la fecha de nacimiento
+                Date fechaNacimiento = docente.getFecha_nacimiento();
+                deletdoceView.getTextField_11().setText(String.valueOf(fechaNacimiento.getDate()));
+                deletdoceView.getTextField_12().setText(String.valueOf(fechaNacimiento.getMonth() + 1));
+                deletdoceView.getTextField_13().setText(String.valueOf(fechaNacimiento.getYear() + 1900));
+            } else {
+                JOptionPane.showMessageDialog(deletdoceView.getFrame(), "Docente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(deletdoceView.getFrame(), "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private static void deleteDocente() {
+        try {
+        	
+            int ID_Docente = Integer.parseInt(deletdoceView.getTextField_9().getText().trim());
+            Docente docente = Docente.buscarPorID(ID_Docente);
+            
+            if (docente != null) {
+                if (docente.delete()) {
+                    clearFieldsDoce();
+                } else {
+                    JOptionPane.showMessageDialog(deletaluView.getFrame(), "Error al eliminar al docente", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(deletaluView.getFrame(), "Docente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(deletaluView.getFrame(), "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private static void clearFieldsDoce() {
+    	deletdoceView.getTextField_9().setText("");
+    	deletdoceView.getTextField().setText("");
+    	deletdoceView.getTextField_1().setText("");
+    	deletdoceView.getTextField_2().setText("");
+    	deletdoceView.getTextField_4().setText("");
+    	deletdoceView.getTextField_5().setText("");
+    	deletdoceView.getTextField_10().setText("");
+    	deletdoceView.getTextField_11().setText("");
+    	deletdoceView.getTextField_12().setText("");
+    	deletdoceView.getTextField_13().setText("");
     }
 
     public static void mostrarLogin() {
@@ -614,6 +677,22 @@ public class AuthController {
     public static void mostrardeletdoce() {
         if (deletdoceView == null) {
         	deletdoceView = new DeletedoceView();
+        	deletdoceView.getBtnBuscar().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					buscarDocente();				
+				}      		
+        	});
+        	
+        	deletdoceView.getBtnConfirm().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					deleteDocente();
+					
+				}
+        	});
             System.out.println("AuthController: deletdoceView inicializado.");
         }
 

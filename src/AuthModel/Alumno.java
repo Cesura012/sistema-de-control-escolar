@@ -103,7 +103,7 @@ public class Alumno {
 		 
 	    try (Connection conn = db.getConnection()) {
 	        	//Consulta
-	        	String sql = "INSERT INTO ALUMNO (nombre, apellido_paterno, apellido_materno, fecha_nacimiento, correo_electronico, telefono, grado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	        	String sql = "INSERT INTO Alumnos (Nombre, Apellido_Paterno, Apellido_Materno, Fecha_Nacimiento, Correo_Electronico, Telefono, Grado) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	            PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	            statement.setString(1, this.nombre);
 	            statement.setString(2, this.apellido_paterno);
@@ -139,21 +139,21 @@ public class Alumno {
         
         try (Connection conn = db.getConnection()) {
         	//Consulta
-            String sql = "SELECT * FROM ALUMNO WHERE num_control = ?";
+            String sql = "SELECT * FROM Alumnos WHERE Num_control = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, numControl);
             
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 alumno = new Alumno();
-                alumno.setNum_control(resultSet.getInt("num_control"));
-                alumno.setNombre(resultSet.getString("nombre"));
-                alumno.setApellido_paterno(resultSet.getString("apellido_paterno"));
-                alumno.setApellido_materno(resultSet.getString("apellido_materno"));
-                alumno.setFecha_nacimiento(resultSet.getDate("fecha_nacimiento"));
-                alumno.setCorreo_electronico(resultSet.getString("correo_electronico"));
-                alumno.setTelefono(resultSet.getString("telefono"));
-                alumno.setGrado(resultSet.getInt("grado"));
+                alumno.setNum_control(resultSet.getInt("Num_control"));
+                alumno.setNombre(resultSet.getString("Nombre"));
+                alumno.setApellido_paterno(resultSet.getString("Apellido_Paterno"));
+                alumno.setApellido_materno(resultSet.getString("Apellido_Materno"));
+                alumno.setFecha_nacimiento(resultSet.getDate("Fecha_Nacimiento"));
+                alumno.setCorreo_electronico(resultSet.getString("Correo_Electronico"));
+                alumno.setTelefono(resultSet.getString("Telefono"));
+                alumno.setGrado(resultSet.getInt("Grado"));
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -168,7 +168,7 @@ public class Alumno {
 
 	    try (Connection conn = db.getConnection()) {
 	    	//Consulta
-	        String sql = "DELETE FROM ALUMNO WHERE num_control = ?";
+	        String sql = "DELETE FROM Alumnos WHERE Num_control = ?";
 	        PreparedStatement statement = conn.prepareStatement(sql);
 	        statement.setInt(1, this.num_control);
 	        int rowsDeleted = statement.executeUpdate();
@@ -179,5 +179,5 @@ public class Alumno {
 	        return false;
 	    }
 	}
-
+		
 }

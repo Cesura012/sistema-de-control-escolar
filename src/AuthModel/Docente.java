@@ -11,7 +11,7 @@ import dataBase.DB;
 
 public class Docente {
 	
-	private int num_control;
+	private int ID_Docente;
 	private String nombre, apellido_paterno, apellido_materno, correo_electronico, telefono, grado_estudios;
 	private Date fecha_nacimiento;
 
@@ -19,9 +19,9 @@ public class Docente {
 
 	}
 
-	public Docente(int num_control, String grado_estudios, String nombre, String apellido_paterno, String apellido_materno,
+	public Docente(int ID_Docente, String grado_estudios, String nombre, String apellido_paterno, String apellido_materno,
 			String correo_electronico, String telefono, Date fecha_nacimiento) {
-		this.num_control = num_control;
+		this.ID_Docente = ID_Docente;
 		this.grado_estudios = grado_estudios;
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
@@ -31,12 +31,12 @@ public class Docente {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
-	public int getNum_control() {
-		return num_control;
+	public int getID_Docente() {
+		return ID_Docente;
 	}
 
-	public void setNum_control(int num_control) {
-		this.num_control = num_control;
+	public void setID_Docente(int ID_Docente) {
+		this.ID_Docente = ID_Docente;
 	}
 
 	public String getGrado_estudios() {
@@ -100,7 +100,7 @@ public class Docente {
 		 
 	    try (Connection conn = db.getConnection()) {
 	        	//Consulta
-	        	String sql = "INSERT INTO DOCENTE (nombre, apellido_paterno, apellido_materno, fecha_nacimiento, correo_electronico, telefono, grado_estudios) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	        	String sql = "INSERT INTO Docentes (Nombre, Apellido_Paterno, Apellido_Materno, Fecha_Nacimiento, Correo_Electronico, Telefono, Grado_Estudios) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	            PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	            statement.setString(1, this.nombre);
 	            statement.setString(2, this.apellido_paterno);
@@ -119,7 +119,7 @@ public class Docente {
 	            if (rowsInserted > 0) {
 	                ResultSet generatedKeys = statement.getGeneratedKeys();
 	                if (generatedKeys.next()) {
-	                    this.num_control = generatedKeys.getInt(1); 
+	                    this.ID_Docente = generatedKeys.getInt(1); 
 	                }
 	            }
 
@@ -130,5 +130,50 @@ public class Docente {
 	        }
 	}
 	
+	public static Docente buscarPorID(int ID_Docente) {
+        DB db = new DB();
+        Docente docente = null;
+        
+        try (Connection conn = db.getConnection()) {
+        	//Consulta
+            String sql = "SELECT * FROM Docentes WHERE ID_Docente = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, ID_Docente);
+            
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+            	docente = new Docente();
+            	docente.setID_Docente(resultSet.getInt("ID_Docente"));
+            	docente.setNombre(resultSet.getString("Nombre"));
+            	docente.setApellido_paterno(resultSet.getString("Apellido_Paterno"));
+            	docente.setApellido_materno(resultSet.getString("Apellido_Materno"));
+            	docente.setFecha_nacimiento(resultSet.getDate("Fecha_Nacimiento"));
+            	docente.setCorreo_electronico(resultSet.getString("Correo_Electronico"));
+            	docente.setTelefono(resultSet.getString("Telefono"));
+            	docente.setGrado_estudios(resultSet.getString("Grado_Estudios"));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        
+        return docente;
+    }
+	
+	public boolean delete() {
+	    DB db = new DB();
+
+	    try (Connection conn = db.getConnection()) {
+	    	//Consulta
+	        String sql = "DELETE FROM Docentes WHERE ID_Docente = ?";
+	        PreparedStatement statement = conn.prepareStatement(sql);
+	        statement.setInt(1, this.ID_Docente);
+	        int rowsDeleted = statement.executeUpdate();
+	        
+	        return rowsDeleted > 0;
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}	
 
 }

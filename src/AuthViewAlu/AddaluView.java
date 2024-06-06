@@ -45,11 +45,6 @@ public class AddaluView {
 	private JComboBox<String> gradeComboBox;
 	private JButton btnConfirm;
 
-	
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -63,16 +58,10 @@ public class AddaluView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public AddaluView() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 890, 600);

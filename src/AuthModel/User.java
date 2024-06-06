@@ -28,7 +28,7 @@ public class User {
 
         try (Connection conn = db.getConnection()) {
         	//Consulta
-            String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+            String sql = "SELECT * FROM admin WHERE gmail = ? AND password = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, this.gmail);
             statement.setString(2, this.password);
@@ -46,7 +46,7 @@ public class User {
 
         try (Connection conn = db.getConnection()) {
         	//Consulta
-            String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+            String sql = "INSERT INTO admin (gmail, password) VALUES (?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, this.gmail);
             statement.setString(2, this.password);

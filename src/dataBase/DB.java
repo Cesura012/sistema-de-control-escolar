@@ -8,9 +8,9 @@ import java.sql.SQLException;
 
 //                                                  Colocar aqui tu base de datos
 public class DB {
-    private static final String URL = "jdbc:mysql://sql.freedb.tech:3306/freedb_programacionDataBase";
-    private static final String USER = "freedb_mchlDeveloper";
-    private static final String PASS = "ZbZeqqUR@P!wb4r";
+    private static final String URL = "jdbc:mysql://monorail.proxy.rlwy.net:14713/railway";
+    private static final String USER = "root";
+    private static final String PASS = "OVSDgbHAUpatRMXjPBIjrVytUKlvDSEL";
 
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");

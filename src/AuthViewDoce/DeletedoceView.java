@@ -31,12 +31,14 @@ public class DeletedoceView {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-	
-	
+	private JTextField textField_9;
+	private JTextField textField_10;
+	private JTextField textField_11;
+	private JTextField textField_12;
+	private JTextField textField_13;
+	private JButton btnConfirm;
+	private JButton buscar;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,16 +52,10 @@ public class DeletedoceView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public DeletedoceView() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 890, 600);
@@ -185,22 +181,22 @@ public class DeletedoceView {
 		panel_3.add(lblNewLabel_11);
 		   
 		    
-		    JTextField textField_10 = new JTextField();
+		    textField_10 = new JTextField();
 		    textField_10.setBounds(205, 310, 250, 20);
 		    panel_3.add(textField_10);
 		    textField_10.setColumns(10);
 		    
-		    JTextField textField_11 = new JTextField();
+		    textField_11 = new JTextField();
 		    textField_11.setBounds(235, 160, 40, 20);
 		    panel_3.add(textField_11);
 		    textField_11.setColumns(10);
 		    
-		    JTextField textField_12 = new JTextField();
+		    textField_12 = new JTextField();
 		    textField_12.setBounds(308, 160, 40, 20);
 		    panel_3.add(textField_12);
 		    textField_12.setColumns(10);
 		    
-		    JTextField textField_13 = new JTextField();
+		    textField_13 = new JTextField();
 		    textField_13.setBounds(380, 160, 70, 20);
 		    panel_3.add(textField_13);
 		    textField_13.setColumns(10);
@@ -223,16 +219,16 @@ public class DeletedoceView {
 		lblNewLabel_1_1.setBounds(0, 0, 250, 14);
 		panel_2_1_1.add(lblNewLabel_1_1);
 		
-		JButton btnNewButton_1 = new JButton("Confirmar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnConfirm = new JButton("Confirmar");
+		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 JOptionPane.showMessageDialog(frame, "Informacion descargadaer", "Créditos", JOptionPane.INFORMATION_MESSAGE);
+				 JOptionPane.showMessageDialog(frame, "Docente eliminado", "Créditos", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(0, 64, 128));
-		btnNewButton_1.setBounds(620, 417, 170, 40);
-		panel.add(btnNewButton_1);
+		btnConfirm.setForeground(new Color(255, 255, 255));
+		btnConfirm.setBackground(new Color(0, 64, 128));
+		btnConfirm.setBounds(620, 417, 170, 40);
+		panel.add(btnConfirm);
 		
 		JButton btnNewButton_2 = new JButton("Cancelar");
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
@@ -250,12 +246,12 @@ public class DeletedoceView {
 		lblNewLabel_12.setBounds(50, 100, 150, 14);
 		panel.add(lblNewLabel_12);
 		
-		JTextField textField_9 = new JTextField();
+		textField_9 = new JTextField();
 		textField_9.setBounds(210, 100, 170, 20);
 		panel.add(textField_9);
 		textField_9.setColumns(10);
 		
-		JButton buscar = new JButton("Buscar");
+		buscar = new JButton("Buscar");
 		buscar.setForeground(new Color(255, 255, 255));
 		buscar.setBackground(new Color(0, 64, 128));
 		buscar.setBounds(414, 98, 89, 23);
@@ -356,7 +352,51 @@ public class DeletedoceView {
 	
 	 public JTextField getTextField() {
 	        return textField;
-	    }
+	 }
+	 
+	 public JTextField getTextField_1() {
+	        return textField_1;
+	 }
+	 
+	 public JTextField getTextField_2() {
+	        return textField_2;
+	 }
+	 
+	 public JTextField getTextField_4() {
+	        return textField_4;
+	 }
+	 
+	 public JTextField getTextField_5() {
+	        return textField_5;
+	 }
+	 
+	 public JTextField getTextField_9() {
+	        return textField_9;
+	 }
+	 
+	 public JTextField getTextField_10() {
+	        return textField_10;
+	 }
+	 
+	 public JTextField getTextField_11() {
+	        return textField_11;
+	 }
+	 
+	 public JTextField getTextField_12() {
+	        return textField_12;
+	 }
+	 
+	 public JTextField getTextField_13() {
+	        return textField_13;
+	 }
+	 
+	 public JButton getBtnConfirm() {
+	        return btnConfirm;
+	 }
+	 
+	 public JButton getBtnBuscar() {
+	        return buscar;
+	 }
 	 
 	 public JButton getBtnRegresar() {
 	        return getBtnRegresar();
