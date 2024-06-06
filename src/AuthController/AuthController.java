@@ -405,13 +405,13 @@ public class AuthController {
                 if (docente.delete()) {
                     clearFieldsDoce();
                 } else {
-                    JOptionPane.showMessageDialog(deletaluView.getFrame(), "Error al eliminar al docente", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(deletdoceView.getFrame(), "Error al eliminar al docente", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(deletaluView.getFrame(), "Docente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(deletdoceView.getFrame(), "Docente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(deletaluView.getFrame(), "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(deletdoceView.getFrame(), "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     

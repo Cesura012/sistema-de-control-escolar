@@ -226,8 +226,7 @@ public class DeleteAluView {
 		btnConfirm = new JButton("Confirmar");
 	    btnConfirm.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
-	            if (areFieldsValid()) {
-	               
+	            if (areFieldsValid()) {	               
 	                JOptionPane.showMessageDialog(frame, "Alumno eliminado.");
 	            } else {
 	               
@@ -358,9 +357,9 @@ public class DeleteAluView {
 		if (textField.getText().isEmpty() && textField_1.getText().isEmpty() && textField_2.getText().isEmpty() &&
 			textField_11.getText().isEmpty() && textField_12.getText().isEmpty() && textField_13.getText().isEmpty() &&
 			textField_4.getText().isEmpty() && textField_5.getText().isEmpty() && textField_10.getText().isEmpty() && textField_9.getText().isEmpty()) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 	
 	 public JTextField getTextField() {
