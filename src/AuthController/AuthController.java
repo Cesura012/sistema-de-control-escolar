@@ -308,7 +308,7 @@ public class AuthController {
             JOptionPane.showMessageDialog(deletaluView.getFrame(), "Ingrese un número de control válido", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     private static void clearFieldsAlumn() {
     	deletaluView.getTextField_9().setText("");
     	deletaluView.getTextField().setText("");
@@ -321,8 +321,67 @@ public class AuthController {
     	deletaluView.getTextField_12().setText("");
     	deletaluView.getTextField_13().setText("");
     }
-
     
+    //editar Alumno
+    public static void buscarAlumn() {
+        try {
+            int numControl = Integer.parseInt(editaluView.getTextField_9().getText().trim());
+            Alumno alumno = Alumno.buscarPorNumControl(numControl);
+            
+            if (alumno != null) {
+                editaluView.getTextField().setText(alumno.getNombre());
+                editaluView.getTextField_1().setText(alumno.getApellido_paterno());
+                editaluView.getTextField_2().setText(alumno.getApellido_materno());
+                editaluView.getTextField_4().setText(alumno.getCorreo_electronico());
+                editaluView.getTextField_5().setText(alumno.getTelefono());
+                editaluView.dayComboBox.setSelectedItem(alumno.getFecha_nacimiento().getDate());
+                editaluView.monthComboBox.setSelectedItem(alumno.getFecha_nacimiento().getMonth() + 1);
+                editaluView.yearComboBox.setSelectedItem(alumno.getFecha_nacimiento().getYear() + 1900);
+                editaluView.gradeComboBox.setSelectedItem(convertirGradoAString(alumno.getGrado()));
+            } else {
+                JOptionPane.showMessageDialog(editaluView.getFrame(), "Alumno no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(editaluView.getFrame(), "Ingrese un número de control válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public static void editarAlumno() {
+        try {
+            int numControl = Integer.parseInt(editaluView.getTextField_9().getText().trim());
+            Alumno alumno = Alumno.buscarPorNumControl(numControl);
+
+            if (alumno != null) {
+                alumno.setNombre(editaluView.getTextField().getText());
+                alumno.setApellido_paterno(editaluView.getTextField_1().getText());
+                alumno.setApellido_materno(editaluView.getTextField_2().getText());
+                int day = (int) editaluView.dayComboBox.getSelectedItem();
+                int month = (int) editaluView.monthComboBox.getSelectedItem();
+                int year = (int) editaluView.yearComboBox.getSelectedItem();
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month - 1);
+                calendar.set(Calendar.DAY_OF_MONTH, day);
+                alumno.setFecha_nacimiento(calendar.getTime());
+                alumno.setCorreo_electronico(editaluView.getTextField_4().getText());
+                alumno.setTelefono(editaluView.getTextField_5().getText());
+                String gradoSeleccionado = (String) editaluView.getGradeComboBox().getSelectedItem();
+                int grado = convertirGradoAEntero(gradoSeleccionado);
+                alumno.setGrado(grado);
+
+                if (alumno.update()) {
+                    JOptionPane.showMessageDialog(editaluView.getFrame(), "Alumno actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(editaluView.getFrame(), "Error al actualizar el alumno", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(editaluView.getFrame(), "Alumno no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(editaluView.getFrame(), "Ingrese un número de control válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     //Agregar Docente
     public static void registrarDocente() {
     	Docente docenteModel = new Docente();
@@ -427,7 +486,67 @@ public class AuthController {
     	deletdoceView.getTextField_12().setText("");
     	deletdoceView.getTextField_13().setText("");
     }
+    
+    //editar Docente
+    public static void buscarDoce() {
+        try {
+            int ID_Docente = Integer.parseInt(editdoceView.getTextField_9().getText().trim());
+            Docente docente = Docente.buscarPorID(ID_Docente);
+            
+            if (docente != null) {
+            	editdoceView.getTextField().setText(docente.getNombre());
+            	editdoceView.getTextField_1().setText(docente.getApellido_paterno());
+            	editdoceView.getTextField_2().setText(docente.getApellido_materno());
+            	editdoceView.getTextField_4().setText(docente.getCorreo_electronico());
+            	editdoceView.getTextField_5().setText(docente.getTelefono());
+            	editdoceView.dayComboBox.setSelectedItem(docente.getFecha_nacimiento().getDate());
+            	editdoceView.monthComboBox.setSelectedItem(docente.getFecha_nacimiento().getMonth() + 1);
+            	editdoceView.yearComboBox.setSelectedItem(docente.getFecha_nacimiento().getYear() + 1900);
+            	editdoceView.gradeComboBox.setSelectedItem(docente.getGrado_estudios());
+            } else {
+                JOptionPane.showMessageDialog(editdoceView.getFrame(), "Docente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(editdoceView.getFrame(), "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public static void editarDocente() {
+        try {
+            int ID_Docente = Integer.parseInt(editdoceView.getTextField_9().getText().trim());
+            Docente docente = Docente.buscarPorID(ID_Docente);
 
+            if (docente != null) {
+            	docente.setNombre(editdoceView.getTextField().getText());
+            	docente.setApellido_paterno(editdoceView.getTextField_1().getText());
+            	docente.setApellido_materno(editdoceView.getTextField_2().getText());
+                int day = (int) editdoceView.dayComboBox.getSelectedItem();
+                int month = (int) editdoceView.monthComboBox.getSelectedItem();
+                int year = (int) editdoceView.yearComboBox.getSelectedItem();
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month - 1);
+                calendar.set(Calendar.DAY_OF_MONTH, day);
+                docente.setFecha_nacimiento(calendar.getTime());
+                docente.setCorreo_electronico(editdoceView.getTextField_4().getText());
+                docente.setTelefono(editdoceView.getTextField_5().getText());
+                String gradoSeleccionado = (String) editdoceView.getGradeComboBox().getSelectedItem();
+                //int grado = convertirGradoAEntero(gradoSeleccionado);
+                docente.setGrado_estudios(gradoSeleccionado);
+
+                if (docente.update()) {
+                    JOptionPane.showMessageDialog(editdoceView.getFrame(), "Docente actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(editdoceView.getFrame(), "Error al actualizar al Docente", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(editdoceView.getFrame(), "Docente no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(editdoceView.getFrame(), "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     public static void mostrarLogin() {
     	  registerVista.getFrame().setVisible(false);
         if (menuAdminVista != null) {
@@ -556,6 +675,21 @@ public class AuthController {
     public static void mostraredialu() {
         if (editaluView == null) {
         	editaluView = new EditaluView();
+        	editaluView.getBtnNewButton_1().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					buscarAlumn();
+				}       		
+        	});
+        	
+        	editaluView.getBtnConfirm().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					editarAlumno();
+					
+				}
+        	});
             System.out.println("AuthController: editaluView inicializado.");
         }
 
@@ -657,6 +791,19 @@ public class AuthController {
     public static void mostraredidoce() {
         if (editdoceView == null) {
         	editdoceView = new EditdoceView();
+        	editdoceView.getBtnNewButton_1().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					buscarDoce();				
+				}
+        	});
+        	
+        	editdoceView.getBtnConfirm().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					editarDocente();				
+				}
+        	});
             System.out.println("AuthController: editdoceView inicializado.");
         }
 
@@ -893,6 +1040,22 @@ public class AuthController {
                 return 9;
             default:
                 throw new IllegalArgumentException("Grado no válido: " + gradoSeleccionado);
+        }
+    }
+    
+    private static String convertirGradoAString(int grado) {
+        switch (grado) {
+            case 1: return "Primer semestre";
+            case 2: return "Segundo semestre";
+            case 3: return "Tercero semestre";
+            case 4: return "Cuarto semestre";
+            case 5: return "Quinto semestre";
+            case 6: return "Sexto semestre";
+            case 7: return "Septimo semestre";
+            case 8: return "Octavo semestre";
+            case 9: return "Noveno semestre";
+            
+            default: return "";
         }
     }
 }

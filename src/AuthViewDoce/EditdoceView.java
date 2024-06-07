@@ -1,7 +1,5 @@
 package AuthViewDoce;
 
-
-
 import java.awt.EventQueue;
 
 import javax.swing.Box;
@@ -39,11 +37,13 @@ public class EditdoceView {
 	private JTextField textField_2;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JComboBox<Integer> dayComboBox;
-	private JComboBox<Integer> monthComboBox;
-	private JComboBox<Integer> yearComboBox;
-	private JComboBox<String> gradeComboBox;
+	private JTextField textField_9;
+	public JComboBox<Integer> dayComboBox;
+	public JComboBox<Integer> monthComboBox;
+	public JComboBox<Integer> yearComboBox;
+	public JComboBox<String> gradeComboBox;
 	private JButton btnConfirm;
+	private JButton btnNewButton_1;
 	/**
 	 * Launch the application.
 	 */
@@ -301,12 +301,12 @@ public class EditdoceView {
 		lblNewLabel_12.setBounds(50, 100, 150, 14);
 		panel.add(lblNewLabel_12);
 		
-		JTextField textField_9 = new JTextField();
+		textField_9 = new JTextField();
 		textField_9.setBounds(210, 100, 170, 20);
 		panel.add(textField_9);
 		textField_9.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Buscar");
+		btnNewButton_1 = new JButton("Buscar");
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 64, 128));
 		btnNewButton_1.setBounds(414, 98, 89, 23);
@@ -404,14 +404,6 @@ public class EditdoceView {
 		return frame;
 	}
 	
-	 public JTextField getTextField() {
-	        return textField;
-	    }
-	 
-	 public JButton getBtnRegresar() {
-	        return getBtnRegresar();
-	    }
-	 
 	 private void updateDays() {
 		    int selectedMonth = (int) monthComboBox.getSelectedItem();
 		    int selectedYear = (int) yearComboBox.getSelectedItem();
@@ -469,6 +461,45 @@ public class EditdoceView {
 		}
 
 
+		public JTextField getTextField() {
+			return textField;
+		}
+		
+		public JTextField getTextField_1() {
+			return textField_1;
+		}
+		
+		public JTextField getTextField_2() {
+			return textField_2;
+		}
+		
+		public JTextField getTextField_4() {
+			return textField_4;
+		}
+		
+		public JTextField getTextField_5() {
+			return textField_5;
+		}
+		
+		public JTextField getTextField_9() {
+			return textField_9;
+		}
+		
+		 public JButton getBtnConfirm() {
+		        return btnConfirm;
+		 }
+		 
+		 public JComboBox<String> getGradeComboBox() {
+			 return gradeComboBox;
+		 }
+		 
+		 public JButton getBtnNewButton_1() {
+			 return btnNewButton_1;
+		 }
+		
+		public JButton getBtnRegresar() {
+			return getBtnRegresar();
+		}
 	
 	
 	

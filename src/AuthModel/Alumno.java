@@ -179,5 +179,28 @@ public class Alumno {
 	        return false;
 	    }
 	}
-		
+	
+	public boolean update() {
+	    DB db = new DB();
+
+	    try (Connection conn = db.getConnection()) {
+	        String sql = "UPDATE Alumnos SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, Fecha_Nacimiento = ?, Correo_Electronico = ?, Telefono = ?, Grado = ? WHERE Num_control = ?";
+	        PreparedStatement statement = conn.prepareStatement(sql);
+	        statement.setString(1, this.nombre);
+	        statement.setString(2, this.apellido_paterno);
+	        statement.setString(3, this.apellido_materno);
+	        java.sql.Date fechaSQL = new java.sql.Date(this.fecha_nacimiento.getTime());
+	        statement.setDate(4, fechaSQL);
+	        statement.setString(5, this.correo_electronico);
+	        statement.setString(6, this.telefono);
+	        statement.setInt(7, this.grado);
+	        statement.setInt(8, this.num_control);
+
+	        int rowsUpdated = statement.executeUpdate();
+	        return rowsUpdated > 0;
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}		
 }

@@ -36,11 +36,12 @@ public class EditaluView {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_9;
-	private JComboBox<Integer> dayComboBox;
-	private JComboBox<Integer> monthComboBox;
-	private JComboBox<Integer> yearComboBox;
-	private JComboBox<String> gradeComboBox;
+	public JComboBox<Integer> dayComboBox;
+	public JComboBox<Integer> monthComboBox;
+	public JComboBox<Integer> yearComboBox;
+	public JComboBox<String> gradeComboBox;
 	private JButton btnConfirm;
+	private JButton btnNewButton_1;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -291,7 +292,7 @@ public class EditaluView {
 		panel.add(textField_9);
 		textField_9.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Buscar");
+		btnNewButton_1 = new JButton("Buscar");
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 64, 128));
 		btnNewButton_1.setBounds(414, 98, 89, 23);
@@ -469,11 +470,16 @@ public class EditaluView {
 		        return btnConfirm;
 		 }
 		 
+		 public JComboBox<String> getGradeComboBox() {
+			 return gradeComboBox;
+		 }
+		 
+		 public JButton getBtnNewButton_1() {
+			 return btnNewButton_1;
+		 }
+		 
 		public JButton getBtnRegresar() {
 			return getBtnRegresar();
 		}
 		
-		public JComboBox<String> getGradeComboBox() {
-			return gradeComboBox;
-	}
 }
