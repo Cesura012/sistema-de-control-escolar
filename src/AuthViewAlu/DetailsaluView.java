@@ -27,18 +27,13 @@ public class DetailsaluView {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	
-	
+	private JTextField textField_10;
+	private JTextField textField_11;
+	private JTextField textField_12;
+	private JTextField textField_13;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,16 +47,10 @@ public class DetailsaluView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public DetailsaluView() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 890, 600);
@@ -144,10 +133,10 @@ public class DetailsaluView {
 		lblNewLabel_5.setBounds(30, 176, 170, 18);
 		panel_3.add(lblNewLabel_5);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(235, 175, 40, 20);
-		panel_3.add(textField_3);
-		textField_3.setColumns(10);
+		textField_11 = new JTextField();
+		textField_11.setBounds(235, 175, 40, 20);
+		panel_3.add(textField_11);
+		textField_11.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Correo electrónico:");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -174,10 +163,10 @@ public class DetailsaluView {
 		lblNewLabel_8.setBounds(30, 335, 70, 14);
 		panel_3.add(lblNewLabel_8);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(205, 334, 250, 20);
-		panel_3.add(textField_6);
-		textField_6.setColumns(10);
+		textField_10 = new JTextField();
+		textField_10.setBounds(205, 334, 250, 20);
+		panel_3.add(textField_10);
+		textField_10.setColumns(10);
 		
 		JLabel lblNewLabel_9 = new JLabel("DD:");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -189,20 +178,20 @@ public class DetailsaluView {
 		lblNewLabel_10.setBounds(280, 180, 46, 14);
 		panel_3.add(lblNewLabel_10);
 		
-		textField_7 = new JTextField();
-		textField_7.setBounds(310, 177, 40, 20);
-		panel_3.add(textField_7);
-		textField_7.setColumns(10);
+		textField_12 = new JTextField();
+		textField_12.setBounds(310, 177, 40, 20);
+		panel_3.add(textField_12);
+		textField_12.setColumns(10);
 		
 		JLabel lblNewLabel_11 = new JLabel("AA:");
 		lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_11.setBounds(355, 180, 46, 14);
 		panel_3.add(lblNewLabel_11);
 		
-		textField_8 = new JTextField();
-		textField_8.setBounds(382, 177, 70, 20);
-		panel_3.add(textField_8);
-		textField_8.setColumns(10);
+		textField_13 = new JTextField();
+		textField_13.setBounds(382, 177, 70, 20);
+		panel_3.add(textField_13);
+		textField_13.setColumns(10);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(567, 100, 250, 300);
@@ -244,10 +233,6 @@ public class DetailsaluView {
 			}
 		});
 		
-	
-        
-        
-    
 	    JMenuBar menuBar = new JMenuBar();
 	    menuBar.setForeground(new Color(0, 0, 0));
 	    menuBar.setBackground(new Color(255, 255, 255));
@@ -269,9 +254,7 @@ public class DetailsaluView {
 	           	            public void actionPerformed(ActionEvent e) {
 	           	            	AuthController.mostrarRegistroAlumnos();
            	        			frame.dispose();
-	           	            	
-	           	            
-	           	              
+              
 	           	            }
 	           	        });
 	           	        	
@@ -334,11 +317,44 @@ public class DetailsaluView {
 		return frame;
 	}
 	
-	 public JTextField getTextField() {
-	        return textField;
-	    }
+	public JTextField getTextField() {
+        return textField;
+	}
+ 
+	public JTextField getTextField_1() {
+        return textField_1;
+	}
+ 
+	public JTextField getTextField_2() {
+        return textField_2;
+	}
+ 
+	public JTextField getTextField_4() {
+        return textField_4;
+	}
+ 
+	public JTextField getTextField_5() {
+        return textField_5;
+	}
+ 
+ 
+	public JTextField getTextField_10() {
+        return textField_10;
+	}
+ 
+	public JTextField getTextField_11() {
+        return textField_11;
+	}
+ 
+	public JTextField getTextField_12() {
+        return textField_12;
+	}
+ 
+	public JTextField getTextField_13() {
+        return textField_13;
+	}
 	 
-	 public JButton getBtnRegresar() {
+	public JButton getBtnRegresar() {
 	        return getBtnRegresar();
-	    }
+	}
 }

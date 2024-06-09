@@ -7,8 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import dataBase.DB;
 
@@ -102,14 +104,13 @@ public class Alumno {
 		DB db = new DB();
 		 
 	    try (Connection conn = db.getConnection()) {
-	        	//Consulta
+
 	        	String sql = "INSERT INTO Alumnos (Nombre, Apellido_Paterno, Apellido_Materno, Fecha_Nacimiento, Correo_Electronico, Telefono, Grado) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	            PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	            statement.setString(1, this.nombre);
 	            statement.setString(2, this.apellido_paterno);
 	            statement.setString(3, this.apellido_materno);
 	            
-	            // Convertir java.util.Date a java.sql.Date
 	            java.sql.Date fechaSQL = new java.sql.Date(this.fecha_nacimiento.getTime());
 	            statement.setDate(4, fechaSQL);
 	            
@@ -138,7 +139,7 @@ public class Alumno {
         Alumno alumno = null;
         
         try (Connection conn = db.getConnection()) {
-        	//Consulta
+
             String sql = "SELECT * FROM Alumnos WHERE Num_control = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, numControl);
@@ -167,7 +168,7 @@ public class Alumno {
 	    DB db = new DB();
 
 	    try (Connection conn = db.getConnection()) {
-	    	//Consulta
+
 	        String sql = "DELETE FROM Alumnos WHERE Num_control = ?";
 	        PreparedStatement statement = conn.prepareStatement(sql);
 	        statement.setInt(1, this.num_control);
@@ -202,5 +203,27 @@ public class Alumno {
 	        e.printStackTrace();
 	        return false;
 	    }
-	}		
+	}
+	
+	public List<Alumno> getAlumnos() {
+        List<Alumno> alumnos = new ArrayList<>();
+        DB db = new DB();
+        String query = "SELECT Num_control, Nombre, Apellido_Paterno, Apellido_Materno FROM Alumnos";
+
+        try (Connection conn = db.getConnection(); 
+             PreparedStatement stmt = conn.prepareStatement(query); 
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Alumno alumno = new Alumno();
+                alumno.setNum_control(rs.getInt("Num_control"));
+                alumno.setNombre(rs.getString("Nombre") + " " + rs.getString("Apellido_Paterno") + " " + rs.getString("Apellido_Materno"));
+                alumnos.add(alumno);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return alumnos;
+    }
 }

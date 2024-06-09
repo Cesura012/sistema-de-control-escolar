@@ -19,6 +19,7 @@ import AuthView.RegisterView;
 import AuthViewAlu.AddaluView;
 import AuthViewAlu.AdminaluView;
 import AuthViewAlu.DeleteAluView;
+import AuthViewAlu.DetailsaluView;
 import AuthViewAlu.EditaluView;
 import AuthViewAlu.RegisteraluView;
 import AuthViewAsi.AddasiView;
@@ -63,6 +64,7 @@ public class AuthController {
 	private static AddgroupView addgroupView = null;
 	private static EditgroupView editgroupView = null;
 	private static DeletegroupView deletgroupView = null;
+	private static DetailsaluView detailsAluView;
 	
 	
   
@@ -175,8 +177,6 @@ public class AuthController {
       
     }
 
-   
-
   //Aqui se valida el login
     private void validarLogin() {
         String email = loginVista.getEmailField().getText().trim();
@@ -194,8 +194,6 @@ public class AuthController {
             }
         }
     }
-
-
    
     private void validarRegistro() {
         String email = registerVista.getEmailField().getText().trim();
@@ -219,13 +217,12 @@ public class AuthController {
     
     //Agregar Alumno
     public static void registrarAlumno() {
-    	Alumno aluModel = new Alumno();
-    	
-    	String nombre = addaluView.getTextField().getText();
-    	aluModel.setNombre(nombre);
-    	
-    	
-    	String apellido_paterno = addaluView.getTextField_1().getText();
+        Alumno aluModel = new Alumno();
+        
+        String nombre = addaluView.getTextField().getText();
+        aluModel.setNombre(nombre);
+        
+        String apellido_paterno = addaluView.getTextField_1().getText();
         aluModel.setApellido_paterno(apellido_paterno);
         
         String apellido_materno = addaluView.getTextField_2().getText();
@@ -258,8 +255,12 @@ public class AuthController {
         String gradoSeleccionado = (String) addaluView.getGradeComboBox().getSelectedItem();
         int grado = convertirGradoAEntero(gradoSeleccionado);
         aluModel.setGrado(grado);
-    	
-    	aluModel.insert();
+        
+        aluModel.insert();
+        
+        if (registeraluView != null) {
+            registeraluView.loadData();
+        }
     }
     
     //Eliminar alumno
@@ -289,15 +290,17 @@ public class AuthController {
         }
     }
 
-    private static void eliminarAlumno() {
+    public static void eliminarAlumno() {
         try {
-        	
             int numControl = Integer.parseInt(deletaluView.getTextField_9().getText().trim());
             Alumno alumno = Alumno.buscarPorNumControl(numControl);
             
             if (alumno != null) {
                 if (alumno.delete()) {
                     clearFieldsAlumn();
+                    if (registeraluView != null) {
+                        registeraluView.loadData();
+                    }
                 } else {
                     JOptionPane.showMessageDialog(deletaluView.getFrame(), "Error al eliminar el alumno", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -370,7 +373,7 @@ public class AuthController {
                 alumno.setGrado(grado);
 
                 if (alumno.update()) {
-                    JOptionPane.showMessageDialog(editaluView.getFrame(), "Alumno actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(editaluView.getFrame(), "Alumno actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE); 
                 } else {
                     JOptionPane.showMessageDialog(editaluView.getFrame(), "Error al actualizar el alumno", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -380,8 +383,36 @@ public class AuthController {
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(editaluView.getFrame(), "Ingrese un número de control válido", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
+        if (registeraluView != null) {
+            registeraluView.loadData();
+        }
     }
+    
+    public static void mostrarDetallesAlumno(int numControl) {
+        Alumno alumno = Alumno.buscarPorNumControl(numControl); 
+        if (alumno != null) {
+            if (detailsAluView == null) {
+                detailsAluView = new DetailsaluView();
+            }
+            detailsAluView.getTextField().setText(alumno.getNombre());
+            detailsAluView.getTextField_1().setText(alumno.getApellido_paterno());
+            detailsAluView.getTextField_2().setText(alumno.getApellido_materno());
+ 
+            Date fechaNacimiento = alumno.getFecha_nacimiento();
+            detailsAluView.getTextField_11().setText(String.valueOf(fechaNacimiento.getDate()));
+            detailsAluView.getTextField_12().setText(String.valueOf(fechaNacimiento.getMonth() + 1));
+            detailsAluView.getTextField_13().setText(String.valueOf(fechaNacimiento.getYear() + 1900));
+            detailsAluView.getTextField_4().setText(alumno.getCorreo_electronico());
+            detailsAluView.getTextField_5().setText(alumno.getTelefono());
+            detailsAluView.getTextField_10().setText(String.valueOf(alumno.getGrado()));
 
+            detailsAluView.getFrame().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Alumno no encontrado");
+        }
+    }
+    
     //Agregar Docente
     public static void registrarDocente() {
     	Docente docenteModel = new Docente();
@@ -396,21 +427,21 @@ public class AuthController {
         String apellido_materno = adddoceView.getTextField_2().getText();
         docenteModel.setApellido_materno(apellido_materno);
         
-        // Obtener los valores seleccionados de la fecha de nacimiento
+
         int day = (int) adddoceView.dayComboBox.getSelectedItem();
         int month = (int) adddoceView.monthComboBox.getSelectedItem();
         int year = (int) adddoceView.yearComboBox.getSelectedItem();
         
-        // Crear un objeto Calendar y establecer la fecha
+
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month - 1); // Restar 1 porque en Calendar, el mes es 0-indexado
+        calendar.set(Calendar.MONTH, month - 1); 
         calendar.set(Calendar.DAY_OF_MONTH, day);
 
-        // Convertir el objeto Calendar a un objeto Date
+
         Date fechaNacimiento = calendar.getTime();
         
-        // Asignar la fecha de nacimiento al modelo de Alumno
+
         docenteModel.setFecha_nacimiento(fechaNacimiento);
         
         String correo_electronico = adddoceView.getTextField_4().getText();
@@ -419,9 +450,8 @@ public class AuthController {
         String telefono = adddoceView.getTextField_5().getText();
         docenteModel.setTelefono(telefono);
         
-        // Obtener el grado seleccionado y convertirlo a entero
+
         String gradoSeleccionado = (String) adddoceView.getGradeComboBox().getSelectedItem();
-        //int grado = convertirGradoAEntero(gradoSeleccionado);
         docenteModel.setGrado_estudios(gradoSeleccionado);
     	
         docenteModel.insert();
