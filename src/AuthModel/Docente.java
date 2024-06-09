@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import dataBase.DB;
 
@@ -199,5 +201,26 @@ public class Docente {
 	        return false;
 	    }
 	}	
+	
+	public List<Docente> getDocentes() {
+        List<Docente> docentes = new ArrayList<>();
+        DB db = new DB();
+        String query = "SELECT ID_Docente, Nombre, Apellido_Paterno, Apellido_Materno FROM Docentes";
 
+        try (Connection conn = db.getConnection(); 
+             PreparedStatement stmt = conn.prepareStatement(query); 
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Docente docente = new Docente();
+                docente.setID_Docente(rs.getInt("ID_Docente"));
+                docente.setNombre(rs.getString("Nombre") + " " + rs.getString("Apellido_Paterno") + " " + rs.getString("Apellido_Materno"));
+                docentes.add(docente);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return docentes;
+    }
 }

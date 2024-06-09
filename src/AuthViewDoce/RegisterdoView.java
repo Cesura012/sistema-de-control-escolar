@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -25,17 +26,20 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import AuthController.AuthController;
+import AuthModel.Alumno;
+import AuthModel.Docente;
 
 public class RegisterdoView {
 
 	private JFrame frame;
+	private JTable table;
+	private JPanel panel;
+	private JButton btnNewButton_1;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,133 +53,92 @@ public class RegisterdoView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public RegisterdoView() {
 		initialize();
+		loadData();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 890, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(0, 0, 875, 538);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 30, 972, 31);
-		panel_1.setBackground(new Color(0, 128, 255));
-		panel.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Consultar registros de docentes");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(230, 0, 508, 25);
-		panel_1.add(lblNewLabel);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 520, 880, 16);
-		panel_2.setBackground(new Color(0, 128, 255));
-		panel.add(panel_2);
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(151, 203, 255));
-		panel_3.setBounds(150, 100, 500, 400);
-		panel.add(panel_3);
-		
-		String titles[] = {"N° control", "Nombre completo"};
-		String data[][] = {
-				{"19310556", "Leonardo Gutierrez"},
-                {"19310492", "Sugey Lara"},
-                {"19310556", "Daniel Martínez Martínez"},
-                {"19310134", "Alan Aramburo Peña"},
-                {"19310249", "Alonso Piñas Colada"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-				{"N° control", "Nombre completo"},
-		};
-		
-		JTable table = new JTable(data,titles);
-		table.setBackground(new Color(176, 216, 255));
-		
-		JTableHeader header = table.getTableHeader();
-	    header.setBackground(new Color(0, 128, 255));
-	    header.setForeground(Color.white);
-	    header.setFont(new Font("Tahoma", Font.BOLD, 16));
-	        	       
-	    DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
-	    headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-	    header.setDefaultRenderer(headerRenderer);
-		
-		JScrollPane table_scroll = new JScrollPane(table);
-        table_scroll.setBounds(40, 40, 420, 300); 
-        table_scroll.setForeground(new Color(0, 128, 192));
-        table_scroll.setBackground(new Color(0, 128, 192));
-        panel_3.add(table_scroll);
-        table.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) {
-                    int row = table.getSelectedRow();
-                    String controlNumber = table.getValueAt(row, 0).toString();
-                    String fullName = table.getValueAt(row, 1).toString();
-                    showDetailsWindow(controlNumber, fullName);
-                }
-            }
-        });
-        
-        JButton btnNewButton_1 = new JButton("detalles de docente");
-		btnNewButton_1.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		        // Obtener los datos del alumno seleccionado en la tabla
-		        int selectedRow = table.getSelectedRow();
-		        if (selectedRow != -1) {
-		            String fullName = table.getValueAt(selectedRow, 1).toString();
-		            
-		            // Crear e inicializar la ventana de detalles del alumno
-		            detailsdoceView detailsdoceView = new detailsdoceView();
-		            frame.dispose();
-		            detailsdoceView.getFrame().setVisible(true);
-		            
-		            // Pasar los datos del alumno a la ventana de detalles
-		            detailsdoceView.getTextField().setText(fullName); // Por ejemplo, asigna el nombre completo al campo de texto correspondiente en DetailsaluView
-		            // Similarmente, puedes asignar otros datos del alumno a los campos de texto correspondientes en DetailsaluView
-		        } else {
-		            JOptionPane.showMessageDialog(frame, "Por favor selecciona un alumno de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
-		        }
-		    }
-		});
-		 btnNewButton_1.setBounds(711, 420, 150, 23);
+		 frame = new JFrame();
+	        frame.setBounds(100, 100, 890, 600);
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        frame.getContentPane().setLayout(null);
+
+	        panel = new JPanel();
+	        panel.setBackground(new Color(255, 255, 255));
+	        panel.setBounds(0, 0, 875, 538);
+	        frame.getContentPane().add(panel);
+	        panel.setLayout(null);
+
+	        JPanel panel_1 = new JPanel();
+	        panel_1.setBounds(0, 30, 972, 31);
+	        panel_1.setBackground(new Color(0, 128, 255));
+	        panel.add(panel_1);
+	        panel_1.setLayout(null);
+
+	        JLabel lblNewLabel = new JLabel("Consultar registros de docentes");
+	        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
+	        lblNewLabel.setForeground(new Color(255, 255, 255));
+	        lblNewLabel.setBounds(230, 0, 508, 25);
+	        panel_1.add(lblNewLabel);
+
+	        JPanel panel_2 = new JPanel();
+	        panel_2.setBounds(0, 520, 880, 16);
+	        panel_2.setBackground(new Color(0, 128, 255));
+	        panel.add(panel_2);
+
+	        JPanel panel_3 = new JPanel();
+	        panel_3.setBackground(new Color(151, 203, 255));
+	        panel_3.setBounds(150, 100, 500, 400);
+	        panel.add(panel_3);
+	        panel_3.setLayout(null);
+
+	        table = new JTable();
+	        table.setBackground(new Color(176, 216, 255));
+	        table.setModel(new DefaultTableModel(
+	            new Object[][] {},
+	            new String[] {"ID Docente", "Nombre completo"}
+	        ));
+
+	        JTableHeader header = table.getTableHeader();
+	        header.setBackground(new Color(0, 128, 255));
+	        header.setForeground(Color.white);
+	        header.setFont(new Font("Tahoma", Font.BOLD, 16));
+
+	        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+	        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+	        header.setDefaultRenderer(headerRenderer);
+
+	        JScrollPane table_scroll = new JScrollPane(table);
+	        table_scroll.setBounds(40, 40, 420, 300);
+	        panel_3.add(table_scroll);
+
+	        btnNewButton_1 = new JButton("detalles del docente");
+	        btnNewButton_1.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	            	int selectedRow = table.getSelectedRow();
+	                if (selectedRow != -1) {
+	                    int ID_docente = (int) table.getValueAt(selectedRow, 0);
+	                    AuthController.mostrarDetallesDocente(ID_docente);
+	                }else {
+	                	JOptionPane.showMessageDialog(null, "Seleccione a un docente.", "Error", JOptionPane.ERROR_MESSAGE); 
+	                }
+	            }
+	        });
+
+	        btnNewButton_1.setBounds(711, 420, 150, 23);
 	        panel.add(btnNewButton_1);
-        
+
+	        table.addMouseListener(new MouseAdapter() {
+	            public void mouseClicked(MouseEvent e) {
+	                if (e.getClickCount() == 2) {
+	                    int row = table.getSelectedRow();
+	                    String controlNumber = table.getValueAt(row, 0).toString();
+	                    String fullName = table.getValueAt(row, 1).toString();
+	                    showDetailsWindow(controlNumber, fullName);
+	                }
+	            }
+	        });
     
 	    JMenuBar menuBar = new JMenuBar();
 	    menuBar.setForeground(new Color(0, 0, 0));
@@ -237,6 +200,18 @@ public class RegisterdoView {
 	           	     	           	        	        optionsMenu.add(logoutItem);       	        	        
 	        frame.setVisible(true);
 	    }
+	
+	public void loadData() {
+        Docente docenteModel = new Docente();
+        List<Docente> docentes = docenteModel.getDocentes();
+
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
+
+        for (Docente docente : docentes) {
+            model.addRow(new Object[] {docente.getID_Docente(), docente.getNombre()});
+        }
+    }
 	
 	private void closesesion() {
 	    int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);

@@ -34,7 +34,7 @@ public class RegisteraluView {
     private JFrame frame;
     private JTable table;
     private JPanel panel;
-    JButton btnNewButton_1;
+    private JButton btnNewButton_1;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -252,6 +252,6 @@ public class RegisteraluView {
     
     public JButton getBtnNewButton_1() {
         return btnNewButton_1;
- }
+    }
 }
 

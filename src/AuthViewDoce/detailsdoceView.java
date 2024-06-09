@@ -30,13 +30,8 @@ public class detailsdoceView {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
-	
-	
+	private JTextField textField_10;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,16 +45,10 @@ public class detailsdoceView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public detailsdoceView() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 890, 600);
@@ -172,10 +161,10 @@ public class detailsdoceView {
 		lblNewLabel_8.setBounds(30, 335, 70, 14);
 		panel_3.add(lblNewLabel_8);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(205, 334, 200, 20);
-		panel_3.add(textField_6);
-		textField_6.setColumns(10);
+		textField_10 = new JTextField();
+		textField_10.setBounds(205, 334, 200, 20);
+		panel_3.add(textField_10);
+		textField_10.setColumns(10);
 		
 		JLabel lblNewLabel_9 = new JLabel("DD:");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -313,8 +302,28 @@ public class detailsdoceView {
 	}
 	
 	 public JTextField getTextField() {
-	        return textField;
-	    }
+	    return textField;
+	 }
+	 
+	 public JTextField getTextField_1() {
+	    return textField_1;
+	 }
+	 
+	 public JTextField getTextField_2() {
+	    return textField_2;
+	 }
+	 
+	 public JTextField getTextField_4() {
+	    return textField_4;
+	 }
+	 
+	 public JTextField getTextField_5() {
+	    return textField_5;
+	 }
+	 	 
+	 public JTextField getTextField_10() {
+	    return textField_10;
+	 }
 	 
 	 public JButton getBtnRegresar() {
 	        return getBtnRegresar();

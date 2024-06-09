@@ -32,6 +32,7 @@ import AuthViewDoce.AdmindoceView;
 import AuthViewDoce.DeletedoceView;
 import AuthViewDoce.EditdoceView;
 import AuthViewDoce.RegisterdoView;
+import AuthViewDoce.detailsdoceView;
 import AuthViewGroup.AddgroupView;
 import AuthViewGroup.AdmingroupView;
 import AuthViewGroup.DeletegroupView;
@@ -65,6 +66,7 @@ public class AuthController {
 	private static EditgroupView editgroupView = null;
 	private static DeletegroupView deletgroupView = null;
 	private static DetailsaluView detailsAluView;
+	private static detailsdoceView detailsDoceView;
 	
 	
   
@@ -455,6 +457,10 @@ public class AuthController {
         docenteModel.setGrado_estudios(gradoSeleccionado);
     	
         docenteModel.insert();
+        
+        if (registerdoceView != null) {
+        	registerdoceView.loadData();
+        }
     }
     
   //Eliminar docente
@@ -493,6 +499,9 @@ public class AuthController {
             if (docente != null) {
                 if (docente.delete()) {
                     clearFieldsDoce();
+                    if (registerdoceView != null) {
+                    	registerdoceView.loadData();
+                    }
                 } else {
                     JOptionPane.showMessageDialog(deletdoceView.getFrame(), "Error al eliminar al docente", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -574,6 +583,34 @@ public class AuthController {
             }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(editdoceView.getFrame(), "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        if (registerdoceView != null) {
+        	registerdoceView.loadData();
+        }
+    }
+    
+    public static void mostrarDetallesDocente(int ID_docente) {
+        Docente docente = Docente.buscarPorID(ID_docente); 
+        if (docente != null) {
+            if (detailsDoceView == null) {
+            	detailsDoceView = new detailsdoceView();
+            }
+            detailsDoceView.getTextField().setText(docente.getNombre());
+            detailsDoceView.getTextField_1().setText(docente.getApellido_paterno());
+            detailsDoceView.getTextField_2().setText(docente.getApellido_materno());
+ 
+            //Date fechaNacimiento = docente.getFecha_nacimiento();
+            //detailsDoceView.getTextField_11().setText(String.valueOf(fechaNacimiento.getDate()));
+            //detailsDoceView.getTextField_12().setText(String.valueOf(fechaNacimiento.getMonth() + 1));
+            //detailsDoceView.getTextField_13().setText(String.valueOf(fechaNacimiento.getYear() + 1900));
+            detailsDoceView.getTextField_4().setText(docente.getCorreo_electronico());
+            detailsDoceView.getTextField_5().setText(docente.getTelefono());
+            detailsDoceView.getTextField_10().setText(String.valueOf(docente.getGrado_estudios()));
+
+            detailsDoceView.getFrame().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Docente no encontrado");
         }
     }
     
