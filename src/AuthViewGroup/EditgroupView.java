@@ -295,7 +295,7 @@ public class EditgroupView {
 	           	        	btnNewButton.setBorder(null);
 	           	         btnNewButton.addActionListener(new ActionListener() {
 	           	            public void actionPerformed(ActionEvent e) {
-	           	            	AuthController.mostrarAdminasig();
+	           	            	AuthController.mostrarAdmingru();
            	        			frame.dispose();
 	           	            	
 	           	            

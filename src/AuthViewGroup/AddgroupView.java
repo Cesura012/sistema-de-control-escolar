@@ -207,10 +207,6 @@ public class AddgroupView {
 				 JOptionPane.showMessageDialog(frame, "credencial descargada", "Créditos", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		
-	
-        
-        
     
 	    JMenuBar menuBar = new JMenuBar();
 	    menuBar.setForeground(new Color(0, 0, 0));
@@ -231,11 +227,9 @@ public class AddgroupView {
 	           	        	btnNewButton.setBorder(null);
 	           	         btnNewButton.addActionListener(new ActionListener() {
 	           	            public void actionPerformed(ActionEvent e) {
-	           	            	AuthController.mostrarAdminasig();
+	           	            	AuthController.mostrarAdmingru();
            	        			frame.dispose();
-	           	            	
-	           	            
-	           	              
+	           	            	           	              
 	           	            }
 	           	        });
 	           	        	
