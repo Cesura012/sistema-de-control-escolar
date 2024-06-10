@@ -32,6 +32,8 @@ import AuthController.AuthController;
 public class RegisterasiView {
 
 	private JFrame frame;
+	
+	public String fullNameP;
 
 	/**
 	 * Launch the application.
@@ -148,7 +150,7 @@ public class RegisterasiView {
 		        int selectedRow = table.getSelectedRow();
 		        if (selectedRow != -1) {
 		            String fullName = table.getValueAt(selectedRow, 1).toString();
-		            
+		            fullNameP = fullName;
 		            // Crear e inicializar la ventana de detalles del alumno
 		            DetailsasiView detailsasiView = new DetailsasiView();
 		            frame.dispose();
@@ -250,7 +252,7 @@ public class RegisterasiView {
         detailsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         detailsFrame.getContentPane().setLayout(null);
 
-        JLabel lblFullName = new JLabel("Nombre completo: " + fullName);
+        JLabel lblFullName = new JLabel("Nombre completo: " + fullNameP);
         lblFullName.setFont(new Font("Tahoma", Font.PLAIN, 16));
         lblFullName.setBounds(30, 80, 380, 30);
         detailsFrame.getContentPane().add(lblFullName);

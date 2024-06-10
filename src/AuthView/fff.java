@@ -1,6 +1,4 @@
-package AuthViewAsi;
-
-
+package AuthView;
 
 import java.awt.EventQueue;
 

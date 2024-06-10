@@ -26,6 +26,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import AuthController.AuthController;
+import javax.swing.SwingConstants;
 
 public class EditaluView {
 
@@ -73,15 +74,16 @@ public class EditaluView {
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 30, 972, 31);
+		panel_1.setBounds(0, 0, 972, 31);
 		panel_1.setBackground(new Color(0, 128, 255));
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Editar alumno");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(230, 0, 508, 25);
+		lblNewLabel.setBounds(232, 0, 508, 31);
 		panel_1.add(lblNewLabel);
 		
 		JPanel panel_2 = new JPanel();
@@ -280,6 +282,11 @@ public class EditaluView {
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(0, 64, 128));
 		btnNewButton_2.setBounds(620, 473, 170, 40);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(frame, "edición cancelada", "Créditos", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		panel.add(btnNewButton_2);
 		
 		JLabel lblNewLabel_12 = new JLabel("Numero de control:");
@@ -297,11 +304,6 @@ public class EditaluView {
 		btnNewButton_1.setBackground(new Color(0, 64, 128));
 		btnNewButton_1.setBounds(414, 98, 89, 23);
 		panel.add(btnNewButton_1);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 JOptionPane.showMessageDialog(frame, "credencial descargada", "Créditos", JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
 
 	    JMenuBar menuBar = new JMenuBar();
 	    menuBar.setForeground(new Color(0, 0, 0));
