@@ -115,17 +115,19 @@ public class RegisterView {
 		confirmPasswordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
 
 		cancelButton = new JButton("Cancelar");
+		cancelButton.setToolTipText("Cancelar");
 		cancelButton.setForeground(Color.WHITE);
 		cancelButton.setFont(new Font("Arial", Font.BOLD, 15));
 		cancelButton.setBackground(Color.BLUE);
-		cancelButton.setBounds(10, 304, 108, 23);
+		cancelButton.setBounds(23, 304, 108, 23);
 		panelc.add(cancelButton);
 
 		confirmButton = new JButton("Confirmar");
+		confirmButton.setToolTipText("Confirmar");
 		confirmButton.setForeground(Color.WHITE);
 		confirmButton.setBackground(Color.BLUE);
 		confirmButton.setFont(new Font("Arial", Font.BOLD, 15));
-		confirmButton.setBounds(172, 304, 118, 23);
+		confirmButton.setBounds(156, 304, 118, 23);
 		panelc.add(confirmButton);
 	}
 

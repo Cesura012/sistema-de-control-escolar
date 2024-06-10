@@ -74,6 +74,7 @@ public class LoginView {
 		passwordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
 
 		loginButton = new JButton("Confirmar");
+		loginButton.setToolTipText("Confirmar");
 		loginButton.setForeground(Color.WHITE);
 		loginButton.setBackground(Color.BLUE);
 		loginButton.setFont(new Font("Arial", Font.BOLD, 15));
@@ -81,10 +82,11 @@ public class LoginView {
 		panelc.add(loginButton);
 
 		registerButton = new JButton("Registrarse");
+		registerButton.setToolTipText("Registrarse");
 		registerButton.setForeground(Color.WHITE);
 		registerButton.setBackground(Color.BLUE);
 		registerButton.setFont(new Font("Arial", Font.BOLD, 15));
-		registerButton.setBounds(172, 266, 118, 23);
+		registerButton.setBounds(160, 266, 118, 23);
 		panelc.add(registerButton);
 
 		frame.setVisible(true);

@@ -112,6 +112,7 @@ public class AdminaluView {
 		panel.add(img4);
 
 		JButton btnNewButton_1 = new JButton("Consultar registros de alumnos");
+		btnNewButton_1.setToolTipText("Consultar registros de alumnos");
 		btnNewButton_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnNewButton_1.setBounds(65, 243, 160, 30);
@@ -124,6 +125,7 @@ public class AdminaluView {
 		});
 
 		JButton btnNewButton_2 = new JButton("Detalles de alumnos");
+		btnNewButton_2.setToolTipText("Detalles de alumnos");
 		btnNewButton_2.setBounds(350, 243, 160, 23);
 		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.setBorder(null);
@@ -135,6 +137,7 @@ public class AdminaluView {
 		});
 
 		JButton btnNewButton_3 = new JButton("Agregar alumno");
+		btnNewButton_3.setToolTipText("Agregar alumno");
 		btnNewButton_3.setBackground(new Color(255, 255, 255));
 		btnNewButton_3.setBorder(null);
 		btnNewButton_3.setBounds(660, 243, 170, 23);
@@ -146,6 +149,7 @@ public class AdminaluView {
 		});
 
 		JButton btnNewButton_4 = new JButton("Editar alumno");
+		btnNewButton_4.setToolTipText("Editar alumno");
 		btnNewButton_4.setBackground(new Color(255, 255, 255));
 		btnNewButton_4.setBorder(null);
 		btnNewButton_4.setBounds(210, 481, 169, 23);
@@ -157,6 +161,7 @@ public class AdminaluView {
 		});
 
 		JButton btnNewButton_5 = new JButton("Eliminar alumno");
+		btnNewButton_5.setToolTipText("Eliminar alumno");
 		btnNewButton_5.setBackground(new Color(255, 255, 255));
 		btnNewButton_5.setBorder(null);
 		btnNewButton_5.setBounds(524, 481, 160, 23);

@@ -266,6 +266,7 @@ public class EditdoceView {
 		panel_2_1_1.add(lblNewLabel_1_1);
 
 		btnConfirm = new JButton("Confirmar");
+		btnConfirm.setToolTipText("Confirmar");
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (areFieldsValid()) {
@@ -284,33 +285,35 @@ public class EditdoceView {
 		panel.add(btnConfirm);
 
 		JButton btnNewButton_2 = new JButton("Cancelar");
+		btnNewButton_2.setToolTipText("Cancelar");
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(0, 64, 128));
 		btnNewButton_2.setBounds(607, 469, 170, 40);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frame, "Cancelando acción", "Créditos",
-						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frame, "Cancelando acción", "Créditos", JOptionPane.INFORMATION_MESSAGE);
+				AuthController.mostrarAdminDoce();
+				frame.dispose();
 			}
 		});
 		panel.add(btnNewButton_2);
 
 		JLabel lblNewLabel_12 = new JLabel("Numero de control:");
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_12.setBounds(50, 61, 150, 14);
+		lblNewLabel_12.setBounds(50, 62, 150, 14);
 		panel.add(lblNewLabel_12);
 
 		textField_9 = new JTextField();
-		textField_9.setBounds(210, 61, 170, 20);
+		textField_9.setBounds(210, 61, 221, 20);
 		panel.add(textField_9);
 		textField_9.setColumns(10);
 
 		btnNewButton_1 = new JButton("Buscar");
+		btnNewButton_1.setToolTipText("Buscar");
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 64, 128));
-		btnNewButton_1.setBounds(414, 59, 89, 23);
+		btnNewButton_1.setBounds(441, 59, 89, 23);
 		panel.add(btnNewButton_1);
-		
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setForeground(new Color(0, 0, 0));

@@ -100,6 +100,7 @@ public class MenuadminView {
 		panel.add(img);
 
 		JButton adalu = new JButton("Administrar alumnos");
+		adalu.setToolTipText("Administrar alumnos");
 		adalu.setBackground(new Color(255, 255, 255));
 		adalu.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		adalu.setBounds(222, 224, 142, 24);
@@ -118,6 +119,7 @@ public class MenuadminView {
 		panel.add(img2);
 
 		JButton addoce = new JButton("Administrar docentes");
+		addoce.setToolTipText("Administrar docentes");
 		addoce.setBackground(new Color(255, 255, 255));
 		addoce.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		addoce.setBounds(508, 224, 142, 24);
@@ -136,6 +138,7 @@ public class MenuadminView {
 		panel.add(img3);
 
 		JButton adgru = new JButton("Administrar grupos");
+		adgru.setToolTipText("Administrar grupos");
 		adgru.setBackground(new Color(255, 255, 255));
 		adgru.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		adgru.setBounds(222, 420, 142, 24);
@@ -155,6 +158,7 @@ public class MenuadminView {
 		panel.add(img4);
 
 		JButton adsig = new JButton("Administrar asignaturas");
+		adsig.setToolTipText("Administrar asignaturas");
 		adsig.setBackground(new Color(255, 255, 255));
 		adsig.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		adsig.setBounds(501, 420, 160, 24);

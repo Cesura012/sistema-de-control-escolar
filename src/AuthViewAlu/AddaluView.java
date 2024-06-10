@@ -258,6 +258,7 @@ public class AddaluView {
 		panel_2_1_1.add(lblNewLabel_1_1);
 
 		btnConfirm = new JButton("Confirmar");
+		btnConfirm.setToolTipText("Confirmar");
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (areFieldsValid()) {
@@ -276,12 +277,15 @@ public class AddaluView {
 		panel.add(btnConfirm);
 
 		JButton btnNewButton_2 = new JButton("Cancelar");
+		btnNewButton_2.setToolTipText("Cancelar");
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(0, 64, 128));
 		btnNewButton_2.setBounds(607, 454, 170, 40);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(frame, "cancelando acción", "Créditos", JOptionPane.INFORMATION_MESSAGE);
+				AuthController.mostrarAdminalu();
+				frame.dispose();
 			}
 		});
 		panel.add(btnNewButton_2);

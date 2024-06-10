@@ -90,6 +90,7 @@ public class AdminasigView {
 		panel.add(img);
 
 		JButton btnNewButton_1 = new JButton("Consultar registros de asignatura");
+		btnNewButton_1.setToolTipText("Consultar registros de asignatura");
 		btnNewButton_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnNewButton_1.setBounds(49, 243, 205, 30);
@@ -102,7 +103,8 @@ public class AdminasigView {
 		});
 
 		JButton btnNewButton_2 = new JButton("Detalles de asignatura");
-		btnNewButton_2.setBounds(338, 243, 178, 23);
+		btnNewButton_2.setToolTipText("Detalles de asignatura");
+		btnNewButton_2.setBounds(338, 247, 178, 23);
 		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.setBorder(null);
 		panel.add(btnNewButton_2);
@@ -113,9 +115,10 @@ public class AdminasigView {
 		});
 
 		JButton btnNewButton_3 = new JButton("Agregar asignatura");
+		btnNewButton_3.setToolTipText("Agregar asignatura");
 		btnNewButton_3.setBackground(new Color(255, 255, 255));
 		btnNewButton_3.setBorder(null);
-		btnNewButton_3.setBounds(652, 243, 168, 23);
+		btnNewButton_3.setBounds(652, 247, 168, 23);
 		panel.add(btnNewButton_3);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -124,6 +127,7 @@ public class AdminasigView {
 		});
 
 		JButton btnNewButton_4 = new JButton("Editar asignatura");
+		btnNewButton_4.setToolTipText("Editar asignatura");
 		btnNewButton_4.setBackground(new Color(255, 255, 255));
 		btnNewButton_4.setBorder(null);
 		btnNewButton_4.setBounds(220, 481, 170, 23);
@@ -135,6 +139,7 @@ public class AdminasigView {
 		});
 
 		JButton btnNewButton_5 = new JButton("Eliminar asignatura");
+		btnNewButton_5.setToolTipText("Eliminar asignatura");
 		btnNewButton_5.setBackground(new Color(255, 255, 255));
 		btnNewButton_5.setBorder(null);
 		btnNewButton_5.setBounds(524, 481, 175, 23);

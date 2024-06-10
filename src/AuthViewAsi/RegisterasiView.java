@@ -131,7 +131,8 @@ public class RegisterasiView {
 			}
 		});
 
-		JButton btnNewButton_1 = new JButton("detalles de asignatura");
+		JButton btnNewButton_1 = new JButton("Detalles de asignatura");
+		btnNewButton_1.setToolTipText("Detalles de asignatura");
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 64, 128));
 		btnNewButton_1.addActionListener(new ActionListener() {
