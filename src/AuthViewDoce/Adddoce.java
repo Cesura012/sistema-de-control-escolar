@@ -290,8 +290,7 @@ public class Adddoce {
 		panel.add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frame, "credencial descargada", "Créditos",
-						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frame, "Cancelando acción", "Créditos", JOptionPane.INFORMATION_MESSAGE);
 				AuthController.mostrarAdminDoce();
 				frame.dispose();
 			}

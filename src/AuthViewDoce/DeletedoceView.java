@@ -238,8 +238,7 @@ public class DeletedoceView {
 		panel.add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frame, "credencial descargada", "Créditos",
-						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frame, "Cancelando acción", "Créditos", JOptionPane.INFORMATION_MESSAGE);
 				AuthController.mostrarAdminDoce();
 				frame.dispose();
 			}
@@ -261,12 +260,6 @@ public class DeletedoceView {
 		buscar.setBackground(new Color(0, 64, 128));
 		buscar.setBounds(441, 61, 89, 23);
 		panel.add(buscar);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frame, "credencial descargada", "Créditos",
-						JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setForeground(new Color(0, 0, 0));
