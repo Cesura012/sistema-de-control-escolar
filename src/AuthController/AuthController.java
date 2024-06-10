@@ -415,6 +415,7 @@ public class AuthController {
         }
     }
     
+    
     //Agregar Docente
     public static void registrarDocente() {
     	Docente docenteModel = new Docente();
