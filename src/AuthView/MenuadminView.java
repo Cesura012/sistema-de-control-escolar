@@ -19,21 +19,23 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 public class MenuadminView {
-    private JFrame frame;
-    private JMenuItem logoutItem; 
-    private JButton adalu;
-    private JButton addoce;
-    private JButton adgru;
-    private JButton adsig;
+	private JFrame frame;
+	private JMenuItem logoutItem;
+	private JButton adalu;
+	private JButton addoce;
+	private JButton adgru;
+	private JButton adsig;
 
-    public JFrame getFrame() {
-        return frame;
-    }
-    public JMenuItem getLogoutItem() {
-        return logoutItem;
-    }
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public JMenuItem getLogoutItem() {
+		return logoutItem;
+	}
 
 	/**
 	 * Launch the application.
@@ -66,169 +68,171 @@ public class MenuadminView {
 		frame.setBounds(100, 100, 890, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(0, 0, 875, 570);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(0, 128, 255));
-		panel_1.setBounds(0, 30, 972, 31);
+		panel_1.setBounds(0, 20, 972, 31);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("Bienvenido admin");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(305, 0, 508, 25);
+		lblNewLabel.setBounds(0, 0, 874, 31);
 		panel_1.add(lblNewLabel);
-		
+
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(0, 128, 255));
 		panel_2.setBounds(0, 550, 880, 16);
 		panel.add(panel_2);
-		
-		 JLabel img = new JLabel("");
-	     img.setBounds(200, 72, 152, 160);
-	     img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/adminalu.png")));
-	     panel.add(img);
-	     
-	     JButton adalu = new JButton("Administrar alumnos");
-	     adalu.setBackground(new Color(255, 255, 255));
-	     adalu.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     adalu.setBounds(210, 224, 142, 24);
-	     panel.add(adalu);
-	     adalu.setBorder(null);
-	     adalu.addActionListener(new ActionListener() {
-        		public void actionPerformed(ActionEvent e) {
-        			AuthController.mostrarAdminalu();
-        		}
-        	});
-	     
-	     JLabel img2 = new JLabel("");
-	     img2.setBounds(514, 60, 152, 160);
-	     img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/admindoce.png")));
-	     panel.add(img2);
-	    
-	     
-	     JButton addoce = new JButton("Administrar docentes");
-	     addoce.setBackground(new Color(255, 255, 255));
-	     addoce.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     addoce.setBounds(524, 224, 142, 24);
-	     panel.add(addoce);
-	     addoce.setBorder(null);
-	     addoce.addActionListener(new ActionListener() {
-        		public void actionPerformed(ActionEvent e) {
-        			AuthController.mostrarAdminDoce();
-        		}
-        	});
-	     
-	     JLabel img3 = new JLabel("");
-	     img3.setBounds(210, 250, 152, 160);
-	     img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/admingru.png")));
-	     panel.add(img3);
-	     
-	     JButton adgru = new JButton("Administrar grupos");
-	     adgru.setBackground(new Color(255, 255, 255));
-	     adgru.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     adgru.setBounds(210, 420, 142, 24);
-	     panel.add(adgru);
-	     adgru.setBorder(null);
-	     adgru.addActionListener(new ActionListener() {
-        		public void actionPerformed(ActionEvent e) {
-        			
-        			AuthController.mostrarAdmingru();
-        		}
-        	});
-	     
-	     JLabel img4 = new JLabel("");
-	     img4.setBounds(524, 250, 152, 160);
-	     img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/adminasig.png")));
-	     panel.add(img4);
-	     
-	     JButton adsig = new JButton("Administrar asignaturas");
-	     adsig.setBackground(new Color(255, 255, 255));
-	     adsig.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	     adsig.setBounds(524, 420, 160, 24);
-	     panel.add(adsig);
-	     adsig.setBorder(null);
-	     adsig.addActionListener(new ActionListener() {
-        		public void actionPerformed(ActionEvent e) {
-        			
-        			AuthController.mostrarAdminasig();
-        		}
-        	});
-	     
-	     JMenuBar menuBar = new JMenuBar();
-	     menuBar.setForeground(new Color(0, 0, 0));
-	     menuBar.setBackground(new Color(255, 255, 255));
-	     menuBar.setBounds(10, 0, 101, 22);
-	     panel.add(menuBar);
-	     JMenu optionsMenu = new JMenu("Opciones");
 
-	        ImageIcon creditsIcon = new ImageIcon(getClass().getResource("/img/creditos.png"));
-	        ImageIcon logoutIcon = new ImageIcon(getClass().getResource("/img/cerrar-sesion.png"));
-	      
-	        JMenuItem creditsItem = new JMenuItem("Créditos", creditsIcon);
-	        logoutItem = new JMenuItem("Cerrar Sesión", logoutIcon);
+		JLabel img = new JLabel("");
+		img.setHorizontalAlignment(SwingConstants.CENTER);
+		img.setBounds(210, 79, 160, 139);
+		img.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/adminalu.png")));
+		panel.add(img);
 
-	        creditsItem.addActionListener(new ActionListener() {
-	            public void actionPerformed(ActionEvent e) {
-	            	 JOptionPane.showMessageDialog(frame, "Hecho por \nObeso Sanchez Michelle de Jesus\nGracia Nava Ernesto\nRojo Martínez Jesús Javier", "Créditos", JOptionPane.INFORMATION_MESSAGE);
-	            }
-	        });
+		JButton adalu = new JButton("Administrar alumnos");
+		adalu.setBackground(new Color(255, 255, 255));
+		adalu.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		adalu.setBounds(222, 224, 142, 24);
+		panel.add(adalu);
+		adalu.setBorder(null);
+		adalu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AuthController.mostrarAdminalu();
+			}
+		});
 
-	        logoutItem.addActionListener(new ActionListener() {
-	            public void actionPerformed(ActionEvent e) {
-	            	closesesion();
-	            }
-	        });
-	        
-	        optionsMenu.add(creditsItem);
-	        optionsMenu.add(logoutItem);
-	        menuBar.add(optionsMenu);
+		JLabel img2 = new JLabel("");
+		img2.setHorizontalAlignment(SwingConstants.CENTER);
+		img2.setBounds(508, 79, 142, 134);
+		img2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/admindoce.png")));
+		panel.add(img2);
 
-	        
-	        frame.setVisible(true);
-	    }
-	
+		JButton addoce = new JButton("Administrar docentes");
+		addoce.setBackground(new Color(255, 255, 255));
+		addoce.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		addoce.setBounds(508, 224, 142, 24);
+		panel.add(addoce);
+		addoce.setBorder(null);
+		addoce.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AuthController.mostrarAdminDoce();
+			}
+		});
+
+		JLabel img3 = new JLabel("");
+		img3.setHorizontalAlignment(SwingConstants.CENTER);
+		img3.setBounds(218, 259, 152, 160);
+		img3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/admingru.png")));
+		panel.add(img3);
+
+		JButton adgru = new JButton("Administrar grupos");
+		adgru.setBackground(new Color(255, 255, 255));
+		adgru.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		adgru.setBounds(222, 420, 142, 24);
+		panel.add(adgru);
+		adgru.setBorder(null);
+		adgru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				AuthController.mostrarAdmingru();
+			}
+		});
+
+		JLabel img4 = new JLabel("");
+		img4.setHorizontalAlignment(SwingConstants.CENTER);
+		img4.setBounds(508, 262, 142, 146);
+		img4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/adminasig.png")));
+		panel.add(img4);
+
+		JButton adsig = new JButton("Administrar asignaturas");
+		adsig.setBackground(new Color(255, 255, 255));
+		adsig.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		adsig.setBounds(501, 420, 160, 24);
+		panel.add(adsig);
+		adsig.setBorder(null);
+		adsig.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				AuthController.mostrarAdminasig();
+			}
+		});
+
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setForeground(new Color(0, 0, 0));
+		menuBar.setBackground(new Color(255, 255, 255));
+		menuBar.setBounds(10, 0, 101, 22);
+		panel.add(menuBar);
+		JMenu optionsMenu = new JMenu("Opciones");
+
+		ImageIcon creditsIcon = new ImageIcon(getClass().getResource("/img/creditos.png"));
+		ImageIcon logoutIcon = new ImageIcon(getClass().getResource("/img/cerrar-sesion.png"));
+
+		JMenuItem creditsItem = new JMenuItem("Créditos", creditsIcon);
+		logoutItem = new JMenuItem("Cerrar Sesión", logoutIcon);
+
+		creditsItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(frame,
+						"Hecho por \nObeso Sanchez Michelle de Jesus\nGracia Nava Ernesto\nRojo Martínez Jesús Javier",
+						"Créditos", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+
+		logoutItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closesesion();
+			}
+		});
+
+		optionsMenu.add(creditsItem);
+		optionsMenu.add(logoutItem);
+		menuBar.add(optionsMenu);
+
+		frame.setVisible(true);
+	}
+
 	private void closesesion() {
-	    int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?", "Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-	    if (response == JOptionPane.YES_OPTION) {
-	        frame.dispose();
-	        try {
+		int response = JOptionPane.showConfirmDialog(frame, "¿Estás seguro que deseas cerrar sesión?",
+				"Confirmar Cierre de Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		if (response == JOptionPane.YES_OPTION) {
+			frame.dispose();
+			try {
 				AuthController.loginVista.getEmailField().setText("");
 				AuthController.loginVista.getPasswordField().setText("");
 				AuthController.mostrarLogin();
-		       
+
 			} catch (Exception e) {
-				
+
 				e.printStackTrace();
 			}
-	        
-	    }
+
+		}
 	}
-	
 
 	public JButton getadalu() {
-	    return adalu;
+		return adalu;
 	}
 
 	public JButton getaddoce() {
-	    return addoce;
+		return addoce;
 	}
 
 	public JButton getadgru() {
-	    return adgru;
+		return adgru;
 	}
 
 	public JButton getadsig() {
-	    return adsig;
+		return adsig;
 	}
 
-	
-	
 }
-
